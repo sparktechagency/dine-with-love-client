@@ -14,10 +14,21 @@ import {
   Utensils,
   X,
 } from "lucide-react";
-import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const router = useRouter();
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const isCompleted = localStorage.getItem("compatibility_test_completed");
+      if (!isCompleted) {
+        router.push("/compatibility-test");
+      }
+    }
+  }, [router]);
 
   const navigation = [
     { name: "Dashboard", href: "/dashboard", icon: Home, current: true },

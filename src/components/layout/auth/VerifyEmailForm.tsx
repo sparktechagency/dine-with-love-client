@@ -1,6 +1,8 @@
 "use client";
+
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, Loader2 } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { useActionState, useEffect } from "react";
 
 interface ActionState {
@@ -19,11 +21,17 @@ async function verifyEmailAction(
 
 const VerifyEmailForm = () => {
   const [state, action, isPending] = useActionState(verifyEmailAction, null);
+  const router = useRouter();
 
-  // Auto-submit if token exists in URL (simplified for example)
+  // Auto-redirect on success
   useEffect(() => {
-    // In a real app, you'd extract token from URL and call action
-  }, []);
+    if (state?.success) {
+      const timer = setTimeout(() => {
+        router.push("/compatibility-test");
+      }, 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [state?.success, router]);
 
   return (
     <div className="text-center space-y-8">
@@ -55,7 +63,7 @@ const VerifyEmailForm = () => {
           {isPending
             ? "Please wait while we confirm your email address."
             : state?.success
-              ? "Thank you! Your email has been successfully verified. You can now access all features."
+              ? "Thank you! Your email has been successfully verified. Redirecting to compatibility test..."
               : "Click the button below to complete your registration and verify your email address."}
         </p>
       </div>
@@ -74,10 +82,10 @@ const VerifyEmailForm = () => {
 
       {state?.success && (
         <Button
-          asChild
+          onClick={() => router.push("/compatibility-test")}
           className="w-full h-14 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold rounded-lg hover:opacity-95 transition-all shadow-lg text-lg flex items-center justify-center cursor-pointer"
         >
-          <a href="/login">Go to Login</a>
+          Take Compatibility Test
         </Button>
       )}
     </div>
