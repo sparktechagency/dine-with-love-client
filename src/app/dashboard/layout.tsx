@@ -28,10 +28,12 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
         <AppSidebar />
         <SidebarInset className="flex flex-col bg-[#FCFCFD]">
           {/* Top Bar */}
-          <header className="sticky top-0 z-10 flex h-20 shrink-0 items-center justify-between px-8 bg-white border-b border-gray-100">
-            <div className="flex items-center gap-4">
-              <SidebarTrigger className="lg:hidden" />
-              <h1 className="text-2xl font-bold text-gray-900">Dashboard</h1>
+          <header className="sticky top-0 z-10 flex h-20 shrink-0 items-center justify-between px-4 md:px-8 bg-white border-b border-gray-100">
+            <div className="flex items-center gap-2 md:gap-4">
+              <SidebarTrigger className="md:hidden" />
+              <h1 className="text-xl md:text-2xl font-bold text-gray-900 truncate">
+                Dashboard
+              </h1>
             </div>
 
             <div className="flex items-center gap-6 flex-1 max-w-2xl px-8">
