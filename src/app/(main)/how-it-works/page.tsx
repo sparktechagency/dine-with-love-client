@@ -1,4 +1,4 @@
-import HowItWorks from "@/components/layout/home/HowItWorks";
+import HowItWorks from "@/components/layout/main/home/HowItWorks";
 import { Calendar, Search, Star } from "lucide-react";
 
 const HowItWorksPage = () => {

@@ -1,11 +1,11 @@
 "use client";
 
-import FAQ from "@/components/layout/home/FAQ";
-import Features from "@/components/layout/home/Features";
-import HeroSection from "@/components/layout/home/HeroSection";
-import HowItWorks from "@/components/layout/home/HowItWorks";
-import MatchingAdvisor from "@/components/layout/home/MatchingAdvisor";
-import SuccessStories from "@/components/layout/home/SuccessStories";
+import FAQ from "@/components/layout/main/home/FAQ";
+import Features from "@/components/layout/main/home/Features";
+import HeroSection from "@/components/layout/main/home/HeroSection";
+import HowItWorks from "@/components/layout/main/home/HowItWorks";
+import MatchingAdvisor from "@/components/layout/main/home/MatchingAdvisor";
+import SuccessStories from "@/components/layout/main/home/SuccessStories";
 
 const Home = () => {
   return (
