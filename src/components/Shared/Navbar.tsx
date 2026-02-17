@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
+import { Button } from "@/components/ui/button";
 import MobileMenu from "./MobileMenu";
 
 // Custom HeartInPlate icon component
@@ -83,9 +84,9 @@ const Navbar = () => {
             Login
           </Link>
           <Link href="/compatibility-test">
-            <button className="hidden sm:block bg-white text-[#B131D4] px-6 py-2 rounded-lg font-bold hover:bg-opacity-90 transition-all shadow-sm cursor-pointer">
+            <Button className="hidden sm:flex bg-white text-[#B131D4] px-6 py-2 rounded-lg font-bold hover:bg-white/95 transition-all cursor-pointer border-none shadow-none">
               Take Test
-            </button>
+            </Button>
           </Link>
 
           {/* Hamburger Menu Icon */}
