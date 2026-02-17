@@ -64,14 +64,14 @@ export const AppSidebar = () => {
   const isCollapsed = state === "collapsed";
 
   return (
-    <Sidebar collapsible="icon" className="border-none bg-white p-2">
-      <SidebarHeader className="p-4 relative">
-        <Link href="/" className="flex items-center gap-2 overflow-hidden">
-          <div className="size-12 shrink-0 rounded-lg bg-linear-to-br from-[#FF3AB3] to-[#5432C8] flex items-center justify-center">
+    <Sidebar collapsible="icon" className="border-none bg-white p-3">
+      <SidebarHeader className="p-4 relative min-h-[80px] flex justify-center">
+        <Link href="/" className="flex items-center gap-3 overflow-hidden">
+          <div className="size-12 shrink-0 rounded-xl bg-linear-to-br from-[#FF3AB3] to-[#5432C8] flex items-center justify-center shadow-lg shadow-pink-100">
             <span className="text-white font-black text-sm">glint</span>
           </div>
           {!isCollapsed && (
-            <span className="text-xl font-black text-gray-900 animate-in fade-in duration-300">
+            <span className="text-2xl font-black text-gray-900 animate-in slide-in-from-left-2 fade-in duration-300">
               glint
             </span>
           )}
@@ -79,7 +79,7 @@ export const AppSidebar = () => {
         {!isMobile && (
           <button
             onClick={toggleSidebar}
-            className="absolute -right-3 top-1/2 -translate-y-1/2 size-6 rounded-full bg-white border border-gray-100 flex items-center justify-center text-gray-400 hover:text-gray-900 transition-all z-50 shadow-sm"
+            className="absolute -right-3 top-1/2 -translate-y-1/2 size-7 rounded-full bg-white border border-gray-100 flex items-center justify-center text-gray-400 hover:text-gray-900 transition-all z-50 shadow-md hover:scale-110 active:scale-95"
           >
             {isCollapsed ? (
               <ChevronRight className="size-4" />
@@ -89,8 +89,8 @@ export const AppSidebar = () => {
           </button>
         )}
       </SidebarHeader>
-      <SidebarContent className="px-2 mt-4">
-        <SidebarMenu className="gap-2">
+      <SidebarContent className="px-2 mt-8">
+        <SidebarMenu className="gap-3">
           {items.map((item) => {
             const isActive = pathname === item.url;
             return (
@@ -100,16 +100,16 @@ export const AppSidebar = () => {
                   isActive={isActive}
                   tooltip={item.title}
                   className={cn(
-                    "h-12 px-4 rounded-lg font-bold text-gray-500 transition-all border-none shadow-none",
+                    "h-14 px-4 rounded-xl font-bold text-gray-500 transition-all border-none shadow-none",
                     isActive
                       ? "bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white hover:text-white"
                       : "hover:bg-gray-50 hover:text-gray-900",
                   )}
                 >
-                  <Link href={item.url} className="flex items-center gap-3">
+                  <Link href={item.url} className="flex items-center gap-4">
                     <item.icon className="size-6 shrink-0" />
                     {!isCollapsed && (
-                      <span className="animate-in fade-in duration-300">
+                      <span className="text-base animate-in slide-in-from-left-2 fade-in duration-300">
                         {item.title}
                       </span>
                     )}
@@ -125,12 +125,12 @@ export const AppSidebar = () => {
           <SidebarMenuItem>
             <SidebarMenuButton
               tooltip="Logout"
-              className="h-12 px-4 rounded-lg font-bold text-red-500 hover:bg-red-50 hover:text-red-600 transition-all border-none shadow-none"
+              className="h-14 px-4 rounded-xl font-bold text-red-500 hover:bg-red-50 hover:text-red-600 transition-all border-none shadow-none"
             >
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-4">
                 <LogOut className="size-6 shrink-0" />
                 {!isCollapsed && (
-                  <span className="animate-in fade-in duration-300">
+                  <span className="text-base animate-in slide-in-from-left-2 fade-in duration-300">
                     Logout
                   </span>
                 )}

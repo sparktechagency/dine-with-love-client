@@ -30,7 +30,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
           {/* Top Bar */}
           <header className="sticky top-0 z-10 flex h-20 shrink-0 items-center justify-between px-4 md:px-8 bg-white border-b border-gray-100">
             <div className="flex items-center gap-2 md:gap-4">
-              <SidebarTrigger className="md:hidden" />
+              <SidebarTrigger />
               <h1 className="text-xl md:text-2xl font-bold text-gray-900 truncate">
                 Dashboard
               </h1>
