@@ -77,14 +77,16 @@ const Navbar = () => {
         {/* Right Section / Hamburger */}
         <div className="flex items-center gap-4 lg:gap-6">
           <Link
-            href="/sign-in"
+            href="/login"
             className="hidden sm:block font-medium hover:text-white/80 transition-colors"
           >
-            Sign In
+            Login
           </Link>
-          <button className="hidden sm:block bg-white text-[#B131D4] px-6 py-2 rounded-lg  hover:bg-opacity-90 transition-all shadow-sm">
-            Take Test
-          </button>
+          <Link href="/compatibility-test">
+            <button className="hidden sm:block bg-white text-[#B131D4] px-6 py-2 rounded-lg font-bold hover:bg-opacity-90 transition-all shadow-sm cursor-pointer">
+              Take Test
+            </button>
+          </Link>
 
           {/* Hamburger Menu Icon */}
           <button

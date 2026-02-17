@@ -1,5 +1,4 @@
 "use client";
-
 import { Button } from "@/components/ui/button";
 import { FormInput } from "@/components/ui/form-input";
 import { Lock, Mail, MapPin, User } from "lucide-react";
