@@ -90,7 +90,7 @@ export const DashboardHome = () => {
                   "bg-pink-50/50 border-pink-100 shadow-sm shadow-pink-100",
               )}
             >
-              <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
+              <div className="relative aspect-4/3 rounded-lg overflow-hidden">
                 <Image
                   src={match.image}
                   alt={match.name}

@@ -135,7 +135,7 @@ export const MyFriend = () => {
               </div>
             )}
 
-            <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
+            <div className="relative aspect-4/3 rounded-lg overflow-hidden">
               <Image
                 src={user.image}
                 alt={user.name}
