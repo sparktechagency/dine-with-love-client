@@ -1,7 +1,8 @@
 "use client";
-
-import { cn } from "@/lib/utils"; // Added cn import
+import { cn } from "@/lib/utils";
+import { Menu, X } from "lucide-react";
 import Link from "next/link";
+import { useState } from "react";
 
 // Custom HeartInPlate icon component
 const HeartInPlate = ({ className }: { className?: string }) => (
@@ -11,8 +12,8 @@ const HeartInPlate = ({ className }: { className?: string }) => (
       className,
     )}
   >
-    <div className="w-8 h-8 border-2 border-white rounded-full flex items-center justify-center">
-      <div className="w-4 h-4 text-white fill-white">
+    <div className="size-8 border-2 border-white rounded-full flex items-center justify-center">
+      <div className="size-4 text-white fill-white">
         <svg viewBox="0 0 24 24" fill="currentColor">
           <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
         </svg>
@@ -22,58 +23,125 @@ const HeartInPlate = ({ className }: { className?: string }) => (
 );
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const navLinks = [
+    { label: "Home", href: "/" },
+    { label: "How to it works", href: "/how-it-works" },
+    { label: "Hire Advisor", href: "/hire-advisor" },
+    { label: "FAQS", href: "/faqs" },
+    { label: "Test", href: "/test" },
+  ];
+
   return (
-    <nav className="w-full bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white py-4 px-6 sticky top-0 z-50 shadow-md">
+    <nav className="w-full bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white py-4 px-4 md:px-6 sticky top-0 z-50 shadow-md">
       <div className="container mx-auto flex items-center justify-between">
         {/* Logo Section */}
         <Link href="/" className="flex items-center gap-2">
-          <HeartInPlate /> {/* Replaced Utensils with HeartInPlate */}
+          <HeartInPlate className="size-10 md:size-12" />
           <div className="flex flex-col -space-y-1">
-            <span className="font-bold text-lg leading-tight uppercase tracking-wider">
+            <span className="font-bold text-sm md:text-lg leading-tight uppercase tracking-wider">
               Dine with
             </span>
-            <span className="font-bold text-lg leading-tight uppercase tracking-wider">
+            <span className="font-bold text-sm md:text-lg leading-tight uppercase tracking-wider">
               Love
             </span>
           </div>
         </Link>
 
-        {/* Navigation Links */}
-        <div className="hidden md:flex items-center gap-8 font-medium">
-          <Link href="/" className="hover:text-white/80 transition-colors">
-            Home
-          </Link>
-          <Link
-            href="/how-it-works"
-            className="hover:text-white/80 transition-colors"
-          >
-            How to it works
-          </Link>
-          <Link
-            href="/hire-advisor"
-            className="hover:text-white/80 transition-colors"
-          >
-            Hire Advisor
-          </Link>
-          <Link href="/faqs" className="hover:text-white/80 transition-colors">
-            FAQS
-          </Link>
-          <Link href="/test" className="hover:text-white/80 transition-colors">
-            Test
-          </Link>
+        {/* Desktop Navigation Links */}
+        <div className="hidden lg:flex items-center gap-8 font-medium">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="hover:text-white/80 transition-colors"
+            >
+              {link.label}
+            </Link>
+          ))}
         </div>
 
-        {/* Right Section */}
-        <div className="flex items-center gap-6">
+        {/* Right Section / Hamburger */}
+        <div className="flex items-center gap-4 lg:gap-6">
           <Link
             href="/sign-in"
-            className="font-medium hover:text-white/80 transition-colors"
+            className="hidden sm:block font-medium hover:text-white/80 transition-colors"
           >
             Sign In
           </Link>
-          <button className="bg-white text-[#B131D4] px-6 py-2 rounded-lg font-bold hover:bg-opacity-90 transition-all shadow-sm">
+          <button className="hidden sm:block bg-white text-[#B131D4] px-6 py-2 rounded-lg font-bold hover:bg-opacity-90 transition-all shadow-sm">
             Take Test
           </button>
+
+          {/* Hamburger Menu Icon */}
+          <button
+            className="lg:hidden p-2 hover:bg-white/10 rounded-lg transition-colors"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle Menu"
+          >
+            {isOpen ? <X className="size-6" /> : <Menu className="size-6" />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu Overlay */}
+      <div
+        className={cn(
+          "fixed inset-0 bg-black/50 lg:hidden transition-opacity duration-300 z-40",
+          isOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none",
+        )}
+        onClick={() => setIsOpen(false)}
+      />
+
+      {/* Mobile Menu Drawer */}
+      <div
+        className={cn(
+          "fixed top-0 right-0 h-full w-[280px] bg-linear-to-b from-[#FF3AB3] to-[#5432C8] lg:hidden z-50 transform transition-transform duration-300 ease-in-out p-6 shadow-2xl",
+          isOpen ? "translate-x-0" : "translate-x-full",
+        )}
+      >
+        <div className="flex justify-between items-center mb-10">
+          <span className="font-bold text-xl uppercase tracking-widest">
+            Menu
+          </span>
+          <button
+            onClick={() => setIsOpen(false)}
+            className="p-2 hover:bg-white/10 rounded-full transition-colors"
+          >
+            <X className="size-6" />
+          </button>
+        </div>
+
+        <div className="flex flex-col gap-6 font-semibold text-lg">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="hover:translate-x-2 transition-transform py-2 border-b border-white/10"
+              onClick={() => setIsOpen(false)}
+            >
+              {link.label}
+            </Link>
+          ))}
+
+          <div className="pt-6 flex flex-col gap-4">
+            <Link
+              href="/sign-in"
+              className="w-full py-3 text-center border-2 border-white rounded-xl hover:bg-white hover:text-[#FF3AB3] transition-colors"
+              onClick={() => setIsOpen(false)}
+            >
+              Sign In
+            </Link>
+            <button
+              className="w-full py-3 bg-white text-[#B131D4] rounded-xl font-bold shadow-lg"
+              onClick={() => setIsOpen(false)}
+            >
+              Take Test
+            </button>
+          </div>
         </div>
       </div>
     </nav>

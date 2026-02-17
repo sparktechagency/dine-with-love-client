@@ -1,7 +1,7 @@
+import heroImage from "@/assets/home/hero.png";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
-import heroImage from "@/assets/home/hero.png";
 
 const HeroSection = () => {
   return (
@@ -20,7 +20,7 @@ const HeroSection = () => {
             "radial-gradient(ellipse 60% 60% at 50% 50%, #000 30%, transparent 90%)",
         }}
       />
-      <div className="container mx-auto px-5 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center relative z-10 py-16 md:py-24">
+      <div className="container mx-auto px-5 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center relative z-10 py-16 md:py-20 lg:py-24 xl:py-32">
         <div className="w-full space-y-5 md:space-y-7">
           <h1 className="text-4xl md:text-6xl font-semibold text-gray-900">
             Real Connections, One Dinner at a Time
@@ -38,8 +38,8 @@ const HeroSection = () => {
         </div>
 
         {/* ── Right Column: Image ── */}
-        <div className="relative flex justify-end items-center">
-          <div className="relative w-full max-w-[520px] h-[580px] rounded-tr-[50px] rounded-bl-[50px] overflow-hidden bg-gray-200 z-10">
+        <div className="relative flex justify-center lg:justify-end items-center w-full">
+          <div className="relative w-full max-w-[520px] h-[350px] sm:h-[450px] md:h-[580px] rounded-tr-[50px] rounded-bl-[50px] md:rounded-tr-[120px] md:rounded-bl-[120px] overflow-hidden bg-gray-200 z-10 shadow-2xl transition-all duration-500">
             <Image
               src={heroImage}
               alt="Couple on a romantic dinner date"

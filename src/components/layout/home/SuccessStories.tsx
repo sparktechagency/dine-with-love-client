@@ -51,7 +51,7 @@ import Image from "next/image";
 
 const SuccessStories = () => {
   return (
-    <section className="w-full py-24 bg-[#F7F7F7]/50">
+    <section className="w-full py-24 bg-[#F7F7F7]">
       {/* SVG Gradient Definition */}
       <svg width="0" height="0" className="absolute">
         <defs>
@@ -82,7 +82,7 @@ const SuccessStories = () => {
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
-                    className={`w-4 h-4 ${i < review.rating ? "" : "fill-gray-200 text-gray-200"}`}
+                    className={`size-5 ${i < review.rating ? "" : "fill-gray-200 text-gray-200"}`}
                     fill={
                       i < review.rating ? "url(#star-gradient)" : "currentColor"
                     }

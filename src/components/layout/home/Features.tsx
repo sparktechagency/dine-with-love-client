@@ -1,7 +1,7 @@
-import { Heart, MessageSquareHeart, Sparkles } from "lucide-react";
 import image1 from "@/assets/home/feature1.png";
 import image2 from "@/assets/home/feature2.png";
 import image3 from "@/assets/home/feature3.png";
+import { Heart, MessageSquareHeart, Sparkles } from "lucide-react";
 import Image from "next/image";
 
 const features = [
@@ -64,16 +64,16 @@ const Features = () => {
                 </p>
               </div>
 
-              <div className="flex-1 w-full">
-                <Image
-                  src={feature.imageUrl.src}
-                  alt={feature.title}
-                  className="w-full h-full object-cover object-center"
-                  width={520}
-                  height={580}
-                  quality={100}
-                  priority
-                />
+              <div className="flex-1 w-full max-w-[500px] mx-auto lg:mx-0">
+                <div className="relative h-[300px] sm:h-[400px] w-full rounded-[30px] overflow-hidden shadow-xl">
+                  <Image
+                    src={feature.imageUrl.src}
+                    alt={feature.title}
+                    className="w-full h-full object-cover object-center scale-110 hover:scale-100 transition-transform duration-700"
+                    fill
+                    quality={100}
+                  />
+                </div>
               </div>
             </div>
           ))}
