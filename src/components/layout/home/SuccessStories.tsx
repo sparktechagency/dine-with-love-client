@@ -7,39 +7,47 @@ const reviews = [
     rating: 5,
     text: "I met my partner through DineMatch! The dinner setting made everything feel natural and real.",
     author: "Dana Jones",
-    avatar: "/placeholder-avatar.jpg",
+    avatar:
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150&h=150&auto=format&fit=crop",
   },
   {
     rating: 4,
     text: "Finally, a dating app that gets people off their phones and into real conversations.",
     author: "Morgan Jahn",
-    avatar: "/placeholder-avatar.jpg",
+    avatar:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&h=150&auto=format&fit=crop",
   },
   {
     rating: 5,
     text: "The compatibility test really works. Every dinner has been with genuinely interesting people.",
     author: "Olivia Manson",
-    avatar: "/placeholder-avatar.jpg",
+    avatar:
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=150&h=150&auto=format&fit=crop",
   },
   {
     rating: 5,
-    text: "I met my partner through DineMatch! The dinner setting made everything feel natural and real.",
-    author: "Dana Jones",
-    avatar: "/placeholder-avatar.jpg",
+    text: "The dinner settings are incredible. It's so much better than just meeting for coffee.",
+    author: "David Smith",
+    avatar:
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=150&h=150&auto=format&fit=crop",
   },
   {
     rating: 4,
-    text: "Finally, a dating app that gets people off their phones and into real conversations.",
-    author: "Morgan Jahn",
-    avatar: "/placeholder-avatar.jpg",
+    text: "I love the matching advisor service. They really helped me polish my profile!",
+    author: "Sarah Wilson",
+    avatar:
+      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=150&h=150&auto=format&fit=crop",
   },
   {
     rating: 5,
-    text: "The compatibility test really works. Every dinner has been with genuinely interesting people.",
-    author: "Olivia Manson",
-    avatar: "/placeholder-avatar.jpg",
+    text: "A truly premium experience from start to finish. Highly recommended for busy professionals.",
+    author: "James Miller",
+    avatar:
+      "https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=150&h=150&auto=format&fit=crop",
   },
 ];
+
+import Image from "next/image";
 
 const SuccessStories = () => {
   return (
@@ -72,7 +80,14 @@ const SuccessStories = () => {
                 &quot;{review.text}&quot;
               </p>
               <div className="flex items-center gap-3 mt-2">
-                <div className="w-10 h-10 rounded-full bg-gray-200 overflow-hidden" />
+                <div className="relative w-10 h-10 rounded-full bg-gray-200 overflow-hidden">
+                  <Image
+                    src={review.avatar}
+                    alt={review.author}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
                 <span className="text-gray-800 font-bold text-sm tracking-wide">
                   {review.author}
                 </span>

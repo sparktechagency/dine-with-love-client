@@ -61,14 +61,16 @@ const FAQ = () => {
             <div key={index} className="border-b border-gray-100 pb-6">
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full flex items-center justify-between text-left group"
+                className="w-full flex items-center justify-between text-left group py-2"
               >
                 <span
-                  className={`text-lg font-bold transition-colors ${openIndex === index ? "text-gray-900" : "text-gray-800"}`}
+                  className={`text-lg font-bold transition-all duration-300 ${openIndex === index ? "text-[#B131D4]" : "text-gray-800"}`}
                 >
                   {index + 1}. {faq.question}
                 </span>
-                <div className="text-gray-400">
+                <div
+                  className={`transition-transform duration-300 ${openIndex === index ? "rotate-180 text-[#B131D4]" : "text-gray-400"}`}
+                >
                   {openIndex === index ? (
                     <Minus className="w-5 h-5" />
                   ) : (
@@ -76,11 +78,17 @@ const FAQ = () => {
                   )}
                 </div>
               </button>
-              {openIndex === index && (
-                <div className="mt-4 text-gray-500 leading-relaxed animate-in fade-in slide-in-from-top-2 duration-300">
+              <div
+                className={`grid transition-all duration-500 ease-in-out ${
+                  openIndex === index
+                    ? "grid-rows-[1fr] opacity-100 mt-4"
+                    : "grid-rows-[0fr] opacity-0"
+                }`}
+              >
+                <div className="overflow-hidden text-gray-500 leading-relaxed">
                   {faq.answer}
                 </div>
-              )}
+              </div>
             </div>
           ))}
         </div>
