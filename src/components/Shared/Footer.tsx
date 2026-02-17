@@ -141,13 +141,13 @@ const Footer = () => {
               Sign up to our e-mail newsletter to receive the latest news &
               updates.
             </p>
-            <div className="flex bg-white rounded-lg overflow-hidden max-w-sm">
+            <div className="flex bg-white rounded-lg overflow-hidden">
               <input
                 type="email"
                 placeholder="Input your Email"
                 className="bg-transparent text-gray-800 px-4 py-3 outline-none grow text-sm placeholder:text-gray-400"
               />
-              <button className="bg-[#F8E7E4] text-[#B131D4] px-6 py-3 font-bold text-sm hover:bg-[#f2dad5] transition-colors">
+              <button className="bg-[#FF3AB3] text-white px-4 py-3 font-bold text-sm transition-colors cursor-pointer">
                 Submit
               </button>
             </div>

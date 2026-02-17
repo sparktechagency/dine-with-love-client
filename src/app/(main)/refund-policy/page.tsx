@@ -21,7 +21,7 @@ export default function RefundPolicy() {
         <p>
           For curated dinner experiences, cancellations made more than 48 hours
           in advance may be eligible for a partial refund or credit toward a
-          future event, depending on the restaurant's policy.
+          future event, depending on the restaurant&apos;s policy.
         </p>
         <h2 className="text-2xl font-bold text-gray-900">3. Contact Us</h2>
         <p>
