@@ -9,7 +9,7 @@ const UserDetail = () => {
   const router = useRouter();
 
   return (
-    <div className="space-y-8 animate-in fade-in duration-500">
+    <div className="space-y-8 animate-in fade-in duration-500 max-w-7xl mx-auto">
       <button
         onClick={() => router.back()}
         className="flex items-center gap-3 text-gray-900 font-bold hover:text-primary transition-colors"

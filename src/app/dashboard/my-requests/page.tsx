@@ -1,4 +1,12 @@
-import PlaceholderPage from "@/components/layout/dashboard/PlaceholderPage";
+import { MyRequests } from "@/components/layout/dashboard/MyRequests";
+import { Metadata } from "next";
 
-const MyRequestsPage = () => <PlaceholderPage title="My Requests" />;
+export const metadata: Metadata = {
+  title: "My Requests | Dine With Love",
+};
+
+const MyRequestsPage = () => {
+  return <MyRequests />;
+};
+
 export default MyRequestsPage;

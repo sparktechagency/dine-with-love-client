@@ -102,7 +102,7 @@ export const AppSidebar = () => {
                   className={cn(
                     "h-14 px-4 rounded-xl font-bold text-gray-500 transition-all border-none shadow-none",
                     isActive
-                      ? "bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white hover:text-white"
+                      ? "bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white"
                       : "hover:bg-gray-50 hover:text-gray-900",
                   )}
                 >

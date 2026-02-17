@@ -80,7 +80,7 @@ export const DashboardHome = () => {
 
       <div className="space-y-6">
         <h3 className="text-2xl font-bold text-gray-900">Daily Matches</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6">
           {matches.map((match) => (
             <div
               key={match.id}
@@ -123,8 +123,13 @@ export const DashboardHome = () => {
                 </div>
 
                 <div className="flex flex-col gap-2 pt-2">
-                  <Button className="w-full h-10 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold rounded-lg border-none shadow-none">
-                    Connection Request
+                  <Button
+                    asChild
+                    className="w-full h-10 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold rounded-lg border-none shadow-none"
+                  >
+                    <Link href={`/dashboard/confirm-match`}>
+                      Connection Request
+                    </Link>
                   </Button>
                   <Button
                     asChild
