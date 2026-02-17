@@ -157,7 +157,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-white/60 text-sm">
-            © 2023 dine-with-love All Rights Reserved.
+            © {new Date().getFullYear()} dine-with-love All Rights Reserved.
           </p>
           <div className="flex items-center gap-6">
             <Link

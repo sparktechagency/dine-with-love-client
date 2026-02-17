@@ -39,7 +39,7 @@ const HeroSection = () => {
 
         {/* ── Right Column: Image ── */}
         <div className="relative flex justify-center lg:justify-end items-center w-full">
-          <div className="relative w-full max-w-[520px] h-[350px] sm:h-[450px] md:h-[580px] rounded-tr-[50px] rounded-bl-[50px] md:rounded-tr-[120px] md:rounded-bl-[120px] overflow-hidden bg-gray-200 z-10 shadow-2xl transition-all duration-500">
+          <div className="relative w-full max-w-[520px] h-[350px] sm:h-[450px] md:h-[580px] rounded-tr-[50px] rounded-bl-[50px] overflow-hidden bg-gray-200 z-10 shadow-2xl transition-all duration-500">
             <Image
               src={heroImage}
               alt="Couple on a romantic dinner date"
