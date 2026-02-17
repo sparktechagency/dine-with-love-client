@@ -1,6 +1,8 @@
-"use client";
-
 import { Heart, MessageSquareHeart, Sparkles } from "lucide-react";
+import image1 from "@/assets/home/feature1.png";
+import image2 from "@/assets/home/feature2.png";
+import image3 from "@/assets/home/feature3.png";
+import Image from "next/image";
 
 const features = [
   {
@@ -8,14 +10,14 @@ const features = [
     title: "Real Connections, In-Person",
     description:
       "At Dine With Love, we believe true chemistry can't be built through endless texts or swipes. Real connections happen when two people share meaningful conversations face-to-face. Each match leads to a curated dinner experience designed to spark genuine emotion, laughter, and warmth. By bringing people together in comfortable, real-world settings, Dine With Love turns ordinary dinners into unforgettable moments — creating trust, authenticity, and lasting bonds that go far beyond the digital world.",
-    imagePlaceholder: "Couple at Garden Dinner",
+    imageUrl: image1,
   },
   {
     icon: <Heart className="w-5 h-5" />,
     title: "Compatibility Test",
     description:
       "Our intelligent matching system goes beyond appearances to create truly meaningful connections. By analyzing personality traits, lifestyle choices, and dining preferences, Dine With Love ensures every match feels natural and comfortable. Whether you're drawn to candlelit Italian dinners, vibrant sushi nights, or relaxed vegan brunches, you'll be paired with someone who shares your tastes, values, and outlook on life. With thoughtful matching at its core, every dining experience becomes an opportunity for genuine compatibility and effortless conversation.",
-    imagePlaceholder: "Couple Holding Hands",
+    imageUrl: image2,
     reverse: true,
   },
   {
@@ -23,7 +25,7 @@ const features = [
     title: "Effortless, Curated Experiences",
     description:
       "At Dine With Love, we take the stress out of dating by creating seamless, thoughtfully planned experiences from start to finish. Every detail — from the reservations and group size to the ambiance and atmosphere — is carefully curated to ensure comfort and connection. You don't have to worry about planning, logistics, or awkward first meetings; simply arrive, relax, and let the evening unfold naturally. It's a premium yet effortless way to meet new people, share a meal, and discover where real chemistry might lead.",
-    imagePlaceholder: "Premium Restaurant Interior",
+    imageUrl: image3,
   },
 ];
 
@@ -50,7 +52,7 @@ const Features = () => {
             >
               <div className="flex-1 space-y-6">
                 <div
-                  className={`w-10 h-10 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white rounded-lg flex items-center justify-center`}
+                  className={`size-13 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white rounded-full flex items-center justify-center`}
                 >
                   {feature.icon}
                 </div>
@@ -63,11 +65,15 @@ const Features = () => {
               </div>
 
               <div className="flex-1 w-full">
-                <div className="aspect-4/3 rounded-[30px] overflow-hidden shadow-xl bg-gray-50 border border-gray-100 flex items-center justify-center">
-                  <p className="text-gray-400 font-medium">
-                    {feature.imagePlaceholder}
-                  </p>
-                </div>
+                <Image
+                  src={feature.imageUrl.src}
+                  alt={feature.title}
+                  className="w-full h-full object-cover object-center"
+                  width={520}
+                  height={580}
+                  quality={100}
+                  priority
+                />
               </div>
             </div>
           ))}

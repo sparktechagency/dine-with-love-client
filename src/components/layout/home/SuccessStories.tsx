@@ -43,8 +43,8 @@ const reviews = [
 
 const SuccessStories = () => {
   return (
-    <section className="py-24 bg-[#FDF2F2]/50">
-      <div className="container mx-auto px-6">
+    <section className="w-full py-24 bg-[#FDF2F2]/50">
+      <div className="container mx-auto px-5">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
             Success Stories
