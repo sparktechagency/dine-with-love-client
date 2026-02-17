@@ -33,20 +33,20 @@ const steps = [
 
 const HowItWorks = () => {
   return (
-    <section className="py-24 bg-[#FDF2F2]">
+    <section className="py-24 bg-[#F7F7F7]">
       <div className="container mx-auto px-6 text-center">
-        <h2 className="text-4xl font-bold text-[#6D2E2E] mb-4">How it Works</h2>
-        <p className="text-[#A16262] mb-16 text-lg font-medium">
+        <h2 className="text-4xl font-bold mb-4">How it Works</h2>
+        <p className="text-gray-500 mb-16 text-lg">
           Five simple steps to meaningful connections
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
           {steps.map((step, index) => (
             <div key={index} className="flex flex-col items-center group">
-              <div className="w-16 h-16 bg-[#8B3B3B] text-white rounded-xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform">
+              <div className="w-16 h-16 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white rounded-xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform">
                 {step.icon}
               </div>
-              <h3 className="text-xl font-bold text-[#6D2E2E] mb-3">
+              <h3 className="text-xl font-bold text-gray-700 mb-3">
                 {step.title}
               </h3>
               <p className="text-gray-600 text-sm leading-relaxed max-w-[200px] mx-auto">

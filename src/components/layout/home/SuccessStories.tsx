@@ -51,7 +51,17 @@ import Image from "next/image";
 
 const SuccessStories = () => {
   return (
-    <section className="w-full py-24 bg-[#FDF2F2]/50">
+    <section className="w-full py-24 bg-[#F7F7F7]/50">
+      {/* SVG Gradient Definition */}
+      <svg width="0" height="0" className="absolute">
+        <defs>
+          <linearGradient id="star-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#FF3AB3" />
+            <stop offset="100%" stopColor="#5432C8" />
+          </linearGradient>
+        </defs>
+      </svg>
+
       <div className="container mx-auto px-5">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -72,11 +82,15 @@ const SuccessStories = () => {
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
-                    className={`w-4 h-4 ${i < review.rating ? "fill-[#A16262] text-[#A16262]" : "fill-gray-200 text-gray-200"}`}
+                    className={`w-4 h-4 ${i < review.rating ? "" : "fill-gray-200 text-gray-200"}`}
+                    fill={
+                      i < review.rating ? "url(#star-gradient)" : "currentColor"
+                    }
+                    stroke={i < review.rating ? "none" : "currentColor"}
                   />
                 ))}
               </div>
-              <p className="text-[#6D2E2E] font-bold text-lg leading-snug">
+              <p className="text-gray-900 font-bold text-lg leading-snug">
                 &quot;{review.text}&quot;
               </p>
               <div className="flex items-center gap-3 mt-2">

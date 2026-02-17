@@ -22,7 +22,7 @@ const HeroSection = () => {
       />
       <div className="container mx-auto px-5 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center relative z-10 py-16 md:py-24">
         <div className="w-full space-y-5 md:space-y-7">
-          <h1 className="text-4xl md:text-6xl font-semibold text-[#8F3A3D]">
+          <h1 className="text-4xl md:text-6xl font-semibold text-gray-900">
             Real Connections, One Dinner at a Time
           </h1>
           <p className="text-lg md:text-xl font-medium text-gray-600">

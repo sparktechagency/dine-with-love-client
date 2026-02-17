@@ -64,12 +64,12 @@ const FAQ = () => {
                 className="w-full flex items-center justify-between text-left group py-2"
               >
                 <span
-                  className={`text-lg font-bold transition-all duration-300 ${openIndex === index ? "text-[#B131D4]" : "text-gray-800"}`}
+                  className={`text-lg font-bold transition-all duration-300 text-gray-800`}
                 >
                   {index + 1}. {faq.question}
                 </span>
                 <div
-                  className={`transition-transform duration-300 ${openIndex === index ? "rotate-180 text-[#B131D4]" : "text-gray-400"}`}
+                  className={`transition-transform border-2 rounded-full p-1 cursor-pointer duration-300 ${openIndex === index ? "rotate-180 text-gray-500" : "text-gray-500"}`}
                 >
                   {openIndex === index ? (
                     <Minus className="w-5 h-5" />
