@@ -39,7 +39,7 @@ export default function FAQPage() {
             ].map((item, i) => (
               <div
                 key={i}
-                className="bg-white p-8 rounded-[30px] shadow-sm hover:shadow-md transition-shadow text-center"
+                className="bg-white p-8 rounded-[30px] border border-gray-100 text-center"
               >
                 <div className="size-14 rounded-2xl bg-pink-50 flex items-center justify-center mx-auto mb-6">
                   <item.icon className="text-[#FF3AB3] size-7" />

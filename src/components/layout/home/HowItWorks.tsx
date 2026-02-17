@@ -43,7 +43,7 @@ const HowItWorks = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
           {steps.map((step, index) => (
             <div key={index} className="flex flex-col items-center group">
-              <div className="w-16 h-16 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white rounded-xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform">
+              <div className="size-16 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white rounded-xl flex items-center justify-center mb-6">
                 {step.icon}
               </div>
               <h3 className="text-xl font-bold text-gray-700 mb-3">
