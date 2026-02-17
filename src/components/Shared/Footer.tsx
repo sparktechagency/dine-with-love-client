@@ -70,7 +70,7 @@ const Footer = () => {
             <ul className="space-y-4 text-white/80">
               <li>
                 <Link
-                  href="/about"
+                  href="/about-us"
                   className="hover:text-white transition-colors"
                 >
                   About us
@@ -99,14 +99,6 @@ const Footer = () => {
           <div>
             <h3 className="font-bold text-lg mb-6">Support</h3>
             <ul className="space-y-4 text-white/80">
-              <li>
-                <Link
-                  href="/faqs"
-                  className="hover:text-white transition-colors"
-                >
-                  FAQS
-                </Link>
-              </li>
               <li>
                 <Link
                   href="/refund-policy"
