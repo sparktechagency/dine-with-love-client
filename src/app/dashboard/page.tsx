@@ -137,7 +137,7 @@ const DashboardPage = () => {
                   key={reservation.id}
                   className="flex items-center space-x-4"
                 >
-                  <div className="flex-shrink-0 w-12 h-12 bg-muted rounded-lg flex items-center justify-center text-2xl">
+                  <div className="shrink-0 w-12 h-12 bg-muted rounded-lg flex items-center justify-center text-2xl">
                     {reservation.image}
                   </div>
                   <div className="flex-1 min-w-0">
@@ -184,7 +184,7 @@ const DashboardPage = () => {
                   key={restaurant.id}
                   className="flex items-center space-x-4"
                 >
-                  <div className="flex-shrink-0 w-12 h-12 bg-muted rounded-lg flex items-center justify-center text-2xl">
+                  <div className="shrink-0 w-12 h-12 bg-muted rounded-lg flex items-center justify-center text-2xl">
                     {restaurant.image}
                   </div>
                   <div className="flex-1 min-w-0">

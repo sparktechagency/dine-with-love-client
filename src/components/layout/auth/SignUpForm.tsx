@@ -1,13 +1,21 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { FormInput } from "@/components/ui/form-input";
 import { Lock, Mail, MapPin, User } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useActionState } from "react";
 
+interface ActionState {
+  error?: string;
+  success?: boolean;
+}
+
 // Mock register action
-async function registerAction(prevState: any, formData: FormData) {
+async function registerAction(
+  prevState: ActionState | null,
+  formData: FormData,
+) {
   const fullName = formData.get("fullName");
   const email = formData.get("email");
   const address = formData.get("address");
@@ -107,9 +115,10 @@ const SignUpForm = () => {
             type="button"
             className="flex items-center justify-center gap-2 h-12 border border-gray-100 rounded-lg hover:bg-gray-50 transition-all cursor-pointer"
           >
-            <img
+            <Image
               src="https://www.svgrepo.com/show/475656/google-color.svg"
-              className="size-5"
+              width={20}
+              height={20}
               alt="Google"
             />
             <span className="font-bold text-gray-700 text-sm">Google</span>
@@ -118,9 +127,10 @@ const SignUpForm = () => {
             type="button"
             className="flex items-center justify-center gap-2 h-12 border border-gray-100 rounded-lg hover:bg-gray-50 transition-all cursor-pointer"
           >
-            <img
+            <Image
               src="https://www.svgrepo.com/show/442983/apple-logo.svg"
-              className="size-5"
+              width={20}
+              height={20}
               alt="Apple"
             />
             <span className="font-bold text-gray-700 text-sm">Apple</span>

@@ -1,13 +1,19 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
+
+import Image from "next/image";
 
 import { FormInput } from "@/components/ui/form-input";
 import { Lock, Mail } from "lucide-react";
 import Link from "next/link";
 import { useActionState } from "react";
 
+interface ActionState {
+  error?: string;
+  success?: boolean;
+}
+
 // Mock action for demonstration
-async function loginAction(prevState: any, formData: FormData) {
+async function loginAction(prevState: ActionState | null, formData: FormData) {
   const email = formData.get("email");
   const password = formData.get("password");
 
@@ -91,9 +97,10 @@ const SignInForm = () => {
             type="button"
             className="flex items-center justify-center gap-3 h-14 border border-gray-100 rounded-lg hover:bg-gray-50 transition-all cursor-pointer"
           >
-            <img
+            <Image
               src="https://www.svgrepo.com/show/475656/google-color.svg"
-              className="size-6"
+              width={24}
+              height={24}
               alt="Google"
             />
             <span className="font-bold text-gray-700 hidden sm:inline">
@@ -104,9 +111,10 @@ const SignInForm = () => {
             type="button"
             className="flex items-center justify-center gap-3 h-14 border border-gray-100 rounded-lg hover:bg-gray-50 transition-all cursor-pointer"
           >
-            <img
+            <Image
               src="https://www.svgrepo.com/show/442983/apple-logo.svg"
-              className="size-6"
+              width={24}
+              height={24}
               alt="Apple"
             />
             <span className="font-bold text-gray-700 hidden sm:inline">
