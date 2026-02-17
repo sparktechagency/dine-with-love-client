@@ -3,7 +3,7 @@
 import {
   Sidebar,
   SidebarContent,
-  SidebarFooter,
+  SidebarGroup,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
@@ -13,7 +13,6 @@ import {
 import { cn } from "@/lib/utils";
 import {
   LayoutDashboard,
-  LogOut,
   MailOpen,
   MessageSquare,
   Settings,
@@ -62,72 +61,73 @@ export const AppSidebar = () => {
   const isCollapsed = state === "collapsed";
 
   return (
-    <Sidebar collapsible="icon" className="border-none bg-white p-3">
-      <SidebarHeader className="p-4 flex justify-center">
-        <Link
-          href="/"
-          className="flex items-center gap-3 overflow-hidden transition-all"
-        >
-          <div className="size-12 shrink-0 rounded-xl bg-linear-to-br from-[#FF3AB3] to-[#5432C8] flex items-center justify-center shadow-lg shadow-pink-100">
-            <span className="text-white font-black text-sm">glint</span>
-          </div>
-          {!isCollapsed && (
-            <span className="text-2xl font-black text-gray-900 animate-in slide-in-from-left-2 fade-in duration-300">
-              glint
-            </span>
+    <Sidebar collapsible="icon" className="border-none bg-white">
+      <div className="flex flex-col h-full">
+        {/* Header - Logo */}
+        <SidebarHeader
+          className={cn(
+            "h-20 border-b border-gray-100 flex  justify-center items-center transition-all",
           )}
-        </Link>
-      </SidebarHeader>
-      <SidebarContent className="px-2 mt-8">
-        <SidebarMenu className="gap-3">
-          {items.map((item) => {
-            const isActive = pathname === item.url;
-            return (
-              <SidebarMenuItem key={item.title}>
-                <SidebarMenuButton
-                  asChild
-                  isActive={isActive}
-                  tooltip={item.title}
-                  className={cn(
-                    "h-14 px-4 rounded-xl font-bold text-gray-500 transition-all border-none shadow-none",
-                    isActive
-                      ? "bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white"
-                      : "hover:bg-gray-50 hover:text-gray-900",
-                  )}
-                >
-                  <Link href={item.url} className="flex items-center gap-4">
-                    <item.icon className="size-6 shrink-0" />
-                    {!isCollapsed && (
-                      <span className="text-base animate-in slide-in-from-left-2 fade-in duration-300">
-                        {item.title}
-                      </span>
-                    )}
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-            );
-          })}
-        </SidebarMenu>
-      </SidebarContent>
-      <SidebarFooter className="p-4 mt-auto">
-        <SidebarMenu>
-          <SidebarMenuItem>
-            <SidebarMenuButton
-              tooltip="Logout"
-              className="h-14 px-4 rounded-xl font-bold text-red-500 hover:bg-red-50 hover:text-red-600 transition-all border-none shadow-none"
-            >
-              <div className="flex items-center gap-4">
-                <LogOut className="size-6 shrink-0" />
-                {!isCollapsed && (
-                  <span className="text-base animate-in slide-in-from-left-2 fade-in duration-300">
-                    Logout
-                  </span>
-                )}
+        >
+          <Link href="/" className="flex items-center">
+            {isCollapsed ? (
+              <div className="w-10 h-10 bg-primary rounded-md flex items-center justify-center text-white font-bold text-lg">
+                CR
               </div>
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-        </SidebarMenu>
-      </SidebarFooter>
+            ) : (
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-primary rounded-md flex items-center justify-center text-white font-bold text-lg">
+                  CR
+                </div>
+                <span className="text-2xl font-bold text-primary truncate">
+                  DineWithLove
+                </span>
+              </div>
+            )}
+          </Link>
+        </SidebarHeader>
+
+        {/* Content */}
+        <SidebarContent className="flex-1 py-2 px-3 overflow-y-auto no-scrollbar">
+          <SidebarGroup>
+            <SidebarMenu className="space-y-1">
+              {items.map((item) => {
+                const active = pathname === item.url;
+
+                return (
+                  <SidebarMenuItem key={item.title}>
+                    <Link href={item.url} className="w-full block">
+                      <SidebarMenuButton
+                        tooltip={isCollapsed ? item.title : undefined}
+                        className={cn(
+                          "w-full h-11  cursor-pointer flex items-center rounded-md transition-none",
+                          isCollapsed ? "justify-center p-0" : "px-3 gap-3",
+                          active
+                            ? "bg-primary text-white hover:bg-primary hover:text-white"
+                            : "text-gray-600 bg-transparent hover:bg-gray-100 hover:text-gray-600",
+                        )}
+                      >
+                        <item.icon
+                          className={cn(
+                            "shrink-0",
+                            isCollapsed ? "size-8" : "size-6",
+                            active ? "text-white" : "text-gray-400",
+                          )}
+                        />
+                        {!isCollapsed && (
+                          <span className="text-sm font-semibold truncate leading-none">
+                            {item.title}
+                          </span>
+                        )}
+                      </SidebarMenuButton>
+                    </Link>
+                  </SidebarMenuItem>
+                );
+              })}
+            </SidebarMenu>
+          </SidebarGroup>
+        </SidebarContent>
+      </div>
     </Sidebar>
   );
 };

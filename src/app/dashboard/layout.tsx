@@ -18,7 +18,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <SidebarProvider
-      style={{ "--sidebar-width": "19rem" } as React.CSSProperties}
+      style={{ "--sidebar-width": "20rem" } as React.CSSProperties}
     >
       <div className="flex min-h-screen w-full bg-white">
         <AppSidebar />
