@@ -72,13 +72,10 @@ export const AppSidebar = () => {
           <Link href="/" className="flex items-center">
             {isCollapsed ? (
               <div className="w-10 h-10 bg-primary rounded-md flex items-center justify-center text-white font-bold text-lg">
-                CR
+                DineWithLove
               </div>
             ) : (
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-primary rounded-md flex items-center justify-center text-white font-bold text-lg">
-                  CR
-                </div>
                 <span className="text-2xl font-bold text-primary truncate">
                   DineWithLove
                 </span>
@@ -100,17 +97,17 @@ export const AppSidebar = () => {
                       <SidebarMenuButton
                         tooltip={isCollapsed ? item.title : undefined}
                         className={cn(
-                          "w-full h-11  cursor-pointer flex items-center rounded-md transition-none",
+                          "w-full h-11 cursor-pointer flex items-center rounded-md transition-none",
                           isCollapsed ? "justify-center p-0" : "px-3 gap-3",
+                          isCollapsed ? "[&>svg]:size-6!" : "[&>svg]:size-6!",
                           active
-                            ? "bg-primary text-white hover:bg-primary hover:text-white"
+                            ? "bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white hover:text-white"
                             : "text-gray-600 bg-transparent hover:bg-gray-100 hover:text-gray-600",
                         )}
                       >
                         <item.icon
                           className={cn(
                             "shrink-0",
-                            isCollapsed ? "size-8" : "size-6",
                             active ? "text-white" : "text-gray-400",
                           )}
                         />

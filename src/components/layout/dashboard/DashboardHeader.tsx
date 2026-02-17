@@ -1,6 +1,6 @@
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import { Bell } from "lucide-react";
-import React from "react";
+import Link from "next/link";
 
 const DashboardHeader = () => {
   return (
@@ -13,10 +13,12 @@ const DashboardHeader = () => {
 
       {/* Right: Personal & Notifications */}
       <div className="flex items-center gap-3">
-        <button className="size-10 text-primary rounded-md border border-primary transition-all hover:bg-primary/10 cursor-pointer flex justify-center items-center relative">
-          <Bell className="size-5" />
-          <span className="absolute top-2 right-2.5 size-2 bg-red-500 rounded-full border border-white" />
-        </button>
+        <Link href="/dashboard/notifications">
+          <button className="size-10 text-primary rounded-md border border-primary transition-all hover:bg-primary/10 cursor-pointer flex justify-center items-center relative">
+            <Bell className="size-5" />
+            <span className="absolute top-2 right-2.5 size-2 bg-red-500 rounded-full border border-white" />
+          </button>
+        </Link>
       </div>
     </header>
   );
