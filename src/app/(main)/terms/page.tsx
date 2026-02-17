@@ -116,7 +116,44 @@ export default function TermsOfService() {
 
         <section>
           <h2 className="text-2xl font-bold text-gray-900 border-b pb-2 mb-4">
-            7. Modifications to Service
+            7. Billing and Payments
+          </h2>
+          <p>
+            Certain aspects of the service may require payment. You agree to
+            provide accurate payment information and authorize us to charge you
+            for all applicable fees. All payments are inclusive of applicable
+            taxes unless stated otherwise.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-2xl font-bold text-gray-900 border-b pb-2 mb-4">
+            8. Termination of Account
+          </h2>
+          <p>
+            We reserve the right to suspend or terminate your account at our
+            sole discretion, without notice, for any violation of these terms or
+            for conduct that we deem harmful to our community or business
+            interests. Upon termination, your right to use the service will
+            immediately cease.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-2xl font-bold text-gray-900 border-b pb-2 mb-4">
+            9. Dispute Resolution
+          </h2>
+          <p>
+            Any disputes arising out of or relating to these terms or our
+            services shall be resolved through binding arbitration in accordance
+            with the rules of the local jurisdiction. You agree to waive your
+            right to participate in class action lawsuits.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-2xl font-bold text-gray-900 border-b pb-2 mb-4">
+            10. Modifications to Service and Terms
           </h2>
           <p>
             We reserve the right to modify or discontinue our service at any

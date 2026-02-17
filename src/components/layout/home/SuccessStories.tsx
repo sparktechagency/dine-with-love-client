@@ -76,7 +76,7 @@ const SuccessStories = () => {
           {reviews.map((review, index) => (
             <div
               key={index}
-              className="bg-transparent p-6 rounded-2xl flex flex-col gap-4"
+              className="bg-transparent p-6 rounded-lg flex flex-col gap-4"
             >
               <div className="flex gap-1">
                 {[...Array(5)].map((_, i) => (

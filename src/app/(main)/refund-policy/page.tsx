@@ -97,6 +97,18 @@ export default function RefundPolicy() {
             within 5-7 business days.
           </p>
         </section>
+
+        <section>
+          <h2 className="text-2xl font-bold text-gray-900 border-b pb-2 mb-4">
+            6. Changes to This Policy
+          </h2>
+          <p>
+            We may update our Refund Policy from time to time. We will notify
+            you of any changes by posting the new Refund Policy on this page.
+            You are advised to review this Refund Policy periodically for any
+            changes.
+          </p>
+        </section>
       </div>
     </div>
   );

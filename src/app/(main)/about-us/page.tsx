@@ -3,20 +3,6 @@ import { Heart, ShieldCheck, Users, Utensils } from "lucide-react";
 export default function AboutUs() {
   return (
     <main className="min-h-screen">
-      {/* Hero Section */}
-      <section className="py-24 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white">
-        <div className="container mx-auto px-6 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            Our Mission to Connect
-          </h1>
-          <p className="text-xl opacity-90 max-w-2xl mx-auto leading-relaxed">
-            Dine With Love is more than a platform — it&apos;s a movement to
-            bring authenticity back to human connection through the timeless
-            tradition of sharing a meal.
-          </p>
-        </div>
-      </section>
-
       {/* Our Story */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
@@ -82,11 +68,33 @@ export default function AboutUs() {
                 key={i}
                 className="bg-white p-8 rounded-[30px] text-center border border-gray-100"
               >
-                <div className="size-16 bg-pink-50 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <div className="size-16 bg-pink-50 rounded-lg flex items-center justify-center mx-auto mb-6">
                   <value.icon className="text-[#FF3AB3] size-8" />
                 </div>
                 <h4 className="text-xl font-bold mb-3">{value.title}</h4>
                 <p className="text-gray-500 leading-relaxed">{value.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Our Impact */}
+      <section className="py-24 bg-[#F7F7F7]">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            {[
+              { val: "50,000+", lab: "Matched Pairs" },
+              { val: "200+", lab: "Premium Restaurants" },
+              { val: "4.9/5", lab: "User Satisfaction" },
+            ].map((stat, i) => (
+              <div key={i} className="text-center">
+                <div className="text-5xl font-black text-gray-900 mb-2 font-rubik">
+                  {stat.val}
+                </div>
+                <div className="text-gray-500 font-bold uppercase tracking-widest text-sm">
+                  {stat.lab}
+                </div>
               </div>
             ))}
           </div>
