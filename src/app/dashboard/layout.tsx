@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import {
   Calendar,
   Heart,
@@ -72,12 +73,14 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
               <Utensils className="h-8 w-8 text-primary" />
               <span className="text-xl font-bold">DineWithLove</span>
             </div>
-            <button
+            <Button
+              variant="ghost"
+              size="sm"
               onClick={() => setSidebarOpen(false)}
               className="text-muted-foreground hover:text-foreground"
             >
               <X className="h-5 w-5" />
-            </button>
+            </Button>
           </div>
 
           <nav className="flex-1 space-y-1 px-3 py-4">
@@ -168,13 +171,15 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
       <div className="lg:pl-64">
         {/* Top bar */}
         <div className="sticky top-0 z-30 flex h-16 shrink-0 items-center gap-x-4 border-b bg-background px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8">
-          <button
+          <Button
             type="button"
+            variant="ghost"
+            size="sm"
             className="lg:hidden"
             onClick={() => setSidebarOpen(true)}
           >
             <Menu className="h-6 w-6 text-muted-foreground" />
-          </button>
+          </Button>
 
           <div className="flex flex-1 gap-x-4 self-stretch lg:gap-x-6">
             <div className="flex flex-1 items-center">
@@ -189,9 +194,13 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
             </div>
 
             <div className="flex items-center gap-x-4 lg:gap-x-6">
-              <button className="relative p-2 text-muted-foreground hover:text-foreground">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="relative text-muted-foreground hover:text-foreground"
+              >
                 <Heart className="h-5 w-5" />
-              </button>
+              </Button>
 
               <div className="hidden lg:flex lg:items-center lg:gap-x-2">
                 <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">

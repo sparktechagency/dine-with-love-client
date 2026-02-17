@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
-
+import { Button } from "@/components/ui/button";
 import { FormInput } from "@/components/ui/form-input";
 import { Lock, Mail } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useActionState } from "react";
 
@@ -93,9 +93,10 @@ const SignInForm = () => {
 
         {/* Social Buttons */}
         <div className="grid grid-cols-2 gap-4">
-          <button
+          <Button
             type="button"
-            className="flex items-center justify-center gap-3 h-14 border border-gray-100 rounded-lg hover:bg-gray-50 transition-all cursor-pointer"
+            variant="outline"
+            className="flex items-center justify-center gap-3 h-14 border border-gray-100 rounded-lg hover:bg-gray-50 transition-all cursor-pointer shadow-none"
           >
             <Image
               src="https://www.svgrepo.com/show/475656/google-color.svg"
@@ -106,13 +107,14 @@ const SignInForm = () => {
             <span className="font-bold text-gray-700 hidden sm:inline">
               Google
             </span>
-          </button>
-          <button
+          </Button>
+          <Button
             type="button"
-            className="flex items-center justify-center gap-3 h-14 border border-gray-100 rounded-lg hover:bg-gray-50 transition-all cursor-pointer"
+            variant="outline"
+            className="flex items-center justify-center gap-3 h-14 border border-gray-100 rounded-lg hover:bg-gray-50 transition-all cursor-pointer shadow-none"
           >
             <Image
-              src="https://www.svgrepo.com/show/442983/apple-logo.svg"
+              src="https://www.svgrepo.com/show/503173/apple-logo.svg"
               width={24}
               height={24}
               alt="Apple"
@@ -120,16 +122,16 @@ const SignInForm = () => {
             <span className="font-bold text-gray-700 hidden sm:inline">
               Apple
             </span>
-          </button>
+          </Button>
         </div>
 
-        <button
+        <Button
           type="submit"
           disabled={isPending}
           className="w-full h-14 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold rounded-lg hover:opacity-95 transition-all shadow-lg text-lg flex items-center justify-center disabled:opacity-50 cursor-pointer"
         >
           {isPending ? "Logging in..." : "Login"}
-        </button>
+        </Button>
 
         <p className="text-center text-gray-500 font-medium">
           Don&apos;t have an account?{" "}

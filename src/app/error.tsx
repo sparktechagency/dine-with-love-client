@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { AlertTriangle, RefreshCw } from "lucide-react";
 import Link from "next/link";
 import { useEffect } from "react";
@@ -30,13 +31,13 @@ const Error = ({
       </p>
 
       <div className="flex flex-col sm:flex-row gap-4">
-        <button
+        <Button
           onClick={() => reset()}
-          className="flex items-center gap-2 px-8 py-3 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold rounded-lg hover:opacity-90 transition-all shadow-lg text-lg"
+          className="flex items-center gap-2 px-8 py-3 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold rounded-lg hover:opacity-90 transition-all shadow-lg text-lg h-14"
         >
           <RefreshCw className="size-5" />
           Try Again
-        </button>
+        </Button>
         <Link
           href="/"
           className="px-8 py-3 border border-gray-200 text-gray-700 font-bold rounded-lg hover:bg-gray-50 transition-all text-center text-lg"

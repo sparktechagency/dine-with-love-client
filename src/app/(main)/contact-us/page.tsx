@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import { Mail, MapPin, Phone, Send } from "lucide-react";
 
 const ContactUs = () => {
@@ -112,13 +113,13 @@ const ContactUs = () => {
                   ></textarea>
                 </div>
 
-                <button
+                <Button
                   type="submit"
-                  className="w-full py-4 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold rounded-lg flex items-center justify-center gap-2 hover:opacity-95 transition-opacity text-lg mt-4 cursor-pointer"
+                  className="w-full h-14 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold rounded-lg flex items-center justify-center gap-2 hover:opacity-95 transition-opacity text-lg mt-4 cursor-pointer"
                 >
                   <Send className="size-5" />
                   Send Message
-                </button>
+                </Button>
               </form>
             </div>
           </div>
