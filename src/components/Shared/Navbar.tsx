@@ -23,7 +23,7 @@ const HeartInPlate = ({ className }: { className?: string }) => (
 
 const Navbar = () => {
   return (
-    <nav className="bg-linear-to-r from-[#FF56A5] via-[#B131D4] to-[#4B39ED] text-white py-4 px-6 sticky top-0 z-50 shadow-md">
+    <nav className="w-full bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white py-4 px-6 sticky top-0 z-50 shadow-md">
       <div className="container mx-auto flex items-center justify-between">
         {/* Logo Section */}
         <Link href="/" className="flex items-center gap-2">

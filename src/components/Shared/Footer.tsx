@@ -42,7 +42,7 @@ const GoogleIcon = () => (
 
 const Footer = () => {
   return (
-    <footer className="bg-linear-to-r from-[#FF56A5] via-[#B131D4] to-[#4B39ED] text-white pt-16 pb-8 px-6">
+    <footer className="bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white pt-16 pb-8 px-6">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           {/* Logo & Description */}

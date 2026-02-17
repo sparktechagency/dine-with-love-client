@@ -1,0 +1,83 @@
+"use client";
+
+import { Heart, MessageSquareHeart, Sparkles } from "lucide-react";
+
+const features = [
+  {
+    icon: <MessageSquareHeart className="w-5 h-5" />,
+    iconColor: "bg-[#B131D4]",
+    title: "Real Connections, In-Person",
+    description:
+      "At Dine With Love, we believe true chemistry can't be built through endless texts or swipes. Real connections happen when two people share meaningful conversations face-to-face. Each match leads to a curated dinner experience designed to spark genuine emotion, laughter, and warmth. By bringing people together in comfortable, real-world settings, Dine With Love turns ordinary dinners into unforgettable moments — creating trust, authenticity, and lasting bonds that go far beyond the digital world.",
+    imagePlaceholder: "Couple at Garden Dinner",
+  },
+  {
+    icon: <Heart className="w-5 h-5" />,
+    iconColor: "bg-[#B131D4]",
+    title: "Compatibility Test",
+    description:
+      "Our intelligent matching system goes beyond appearances to create truly meaningful connections. By analyzing personality traits, lifestyle choices, and dining preferences, Dine With Love ensures every match feels natural and comfortable. Whether you're drawn to candlelit Italian dinners, vibrant sushi nights, or relaxed vegan brunches, you'll be paired with someone who shares your tastes, values, and outlook on life. With thoughtful matching at its core, every dining experience becomes an opportunity for genuine compatibility and effortless conversation.",
+    imagePlaceholder: "Couple Holding Hands",
+    reverse: true,
+  },
+  {
+    icon: <Sparkles className="w-5 h-5" />,
+    iconColor: "bg-[#B131D4]",
+    title: "Effortless, Curated Experiences",
+    description:
+      "At Dine With Love, we take the stress out of dating by creating seamless, thoughtfully planned experiences from start to finish. Every detail — from the reservations and group size to the ambiance and atmosphere — is carefully curated to ensure comfort and connection. You don't have to worry about planning, logistics, or awkward first meetings; simply arrive, relax, and let the evening unfold naturally. It's a premium yet effortless way to meet new people, share a meal, and discover where real chemistry might lead.",
+    imagePlaceholder: "Premium Restaurant Interior",
+  },
+];
+
+const Features = () => {
+  return (
+    <section className="py-24 bg-white overflow-hidden">
+      <div className="container mx-auto px-6">
+        <div className="text-center max-w-3xl mx-auto mb-20">
+          <h2 className="text-4xl font-bold text-gray-900 mb-6">
+            Features of &quot;Dine With Love&quot;
+          </h2>
+          <p className="text-gray-500 leading-relaxed">
+            More than just dating — it&apos;s about authentic moments shared
+            over a meal. Our features bring together compatibility, comfort, and
+            real-world connection.
+          </p>
+        </div>
+
+        <div className="space-y-32">
+          {features.map((feature, index) => (
+            <div
+              key={index}
+              className={`flex flex-col ${feature.reverse ? "lg:flex-row-reverse" : "lg:flex-row"} gap-16 items-center`}
+            >
+              <div className="flex-1 space-y-6">
+                <div
+                  className={`w-10 h-10 ${feature.iconColor} text-white rounded-lg flex items-center justify-center shadow-lg`}
+                >
+                  {feature.icon}
+                </div>
+                <h3 className="text-3xl font-bold text-gray-800">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-500 leading-relaxed text-sm">
+                  {feature.description}
+                </p>
+              </div>
+
+              <div className="flex-1 w-full">
+                <div className="aspect-4/3 rounded-[30px] overflow-hidden shadow-xl bg-gray-50 border border-gray-100 flex items-center justify-center">
+                  <p className="text-gray-400 font-medium">
+                    {feature.imagePlaceholder}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Features;
