@@ -1,4 +1,4 @@
-export default function PrivacyPolicy() {
+const PrivacyPolicy = () => {
   return (
     <div className="container mx-auto px-6 py-24">
       <h1 className="text-4xl font-bold mb-8">Privacy Policy</h1>
@@ -131,4 +131,6 @@ export default function PrivacyPolicy() {
       </div>
     </div>
   );
-}
+};
+
+export default PrivacyPolicy;

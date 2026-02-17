@@ -4,6 +4,8 @@ export const metadata = {
   title: "Login | Dine With Love",
 };
 
-export default function LoginPage() {
+const LoginPage = () => {
   return <SignInForm />;
-}
+};
+
+export default LoginPage;

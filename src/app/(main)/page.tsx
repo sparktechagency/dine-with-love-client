@@ -7,7 +7,7 @@ import HowItWorks from "@/components/layout/home/HowItWorks";
 import MatchingAdvisor from "@/components/layout/home/MatchingAdvisor";
 import SuccessStories from "@/components/layout/home/SuccessStories";
 
-export default function Home() {
+const Home = () => {
   return (
     <div className="flex flex-col w-full">
       <HeroSection />
@@ -18,4 +18,6 @@ export default function Home() {
       <FAQ />
     </div>
   );
-}
+};
+
+export default Home;

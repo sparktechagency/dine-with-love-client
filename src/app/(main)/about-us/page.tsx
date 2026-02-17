@@ -1,9 +1,8 @@
 import { Heart, ShieldCheck, Users, Utensils } from "lucide-react";
 
-export default function AboutUs() {
+const AboutUs = () => {
   return (
     <main className="min-h-screen">
-      {/* Our Story */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -118,4 +117,6 @@ export default function AboutUs() {
       </section>
     </main>
   );
-}
+};
+
+export default AboutUs;

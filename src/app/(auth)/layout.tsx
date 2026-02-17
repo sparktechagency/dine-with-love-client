@@ -1,24 +1,19 @@
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-export default function AuthLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+const AuthLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="min-h-screen flex flex-col lg:flex-row">
-      {/* Left Side: Form Container */}
+    <div className="w-full min-h-screen flex flex-col lg:flex-row">
       <div className="w-full lg:w-1/2 flex items-center justify-center p-6 sm:p-12 md:p-20 bg-white min-h-screen">
         <div className="w-full max-w-[480px]">{children}</div>
       </div>
-
-      {/* Right Side: Image & Branding */}
       <div className="hidden lg:flex w-1/2 bg-gray-900 relative overflow-hidden">
-        <img
+        <Image
           src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1920&auto=format&fit=crop"
           alt="Fine Dining Experience"
-          className="absolute inset-0 w-full h-full object-cover opacity-60"
+          fill
+          className="object-cover opacity-60"
         />
         <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent" />
 
@@ -35,21 +30,10 @@ export default function AuthLayout({
               Dine <br /> <span className="text-white/80">With Love</span>
             </h1>
           </Link>
-          <p className="text-xl font-medium max-w-md text-white/70 leading-relaxed">
-            Where luxury dining meets authentic human connection. Join thousands
-            of professionals finding meaningful relationships over shared meals.
-          </p>
-        </div>
-
-        {/* Decorative elements */}
-        <div className="absolute bottom-10 right-10 flex items-center gap-4 text-white/40 text-sm font-medium uppercase tracking-[0.2em]">
-          <span>Privacy</span>
-          <div className="size-1 rounded-full bg-white/40" />
-          <span>Security</span>
-          <div className="size-1 rounded-full bg-white/40" />
-          <span>Excellence</span>
         </div>
       </div>
     </div>
   );
-}
+};
+
+export default AuthLayout;

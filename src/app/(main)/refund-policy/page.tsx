@@ -1,4 +1,4 @@
-export default function RefundPolicy() {
+const RefundPolicy = () => {
   return (
     <div className="container mx-auto px-6 py-24">
       <h1 className="text-4xl font-bold mb-8">Refund Policy</h1>
@@ -112,4 +112,6 @@ export default function RefundPolicy() {
       </div>
     </div>
   );
-}
+};
+
+export default RefundPolicy;

@@ -1,4 +1,4 @@
-export default function TermsOfService() {
+const TermsOfService = () => {
   return (
     <div className="container mx-auto px-6 py-24">
       <h1 className="text-4xl font-bold mb-8">Terms of Service</h1>
@@ -165,4 +165,6 @@ export default function TermsOfService() {
       </div>
     </div>
   );
-}
+};
+
+export default TermsOfService;

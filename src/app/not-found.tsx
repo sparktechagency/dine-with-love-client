@@ -1,7 +1,7 @@
 import { Search } from "lucide-react";
 import Link from "next/link";
 
-export default function NotFound() {
+const NotFound = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-6 bg-white">
       <div className="size-24 bg-pink-50 rounded-full flex items-center justify-center mb-8">
@@ -21,4 +21,6 @@ export default function NotFound() {
       </Link>
     </div>
   );
-}
+};
+
+export default NotFound;

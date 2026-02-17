@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { FormInput } from "@/components/ui/form-input";
@@ -38,7 +39,7 @@ const SignUpForm = () => {
         </p>
       </div>
 
-      <form action={action} className="space-y-4">
+      <form action={action} className="space-y-3">
         <FormInput
           label="Full Name"
           name="fullName"
@@ -83,7 +84,7 @@ const SignUpForm = () => {
         />
 
         {state?.error && (
-          <p className="text-sm font-bold text-red-500 text-center bg-red-50 py-3 rounded-xl border border-red-100">
+          <p className="text-sm font-bold text-red-500 text-center bg-red-50 py-3 rounded-lg border border-red-100">
             {state.error}
           </p>
         )}
@@ -104,7 +105,7 @@ const SignUpForm = () => {
         <div className="grid grid-cols-2 gap-4">
           <button
             type="button"
-            className="flex items-center justify-center gap-2 h-12 border border-gray-100 rounded-2xl hover:bg-gray-50 transition-all cursor-pointer"
+            className="flex items-center justify-center gap-2 h-12 border border-gray-100 rounded-lg hover:bg-gray-50 transition-all cursor-pointer"
           >
             <img
               src="https://www.svgrepo.com/show/475656/google-color.svg"
@@ -115,7 +116,7 @@ const SignUpForm = () => {
           </button>
           <button
             type="button"
-            className="flex items-center justify-center gap-2 h-12 border border-gray-100 rounded-2xl hover:bg-gray-50 transition-all cursor-pointer"
+            className="flex items-center justify-center gap-2 h-12 border border-gray-100 rounded-lg hover:bg-gray-50 transition-all cursor-pointer"
           >
             <img
               src="https://www.svgrepo.com/show/442983/apple-logo.svg"
@@ -129,7 +130,7 @@ const SignUpForm = () => {
         <button
           type="submit"
           disabled={isPending}
-          className="w-full h-14 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold rounded-2xl hover:opacity-95 transition-all shadow-lg text-lg flex items-center justify-center disabled:opacity-50 cursor-pointer mt-4"
+          className="w-full h-14 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold rounded-lg hover:opacity-95 transition-all shadow-lg text-lg flex items-center justify-center disabled:opacity-50 cursor-pointer mt-4"
         >
           {isPending ? "Creating account..." : "Sign Up"}
         </button>

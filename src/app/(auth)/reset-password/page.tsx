@@ -4,6 +4,8 @@ export const metadata = {
   title: "Reset Password | Dine With Love",
 };
 
-export default function ResetPasswordPage() {
+const ResetPasswordPage = () => {
   return <ResetPasswordForm />;
-}
+};
+
+export default ResetPasswordPage;

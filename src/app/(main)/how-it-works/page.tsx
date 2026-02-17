@@ -1,7 +1,7 @@
 import HowItWorks from "@/components/layout/home/HowItWorks";
 import { Calendar, Search, Star } from "lucide-react";
 
-export default function HowItWorksPage() {
+const HowItWorksPage = () => {
   return (
     <main className="min-h-screen">
       <HowItWorks />
@@ -69,7 +69,6 @@ export default function HowItWorksPage() {
           </div>
         </div>
       </section>
-
       {/* Experience Section */}
       <section className="py-24 bg-[#F7F7F7]">
         <div className="container mx-auto px-6 text-center max-w-4xl">
@@ -84,4 +83,6 @@ export default function HowItWorksPage() {
       </section>
     </main>
   );
-}
+};
+
+export default HowItWorksPage;

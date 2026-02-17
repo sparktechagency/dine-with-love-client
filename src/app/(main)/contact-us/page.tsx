@@ -1,6 +1,6 @@
 import { Mail, MapPin, Phone, Send } from "lucide-react";
 
-export default function ContactUs() {
+const ContactUs = () => {
   return (
     <main className="min-h-screen">
       {/* Contact Form & Info */}
@@ -126,4 +126,6 @@ export default function ContactUs() {
       </section>
     </main>
   );
-}
+};
+
+export default ContactUs;

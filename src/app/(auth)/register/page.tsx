@@ -4,6 +4,8 @@ export const metadata = {
   title: "Sign Up | Dine With Love",
 };
 
-export default function RegisterPage() {
+const RegisterPage = () => {
   return <SignUpForm />;
-}
+};
+
+export default RegisterPage;

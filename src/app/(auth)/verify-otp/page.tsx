@@ -4,6 +4,8 @@ export const metadata = {
   title: "Verify OTP | Dine With Love",
 };
 
-export default function VerifyOtpPage() {
+const VerifyOtpPage = () => {
   return <VerifyOtpForm />;
-}
+};
+
+export default VerifyOtpPage;

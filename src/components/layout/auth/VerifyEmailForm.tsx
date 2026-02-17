@@ -59,7 +59,7 @@ const VerifyEmailForm = () => {
           <input type="hidden" name="token" value="dummy-token" />
           <button
             type="submit"
-            className="w-full h-14 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold rounded-2xl hover:opacity-95 transition-all shadow-lg text-lg flex items-center justify-center cursor-pointer"
+            className="w-full h-14 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold rounded-lg hover:opacity-95 transition-all shadow-lg text-lg flex items-center justify-center cursor-pointer"
           >
             Verify Email
           </button>
@@ -69,7 +69,7 @@ const VerifyEmailForm = () => {
       {state?.success && (
         <Link
           href="/login"
-          className="w-full h-14 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold rounded-2xl hover:opacity-95 transition-all shadow-lg text-lg flex items-center justify-center cursor-pointer"
+          className="w-full h-14 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold rounded-lg hover:opacity-95 transition-all shadow-lg text-lg flex items-center justify-center cursor-pointer"
         >
           Go to Login
         </Link>

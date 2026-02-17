@@ -14,11 +14,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 
-export default function DashboardLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const navigation = [
@@ -214,4 +210,6 @@ export default function DashboardLayout({
       </div>
     </div>
   );
-}
+};
+
+export default DashboardLayout;

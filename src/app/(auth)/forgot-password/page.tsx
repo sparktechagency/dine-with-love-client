@@ -4,6 +4,8 @@ export const metadata = {
   title: "Forgot Password | Dine With Love",
 };
 
-export default function ForgotPasswordPage() {
+const ForgotPasswordPage = () => {
   return <ForgotPasswordForm />;
-}
+};
+
+export default ForgotPasswordPage;
