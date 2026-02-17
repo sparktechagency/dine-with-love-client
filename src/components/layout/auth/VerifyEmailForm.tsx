@@ -1,10 +1,16 @@
 "use client";
-
+import { Button } from "@/components/ui/button";
 import { CheckCircle2, Loader2 } from "lucide-react";
-import Link from "next/link";
 import { useActionState, useEffect } from "react";
 
-async function verifyEmailAction(prevState: any, formData: FormData) {
+interface ActionState {
+  success?: boolean;
+}
+
+async function verifyEmailAction(
+  prevState: ActionState | null,
+  formData: FormData,
+) {
   const token = formData.get("token");
   await new Promise((resolve) => setTimeout(resolve, 2000));
   console.log("Verify Email Action with token:", token);
@@ -57,22 +63,22 @@ const VerifyEmailForm = () => {
       {!state?.success && !isPending && (
         <form action={action}>
           <input type="hidden" name="token" value="dummy-token" />
-          <button
+          <Button
             type="submit"
             className="w-full h-14 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold rounded-lg hover:opacity-95 transition-all shadow-lg text-lg flex items-center justify-center cursor-pointer"
           >
             Verify Email
-          </button>
+          </Button>
         </form>
       )}
 
       {state?.success && (
-        <Link
-          href="/login"
+        <Button
+          asChild
           className="w-full h-14 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold rounded-lg hover:opacity-95 transition-all shadow-lg text-lg flex items-center justify-center cursor-pointer"
         >
-          Go to Login
-        </Link>
+          <a href="/login">Go to Login</a>
+        </Button>
       )}
     </div>
   );

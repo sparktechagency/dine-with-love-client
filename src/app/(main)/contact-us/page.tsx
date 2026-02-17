@@ -1,4 +1,6 @@
 import { Button } from "@/components/ui/button";
+import { FormInput } from "@/components/ui/form-input";
+import { FormTextarea } from "@/components/ui/form-textarea";
 import { Mail, MapPin, Phone, Send } from "lucide-react";
 
 const ContactUs = () => {
@@ -69,49 +71,35 @@ const ContactUs = () => {
             <div className="bg-[#F7F7F7] p-10 rounded-lg border border-gray-100">
               <form className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-sm font-bold text-gray-700 ml-1">
-                      Full Name
-                    </label>
-                    <input
-                      type="text"
-                      placeholder="John Doe"
-                      className="w-full px-6 py-4 rounded-lg bg-white border border-gray-200 outline-none focus:border-[#FF3AB3] transition-colors"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-bold text-gray-700 ml-1">
-                      Email Address
-                    </label>
-                    <input
-                      type="email"
-                      placeholder="john@example.com"
-                      className="w-full px-6 py-4 rounded-lg bg-white border border-gray-200 outline-none focus:border-[#FF3AB3] transition-colors"
-                    />
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-sm font-bold text-gray-700 ml-1">
-                    Subject
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="How can we help?"
-                    className="w-full px-6 py-4 rounded-lg bg-white border border-gray-200 outline-none focus:border-[#FF3AB3] transition-colors"
+                  <FormInput
+                    label="Full Name"
+                    name="fullName"
+                    placeholder="John Doe"
+                    required
+                  />
+                  <FormInput
+                    label="Email Address"
+                    name="email"
+                    type="email"
+                    placeholder="john@example.com"
+                    required
                   />
                 </div>
 
-                <div className="space-y-2">
-                  <label className="text-sm font-bold text-gray-700 ml-1">
-                    Message
-                  </label>
-                  <textarea
-                    rows={6}
-                    placeholder="Tell us more about your inquiry..."
-                    className="w-full px-6 py-4 rounded-lg bg-white border border-gray-200 outline-none focus:border-[#FF3AB3] transition-colors resize-none"
-                  ></textarea>
-                </div>
+                <FormInput
+                  label="Subject"
+                  name="subject"
+                  placeholder="How can we help?"
+                  required
+                />
+
+                <FormTextarea
+                  label="Message"
+                  name="message"
+                  rows={6}
+                  placeholder="Tell us more about your inquiry..."
+                  required
+                />
 
                 <Button
                   type="submit"

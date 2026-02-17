@@ -1,10 +1,18 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { useActionState, useEffect, useState } from "react";
 
-async function verifyOtpAction(prevState: any, formData: FormData) {
+interface ActionState {
+  success?: boolean;
+}
+
+async function verifyOtpAction(
+  prevState: ActionState | null,
+  formData: FormData,
+) {
   const otp = formData.get("otp");
   await new Promise((resolve) => setTimeout(resolve, 1500));
   console.log("Verify OTP Action:", { otp });
@@ -75,9 +83,13 @@ const VerifyOtpForm = () => {
           </div>
 
           <div className="flex justify-between items-center text-sm font-bold">
-            <button type="button" className="text-[#FF3AB3] hover:underline">
+            <Button
+              type="button"
+              variant="link"
+              className="text-[#FF3AB3] p-0 h-auto font-bold hover:no-underline"
+            >
               Resend OTP
-            </button>
+            </Button>
             <span className="text-gray-400">{formatTime(timer)}</span>
           </div>
         </div>
@@ -88,13 +100,13 @@ const VerifyOtpForm = () => {
           </p>
         )}
 
-        <button
+        <Button
           type="submit"
           disabled={isPending || otp.length < 6}
           className="w-full h-14 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold rounded-lg hover:opacity-95 transition-all shadow-lg text-lg flex items-center justify-center disabled:opacity-50 cursor-pointer"
         >
           {isPending ? "Verifying..." : "Verify"}
-        </button>
+        </Button>
       </form>
     </div>
   );

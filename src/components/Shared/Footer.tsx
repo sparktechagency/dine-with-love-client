@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Apple, Facebook, Instagram } from "lucide-react";
 import Link from "next/link";
@@ -147,9 +148,9 @@ const Footer = () => {
                 placeholder="Input your Email"
                 className="bg-transparent text-gray-800 px-4 py-3 outline-none grow text-sm placeholder:text-gray-400"
               />
-              <button className="bg-[#FF3AB3] text-white px-4 py-3 font-bold text-sm transition-colors cursor-pointer">
+              <Button className="bg-[#FF3AB3] hover:bg-[#FF3AB3]/90 text-white px-4 py-3 font-bold text-sm transition-colors cursor-pointer rounded-none h-auto">
                 Submit
-              </button>
+              </Button>
             </div>
           </div>
         </div>

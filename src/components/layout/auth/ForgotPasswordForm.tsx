@@ -1,12 +1,19 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { FormInput } from "@/components/ui/form-input";
 import { ArrowLeft, Mail } from "lucide-react";
 import Link from "next/link";
 import { useActionState } from "react";
 
-async function forgotPasswordAction(prevState: any, formData: FormData) {
+interface ActionState {
+  success?: boolean;
+}
+
+async function forgotPasswordAction(
+  prevState: ActionState | null,
+  formData: FormData,
+) {
   const email = formData.get("email");
   await new Promise((resolve) => setTimeout(resolve, 1500));
   console.log("Forgot Password Action:", { email });
@@ -50,13 +57,13 @@ const ForgotPasswordForm = () => {
           </p>
         )}
 
-        <button
+        <Button
           type="submit"
           disabled={isPending}
           className="w-full h-14 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold rounded-lg hover:opacity-95 transition-all shadow-lg text-lg flex items-center justify-center disabled:opacity-50 cursor-pointer"
         >
           {isPending ? "Sending..." : "Send OTP"}
-        </button>
+        </Button>
       </form>
     </div>
   );

@@ -1,11 +1,20 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { FormInput } from "@/components/ui/form-input";
 import { ArrowLeft, Lock } from "lucide-react";
 import Link from "next/link";
 import { useActionState } from "react";
 
-async function resetPasswordAction(prevState: any, formData: FormData) {
+interface ActionState {
+  error?: string;
+  success?: boolean;
+}
+
+async function resetPasswordAction(
+  prevState: ActionState | null,
+  formData: FormData,
+) {
   const password = formData.get("password");
   const confirmPassword = formData.get("confirmPassword");
 
@@ -74,13 +83,13 @@ const ResetPasswordForm = () => {
           </p>
         )}
 
-        <button
+        <Button
           type="submit"
           disabled={isPending}
           className="w-full h-14 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold rounded-lg hover:opacity-95 transition-all shadow-lg text-lg flex items-center justify-center disabled:opacity-50 cursor-pointer"
         >
           {isPending ? "Saving..." : "Save"}
-        </button>
+        </Button>
       </form>
     </div>
   );
