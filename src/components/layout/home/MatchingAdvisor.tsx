@@ -1,7 +1,7 @@
-"use client";
-
+import advisorImage from "@/assets/home/advisor.png";
+import { Button } from "@/components/ui/button";
 import { CheckCircle2 } from "lucide-react";
-import Link from "next/link";
+import Image from "next/image";
 
 const MatchingAdvisor = () => {
   const benefits = [
@@ -12,12 +12,14 @@ const MatchingAdvisor = () => {
   ];
 
   return (
-    <section className="py-24 bg-white">
-      <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <section className="w-full py-24 bg-white">
+      <div className="container mx-auto px-5 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         <div className="order-2 lg:order-1">
-          <span className="inline-block bg-[#FDF2F2] text-[#FF56A5] px-4 py-1.5 rounded-full text-sm font-bold mb-6">
-            Premium Services
-          </span>
+          <div className="px-4 py-2 rounded text-sm font-bold mb-6 bg-[#F9E6E6] w-fit">
+            <span className="inline-block bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-clip bg-clip-text text-transparent ">
+              Premium Services
+            </span>
+          </div>
           <h2 className="text-4xl font-bold text-[#1F2937] mb-4 leading-tight">
             Hiring a Matching Advisor
           </h2>
@@ -32,7 +34,7 @@ const MatchingAdvisor = () => {
           </p>
 
           <ul className="space-y-4 mb-10">
-            {benefits.map((benefit, index) => (
+            {benefits?.map((benefit, index) => (
               <li
                 key={index}
                 className="flex items-center gap-3 text-gray-500 font-medium"
@@ -47,20 +49,21 @@ const MatchingAdvisor = () => {
             ))}
           </ul>
 
-          <Link
-            href="/hire-advisor"
-            className="inline-block bg-linear-to-r from-[#FF56A5] via-[#B131D4] to-[#4B39ED] text-white px-8 py-3 rounded-lg font-bold shadow-md hover:opacity-90 transition-opacity"
-          >
+          <Button className="bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white px-8 h-12 cursor-pointer">
             Hire a Matching Advisor
-          </Link>
+          </Button>
         </div>
 
         <div className="order-1 lg:order-2">
-          <div className="rounded-[40px] overflow-hidden shadow-xl bg-gray-100 aspect-4/3 flex items-center justify-center border-4 border-white">
-            <div className="text-gray-400 text-center">
-              <p className="font-medium">Image of Advisor & Client</p>
-            </div>
-          </div>
+          <Image
+            src={advisorImage}
+            alt="Advisor"
+            className="w-full h-full object-cover object-center"
+            width={520}
+            height={580}
+            quality={100}
+            priority
+          />
         </div>
       </div>
     </section>

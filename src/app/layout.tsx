@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Roboto } from "next/font/google";
+import { Rubik } from "next/font/google";
 
-const roboto = Roboto({
+const roboto = Rubik({
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["300", "400"],
 });
 
 export const metadata: Metadata = {
