@@ -39,17 +39,13 @@ const HeroSection = () => {
 
         {/* ── Right Column: Image ── */}
         <div className="relative flex justify-center lg:justify-end items-center w-full">
-          <div className="relative w-full max-w-[520px] h-[350px] sm:h-[450px] md:h-[580px] rounded-lg overflow-hidden bg-gray-200 z-10 shadow-2xl transition-all duration-500">
-            <Image
-              src={heroImage}
-              alt="Couple on a romantic dinner date"
-              className="w-full h-full object-cover object-center"
-              width={520}
-              height={580}
-              quality={100}
-              priority
-            />
-          </div>
+          <Image
+            src={heroImage}
+            alt="Couple on a romantic dinner date"
+            className="object-cover object-center"
+            width={580}
+            height={480}
+          />
         </div>
       </div>
     </section>
