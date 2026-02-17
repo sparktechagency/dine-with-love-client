@@ -12,8 +12,6 @@ import {
 } from "@/components/ui/sidebar";
 import { cn } from "@/lib/utils";
 import {
-  ChevronLeft,
-  ChevronRight,
   LayoutDashboard,
   LogOut,
   MailOpen,
@@ -60,13 +58,16 @@ const items = [
 
 export const AppSidebar = () => {
   const pathname = usePathname();
-  const { state, toggleSidebar, isMobile } = useSidebar();
+  const { state } = useSidebar();
   const isCollapsed = state === "collapsed";
 
   return (
     <Sidebar collapsible="icon" className="border-none bg-white p-3">
-      <SidebarHeader className="p-4 relative min-h-[80px] flex justify-center">
-        <Link href="/" className="flex items-center gap-3 overflow-hidden">
+      <SidebarHeader className="p-4 flex justify-center">
+        <Link
+          href="/"
+          className="flex items-center gap-3 overflow-hidden transition-all"
+        >
           <div className="size-12 shrink-0 rounded-xl bg-linear-to-br from-[#FF3AB3] to-[#5432C8] flex items-center justify-center shadow-lg shadow-pink-100">
             <span className="text-white font-black text-sm">glint</span>
           </div>
@@ -76,18 +77,6 @@ export const AppSidebar = () => {
             </span>
           )}
         </Link>
-        {!isMobile && (
-          <button
-            onClick={toggleSidebar}
-            className="absolute -right-3 top-1/2 -translate-y-1/2 size-7 rounded-full bg-white border border-gray-100 flex items-center justify-center text-gray-400 hover:text-gray-900 transition-all z-50 shadow-md hover:scale-110 active:scale-95"
-          >
-            {isCollapsed ? (
-              <ChevronRight className="size-4" />
-            ) : (
-              <ChevronLeft className="size-4" />
-            )}
-          </button>
-        )}
       </SidebarHeader>
       <SidebarContent className="px-2 mt-8">
         <SidebarMenu className="gap-3">
