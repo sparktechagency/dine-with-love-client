@@ -65,7 +65,7 @@ const Features = () => {
               </div>
 
               <div className="flex-1 w-full max-w-[500px] mx-auto lg:mx-0">
-                <div className="relative h-[300px] sm:h-[400px] w-full rounded-[30px] overflow-hidden">
+                <div className="relative h-[300px] sm:h-[400px] w-full rounded-lg overflow-hidden">
                   <Image
                     src={feature.imageUrl.src}
                     alt={feature.title}

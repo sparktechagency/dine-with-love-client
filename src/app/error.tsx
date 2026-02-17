@@ -32,14 +32,14 @@ export default function Error({
       <div className="flex flex-col sm:flex-row gap-4">
         <button
           onClick={() => reset()}
-          className="flex items-center gap-2 px-8 py-3 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold rounded-xl hover:opacity-90 transition-all shadow-lg text-lg"
+          className="flex items-center gap-2 px-8 py-3 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold rounded-lg hover:opacity-90 transition-all shadow-lg text-lg"
         >
           <RefreshCw className="size-5" />
           Try Again
         </button>
         <Link
           href="/"
-          className="px-8 py-3 border border-gray-200 text-gray-700 font-bold rounded-xl hover:bg-gray-50 transition-all text-center text-lg"
+          className="px-8 py-3 border border-gray-200 text-gray-700 font-bold rounded-lg hover:bg-gray-50 transition-all text-center text-lg"
         >
           Return Home
         </Link>

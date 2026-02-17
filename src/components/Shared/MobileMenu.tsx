@@ -63,7 +63,7 @@ const MobileMenu = ({
                 className={cn(
                   "py-2 border-b border-white/10 block text-base font-medium transition-all",
                   isActive
-                    ? "text-white font-bold pl-2 bg-white/10 rounded-md"
+                    ? "text-white font-bold pl-2 bg-white/10 rounded-lg"
                     : "text-white/70 hover:pl-2",
                 )}
                 onClick={() => setIsOpen(false)}
