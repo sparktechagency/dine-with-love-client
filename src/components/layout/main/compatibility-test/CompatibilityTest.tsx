@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { FormCheckbox } from "@/components/ui/form-checkbox";
+import { Checkbox } from "@/components/ui/checkbox";
 import { cn } from "@/lib/utils";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
@@ -89,7 +89,7 @@ const CompatibilityTest = () => {
 
   return (
     <section className="py-24 bg-[#F8F9FC] min-h-screen flex items-center justify-center p-6">
-      <div className="max-w-5xl w-full bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row min-h-[600px]">
+      <div className="max-w-5xl w-full bg-white rounded-3xl border border-gray-100 overflow-hidden flex flex-col md:flex-row min-h-[600px]">
         {/* Left Side: Form */}
         <div className="flex-1 p-8 md:p-16 flex flex-col justify-between">
           <div className="space-y-12">
@@ -137,19 +137,21 @@ const CompatibilityTest = () => {
                   <div
                     key={option.id}
                     className={cn(
-                      "group flex items-center p-4 rounded-xl border-2 transition-all cursor-pointer",
+                      "group flex items-center p-4 rounded-xl border-2 cursor-pointer",
                       selections[currentStep] === option.id
-                        ? "border-[#FF3AB3] bg-pink-50/30"
-                        : "border-gray-50 hover:border-gray-200 bg-white",
+                        ? "border-[#FF3AB3] bg-pink-50/10"
+                        : "border-gray-50 bg-white",
                     )}
                     onClick={() => handleToggle(currentStep, option.id)}
                   >
-                    <FormCheckbox
+                    <Checkbox
                       checked={selections[currentStep] === option.id}
-                      onChange={() => handleToggle(currentStep, option.id)}
-                      className="size-5"
+                      onCheckedChange={() =>
+                        handleToggle(currentStep, option.id)
+                      }
+                      className="size-5 border-gray-300 data-[state=checked]:bg-[#FF3AB3] data-[state=checked]:border-[#FF3AB3]"
                     />
-                    <span className="ml-4 font-bold text-gray-700 group-hover:text-gray-900 transition-colors">
+                    <span className="ml-4 font-bold text-gray-700">
                       {option.label}
                     </span>
                   </div>
@@ -163,7 +165,7 @@ const CompatibilityTest = () => {
               variant="outline"
               onClick={prevStep}
               disabled={currentStep === 1}
-              className="h-14 px-10 border-[#FF3AB3] text-[#FF3AB3] font-bold rounded-xl hover:bg-pink-50 transition-all disabled:opacity-30 flex items-center gap-2 shadow-none"
+              className="h-14 px-10 border-[#FF3AB3] text-[#FF3AB3] font-bold rounded-xl disabled:opacity-30 flex items-center gap-2 shadow-none"
             >
               <ChevronLeft className="size-5" />
               Back
@@ -171,7 +173,7 @@ const CompatibilityTest = () => {
             <Button
               onClick={nextStep}
               disabled={!selections[currentStep]}
-              className="h-14 px-12 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold rounded-xl hover:opacity-90 transition-all shadow-lg flex items-center gap-2"
+              className="h-14 px-12 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold rounded-xl flex items-center gap-2 shadow-none"
             >
               {currentStep === steps.length ? "Finish" : "Next"}
               {currentStep < steps.length && (
@@ -184,7 +186,7 @@ const CompatibilityTest = () => {
         {/* Right Side: Image Overlay */}
         <div className="hidden lg:block w-5/12 relative min-h-full">
           <Image
-            src="https://images.unsplash.com/photo-1522673607200-164883eeca48?q=80&w=1000&auto=format&fit=crop"
+            src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1000&auto=format&fit=crop"
             alt="Happy Couple"
             fill
             className="object-cover"
