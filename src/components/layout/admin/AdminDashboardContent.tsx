@@ -1,7 +1,16 @@
 "use client";
-
+import { FormSelect } from "@/components/ui/form-select";
 import { cn } from "@/lib/utils";
 import { Calendar, Star, TrendingDown, TrendingUp, User } from "lucide-react";
+import {
+  Area,
+  AreaChart,
+  CartesianGrid,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from "recharts";
 
 const stats = [
   {
@@ -40,6 +49,16 @@ const stats = [
     iconBg: "bg-rose-50",
     iconColor: "text-rose-500",
   },
+];
+
+const chartData = [
+  { name: "Sun", revenue: 80, users: 40 },
+  { name: "Mon", revenue: 150, users: 60 },
+  { name: "Tue", revenue: 100, users: 120 },
+  { name: "Wed", revenue: 250, users: 50 },
+  { name: "Thu", revenue: 350, users: 140 },
+  { name: "Fri", revenue: 160, users: 70 },
+  { name: "Sat", revenue: 160, users: 80 },
 ];
 
 export const AdminDashboardContent = () => {
@@ -93,37 +112,84 @@ export const AdminDashboardContent = () => {
       <div className="bg-white rounded-md border border-gray-100 shadow-sm overflow-hidden">
         <div className="p-8 border-b border-gray-50 flex items-center justify-between">
           <h3 className="text-xl font-black text-gray-900">Revenue</h3>
-          <select className="bg-gray-50 border border-gray-100 rounded-md px-4 py-2 text-xs font-bold outline-hidden cursor-pointer">
-            <option>Monthly</option>
-            <option>Weekly</option>
-            <option>Yearly</option>
-          </select>
-        </div>
-        <div className="p-8 min-h-[400px] flex items-center justify-center bg-linear-to-b from-white to-gray-50/30">
-          {/* Placeholder for Chart */}
-          <div className="w-full h-80 relative flex items-end gap-1 px-4">
-            {/* Simple visual representation of a chart for now */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <p className="text-gray-400 font-bold italic opacity-30 text-5xl rotate-12 select-none">
-                REVENUE CHART PLACEHOLDER
-              </p>
-            </div>
-
-            {/* Mock chart bars/lines can be added if needed, but the user requested the layout */}
-            <div className="absolute bottom-0 left-0 w-full h-px bg-gray-100" />
-            <div className="flex-1 h-[40%] bg-linear-to-t from-pink-500/20 to-transparent border-t-2 border-pink-500 rounded-t-sm" />
-            <div className="flex-1 h-[60%] bg-linear-to-t from-purple-500/20 to-transparent border-t-2 border-purple-500 rounded-t-sm" />
-            <div className="flex-1 h-[30%] bg-linear-to-t from-violet-500/20 to-transparent border-t-2 border-violet-500 rounded-t-sm" />
-            <div className="flex-1 h-[80%] bg-linear-to-t from-blue-500/20 to-transparent border-t-2 border-blue-500 rounded-t-sm" />
-            <div className="flex-1 h-[50%] bg-linear-to-t from-indigo-500/20 to-transparent border-t-2 border-indigo-500 rounded-t-sm" />
+          <div className="w-40">
+            <FormSelect
+              options={[
+                { value: "monthly", label: "Monthly" },
+                { value: "weekly", label: "Weekly" },
+                { value: "yearly", label: "Yearly" },
+              ]}
+              placeholder="Monthly"
+            />
           </div>
         </div>
-        <div className="px-8 py-6 border-t border-gray-50 flex justify-between">
-          {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((day) => (
-            <span key={day} className="text-xs font-bold text-gray-400">
-              {day}
-            </span>
-          ))}
+
+        <div className="p-8 h-[450px] w-full mt-4">
+          <ResponsiveContainer width="100%" height="100%">
+            <AreaChart
+              data={chartData}
+              margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+            >
+              <defs>
+                <linearGradient id="colorRevenue" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="5%" stopColor="#8b5cf6" stopOpacity={0.1} />
+                  <stop offset="95%" stopColor="#8b5cf6" stopOpacity={0} />
+                </linearGradient>
+                <linearGradient id="colorUsers" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="5%" stopColor="#e5e7eb" stopOpacity={0.1} />
+                  <stop offset="95%" stopColor="#e5e7eb" stopOpacity={0} />
+                </linearGradient>
+              </defs>
+              <CartesianGrid
+                vertical={false}
+                strokeDasharray="3 3"
+                stroke="#f3f4f6"
+              />
+              <XAxis
+                dataKey="name"
+                axisLine={false}
+                tickLine={false}
+                tick={{ fontSize: 12, fontWeight: 700, fill: "#9ca3af" }}
+                dy={20}
+              />
+              <YAxis
+                axisLine={false}
+                tickLine={false}
+                tick={{ fontSize: 12, fontWeight: 700, fill: "#9ca3af" }}
+                ticks={[10, 50, 100, 150, 500, 1000]}
+              />
+              <Tooltip
+                content={({ active, payload }) => {
+                  if (active && payload && payload.length) {
+                    return (
+                      <div className="bg-[#0ea5e9] text-white px-3 py-1.5 rounded-sm flex items-center gap-2 font-bold shadow-lg text-sm">
+                        <span>{payload[0].value}</span>
+                        <div className="w-px h-3 bg-white/30" />
+                        <span>{payload[1].value}</span>
+                      </div>
+                    );
+                  }
+                  return null;
+                }}
+              />
+              <Area
+                type="monotone"
+                dataKey="revenue"
+                stroke="#a855f7"
+                strokeWidth={3}
+                fillOpacity={1}
+                fill="url(#colorRevenue)"
+              />
+              <Area
+                type="monotone"
+                dataKey="users"
+                stroke="#e5e7eb"
+                strokeWidth={2}
+                fillOpacity={1}
+                fill="url(#colorUsers)"
+              />
+            </AreaChart>
+          </ResponsiveContainer>
         </div>
       </div>
     </section>
