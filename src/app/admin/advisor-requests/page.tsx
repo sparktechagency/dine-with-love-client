@@ -1,13 +1,7 @@
-import { AdminPlaceholderContent } from "@/components/layout/admin/AdminPlaceholderContent";
-import { UserCheck } from "lucide-react";
+import { AdvisorRequestsContent } from "@/components/layout/admin/advisor-requests/AdvisorRequestsContent";
 
 const AdvisorRequestsPage = () => {
-  return (
-    <AdminPlaceholderContent
-      title="Special Advisor Requests"
-      icon={UserCheck}
-    />
-  );
+  return <AdvisorRequestsContent />;
 };
 
 export default AdvisorRequestsPage;
