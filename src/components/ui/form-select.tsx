@@ -46,7 +46,7 @@ const FormSelect: React.FC<FormSelectProps> = ({
         <Select {...props}>
           <SelectTrigger
             className={cn(
-              "h-12 border-gray-200 font-medium transition-all",
+              "h-12 border-input font-medium transition-all",
               Icon && "pl-10",
               error ? "border-red-500 bg-red-50/10" : "bg-gray-50/30",
               triggerClassName,
