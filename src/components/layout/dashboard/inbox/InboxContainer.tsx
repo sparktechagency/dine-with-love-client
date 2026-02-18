@@ -54,7 +54,7 @@ export const InboxContainer = () => {
   };
 
   return (
-    <div className="w-full h-[calc(100vh-(--spacing(36)))] bg-white rounded-2xl border border-gray-100 shadow-xl shadow-gray-100/50 flex overflow-hidden animate-in fade-in duration-500">
+    <div className="w-full h-[calc(100vh-(--spacing(36)))] bg-white rounded-md border border-gray-100 shadow-xl shadow-gray-100/50 flex overflow-hidden animate-in fade-in duration-500">
       <ChatSidebar
         chats={filteredChats}
         selectedChatId={selectedChatId}

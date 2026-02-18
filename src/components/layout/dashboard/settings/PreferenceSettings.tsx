@@ -7,7 +7,7 @@ import { Switch } from "@/components/ui/switch";
 
 export const PreferenceSettings = () => {
   return (
-    <Card className="rounded-[24px] border border-gray-100 shadow-sm p-8 transition-all hover:border-gray-200">
+    <Card className="rounded-md border border-gray-100 shadow-sm p-8 transition-all hover:border-gray-200">
       <CardHeader className="px-0 pt-0 pb-10">
         <CardTitle className="text-xl font-bold text-gray-900">
           Preference

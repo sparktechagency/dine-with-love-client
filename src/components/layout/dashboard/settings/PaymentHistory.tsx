@@ -29,7 +29,7 @@ export const PaymentHistory = () => {
   ];
 
   return (
-    <Card className="rounded-[24px] border border-gray-100 shadow-sm p-8 transition-all hover:border-gray-200">
+    <Card className="rounded-md border border-gray-100 shadow-sm p-8 transition-all hover:border-gray-200">
       <CardHeader className="px-0 pt-0 pb-8">
         <CardTitle className="text-xl font-bold text-gray-900">
           Payments
@@ -40,7 +40,7 @@ export const PaymentHistory = () => {
         {history.map((item) => (
           <div
             key={item.id}
-            className="group flex flex-col gap-4 p-6 rounded-xl border border-gray-100 bg-white transition-all hover:bg-gray-50/50"
+            className="group flex flex-col gap-4 p-6 rounded-md border border-gray-100 bg-white transition-all hover:bg-gray-50/50"
           >
             <div className="flex items-start justify-between">
               <div className="space-y-1">

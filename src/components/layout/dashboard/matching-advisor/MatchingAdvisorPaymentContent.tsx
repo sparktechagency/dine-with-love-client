@@ -12,8 +12,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { FormInput } from "@/components/ui/form-input";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 
@@ -37,7 +36,7 @@ const MatchingAdvisorPaymentContent = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
         {/* Left Column: Summary */}
         <div className="space-y-6">
-          <div className="rounded-[24px] border border-gray-100 bg-white p-10 space-y-8 shadow-sm">
+          <div className="rounded-md border border-gray-100 bg-white p-10 space-y-8 shadow-sm">
             <div className="flex items-start gap-4">
               <div className="size-12 rounded-full bg-linear-to-tr from-[#FF3AB3] to-[#5432C8] flex items-center justify-center shrink-0">
                 <Info className="h-6 w-6 text-white" />
@@ -60,7 +59,7 @@ const MatchingAdvisorPaymentContent = () => {
               <span className="font-black text-2xl text-gray-900">$50.00</span>
             </div>
 
-            <Button className="w-full h-14 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white rounded-xl font-bold text-md shadow-none transition-all hover:scale-[1.01] active:scale-[0.99]">
+            <Button className="w-full h-14 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white rounded-md font-bold text-md shadow-none transition-all hover:scale-[1.01] active:scale-[0.99]">
               Pay
             </Button>
           </div>
@@ -68,7 +67,7 @@ const MatchingAdvisorPaymentContent = () => {
 
         {/* Right Column: Payment Details */}
         <div className="space-y-8">
-          <Card className="rounded-[24px] border border-gray-100 shadow-sm p-2">
+          <Card className="rounded-md border border-gray-100 shadow-sm p-2">
             <CardHeader className="p-8 pb-4">
               <CardTitle className="text-md font-bold text-gray-900">
                 Payment Method
@@ -78,14 +77,14 @@ const MatchingAdvisorPaymentContent = () => {
               <button
                 onClick={() => setPaymentMethod("paypal")}
                 className={cn(
-                  "w-full p-5 rounded-2xl border-2 flex items-center justify-between transition-all",
+                  "w-full p-5 rounded-md border-2 flex items-center justify-between transition-all",
                   paymentMethod === "paypal"
                     ? "border-[#FF3AB3] bg-pink-50/10"
                     : "border-gray-50 hover:border-gray-100",
                 )}
               >
                 <div className="flex items-center gap-4">
-                  <div className="size-8 bg-blue-50 rounded-lg flex items-center justify-center italic font-black text-[#003087] text-[10px]">
+                  <div className="size-8 bg-blue-50 rounded-md flex items-center justify-center italic font-black text-[#003087] text-[10px]">
                     P
                   </div>
                   <span className="font-bold text-gray-700 text-sm">
@@ -109,14 +108,14 @@ const MatchingAdvisorPaymentContent = () => {
               <button
                 onClick={() => setPaymentMethod("card")}
                 className={cn(
-                  "w-full p-5 rounded-2xl border-2 flex items-center justify-between transition-all",
+                  "w-full p-5 rounded-md border-2 flex items-center justify-between transition-all",
                   paymentMethod === "card"
                     ? "border-[#FF3AB3] bg-pink-50/10"
                     : "border-gray-50 hover:border-gray-100",
                 )}
               >
                 <div className="flex items-center gap-4">
-                  <div className="size-8 bg-red-50 rounded-lg flex items-center justify-center">
+                  <div className="size-8 bg-red-50 rounded-md flex items-center justify-center">
                     <CreditCard className="size-4 text-red-500" />
                   </div>
                   <span className="font-bold text-gray-700 text-sm">
@@ -139,7 +138,7 @@ const MatchingAdvisorPaymentContent = () => {
             </CardContent>
           </Card>
 
-          <Card className="rounded-[24px] border border-gray-100 shadow-sm p-4">
+          <Card className="rounded-md border border-gray-100 shadow-sm p-4">
             <CardHeader className="p-8 pb-4">
               <div className="flex items-center justify-between">
                 <CardTitle className="text-md font-black text-gray-900">
@@ -149,69 +148,41 @@ const MatchingAdvisorPaymentContent = () => {
               </div>
             </CardHeader>
             <CardContent className="p-8 pt-0 space-y-6">
-              <div className="grid gap-2">
-                <Label
-                  htmlFor="name"
-                  className="text-xs font-bold text-gray-700"
-                >
-                  Card Holder Name
-                </Label>
-                <Input
-                  id="name"
-                  placeholder="Enter card holder name"
-                  className="rounded-xl h-12 bg-gray-50/50 border-gray-50 focus-visible:ring-pink-100 text-sm font-medium"
-                />
-              </div>
-              <div className="grid gap-2">
-                <Label
-                  htmlFor="number"
-                  className="text-xs font-bold text-gray-700"
-                >
-                  Card Number *
-                </Label>
-                <Input
-                  id="number"
-                  placeholder="**** **** **** ****"
-                  className="rounded-xl h-12 bg-gray-50/50 border-gray-50 focus-visible:ring-pink-100 text-sm font-medium"
-                />
-              </div>
+              <FormInput
+                id="name"
+                label="Card Holder Name"
+                placeholder="Enter card holder name"
+                className="bg-gray-50/50"
+              />
+              <FormInput
+                id="number"
+                label="Card Number *"
+                placeholder="**** **** **** ****"
+                className="bg-gray-50/50"
+              />
               <div className="grid grid-cols-2 gap-4">
-                <div className="grid gap-2">
-                  <Label
-                    htmlFor="expiry"
-                    className="text-xs font-bold text-gray-700"
-                  >
-                    Expiration date *
-                  </Label>
-                  <Input
-                    id="expiry"
-                    placeholder="Month / Year"
-                    className="rounded-xl h-12 bg-gray-50/50 border-gray-50 focus-visible:ring-pink-100 text-sm font-medium"
-                  />
-                </div>
-                <div className="grid gap-2">
-                  <Label
-                    htmlFor="cvc"
-                    className="text-xs font-bold text-gray-700"
-                  >
-                    CVV / CVC *
-                  </Label>
-                  <Input
-                    id="cvc"
-                    placeholder="***"
-                    className="rounded-xl h-12 bg-gray-50/50 border-gray-50 focus-visible:ring-pink-100 text-sm font-medium"
-                  />
-                </div>
+                <FormInput
+                  id="expiry"
+                  label="Expiration date *"
+                  placeholder="Month / Year"
+                  className="bg-gray-50/50"
+                />
+                <FormInput
+                  id="cvv"
+                  label="CVV / CVC *"
+                  placeholder="***"
+                  className="bg-gray-50/50"
+                />
               </div>
             </CardContent>
             <CardFooter className="p-8 pt-0 flex justify-between gap-4">
               <Button
                 variant="outline"
-                className="w-full h-14 rounded-xl font-bold border-[#FF3AB3] text-[#FF3AB3] hover:bg-pink-50 transition-all shadow-none"
+                className="w-full h-14 rounded-md font-bold border-[#FF3AB3] text-[#FF3AB3] hover:bg-pink-50 transition-all shadow-none"
               >
                 Back
               </Button>
-              <Button className="w-full h-14 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white rounded-xl font-bold shadow-none transition-all hover:scale-[1.01] active:scale-[0.99]">
+              <Button className="w-full h-14 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white rounded-md font-bold shadow-none transition-all hover:scale-[1.01] active:scale-[0.99]">
                 pay
               </Button>
             </CardFooter>

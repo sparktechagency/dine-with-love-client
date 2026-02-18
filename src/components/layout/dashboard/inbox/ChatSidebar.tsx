@@ -1,5 +1,6 @@
 "use client";
 
+import { FormInput } from "@/components/ui/form-input";
 import { cn } from "@/lib/utils";
 import { Search } from "lucide-react";
 import Image from "next/image";
@@ -27,19 +28,16 @@ export const ChatSidebar = ({
     <div className="w-[320px] shrink-0 border-r border-gray-100 bg-white flex flex-col">
       {/* Search Header */}
       <div className="p-4 pt-6 border-b border-gray-50/50">
-        <div className="relative">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-gray-400" />
-          <input
-            type="text"
-            placeholder="Search"
-            value={searchQuery}
-            onChange={(e) => onSearchChange(e.target.value)}
-            className="w-full h-11 pl-10 pr-4 rounded-md border-none bg-gray-100/50 text-sm font-medium focus:outline-none focus:ring-1 focus:ring-[#FF3AB3]/20 transition-all placeholder:text-gray-400"
-          />
-        </div>
+        <FormInput
+          icon={Search}
+          placeholder="Search"
+          value={searchQuery}
+          onChange={(e) => onSearchChange(e.target.value)}
+          className="bg-gray-100/50 border-none shadow-none focus:ring-[#FF3AB3]/20"
+        />
       </div>
 
-      <div className="flex-1 overflow-y-auto px-1 space-y-6 pb-6">
+      <div className="flex-1 overflow-y-auto px-1 space-y-6 pb-6 no-scrollbar">
         {advisors.length > 0 && (
           <div className="space-y-1">
             <h3 className="px-4 py-2 text-md font-black text-gray-900">

@@ -13,14 +13,14 @@ export const PaymentMethodSelector = ({
   setPaymentMethod,
 }: PaymentMethodSelectorProps) => {
   return (
-    <div className="bg-white rounded-2xl p-8 border border-gray-100 space-y-6 shadow-none">
+    <div className="bg-white rounded-md p-8 border border-gray-100 space-y-6 shadow-none">
       <h4 className="text-xl font-black text-gray-900">Payment Method</h4>
 
       <div className="space-y-4">
         <button
           onClick={() => setPaymentMethod("paypal")}
           className={cn(
-            "w-full p-6 rounded-xl border flex items-center justify-between transition-all",
+            "w-full p-6 rounded-md border flex items-center justify-between transition-all",
             paymentMethod === "paypal"
               ? "border-[#5432C8] bg-purple-50/10"
               : "border-gray-100 hover:border-gray-200",
@@ -46,7 +46,7 @@ export const PaymentMethodSelector = ({
         <button
           onClick={() => setPaymentMethod("card")}
           className={cn(
-            "w-full p-6 rounded-xl border flex items-center justify-between transition-all",
+            "w-full p-6 rounded-md border flex items-center justify-between transition-all",
             paymentMethod === "card"
               ? "border-[#5432C8] bg-purple-50/10"
               : "border-gray-100 hover:border-gray-200",

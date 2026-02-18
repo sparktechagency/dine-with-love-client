@@ -1,5 +1,6 @@
 "use client";
 
+import { FormInput } from "@/components/ui/form-input";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import { Bell, Search } from "lucide-react";
 import Image from "next/image";
@@ -36,23 +37,22 @@ const DashboardHeader = () => {
       <div className="flex items-center gap-6 flex-1 justify-end">
         {/* Search Bar */}
         <div className="hidden lg:flex items-center relative max-w-sm w-full">
-          <Search className="absolute left-3.5 size-4 text-gray-400" />
-          <input
-            type="text"
+          <FormInput
+            icon={Search}
             placeholder="Search"
-            className="w-full h-11 bg-gray-50/50 border border-gray-100 rounded-lg pl-10 pr-4 text-sm font-medium focus:outline-none focus:ring-1 focus:ring-primary/20 transition-all"
+            className="w-full h-11 bg-gray-50/50 border-gray-100 rounded-md focus:outline-none focus:ring-1 focus:ring-primary/20 transition-all shadow-none"
           />
         </div>
 
         <div className="flex items-center gap-3">
           <Link href="/dashboard/notifications">
-            <button className="size-10 text-primary rounded-lg border border-primary transition-all hover:bg-primary/10 cursor-pointer flex justify-center items-center relative">
+            <button className="size-10 text-primary rounded-md border border-primary transition-all hover:bg-primary/10 cursor-pointer flex justify-center items-center relative">
               <Bell className="size-5" />
               <span className="absolute top-2 right-2.5 size-2 bg-red-500 rounded-full border border-white" />
             </button>
           </Link>
 
-          <div className="size-10 rounded-lg overflow-hidden border border-gray-100 cursor-pointer transition-all hover:opacity-80">
+          <div className="size-10 rounded-md overflow-hidden border border-gray-100 cursor-pointer transition-all hover:opacity-80">
             <Image
               src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=100"
               alt="Profile"

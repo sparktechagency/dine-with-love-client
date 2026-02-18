@@ -5,6 +5,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { FormTextarea } from "@/components/ui/form-textarea";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 
@@ -29,7 +30,7 @@ export const FeedbackModal = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-[450px] rounded-2xl p-8">
+      <DialogContent className="max-w-[450px] rounded-md p-8">
         <DialogHeader className="space-y-4">
           <DialogTitle className="text-2xl font-black text-gray-900 border-none">
             Feedback
@@ -91,15 +92,11 @@ export const FeedbackModal = ({
             </div>
           </div>
 
-          <div className="space-y-3">
-            <label className="text-sm font-black text-gray-900">
-              additional notes(optional)
-            </label>
-            <textarea
-              placeholder="Leading for connections by enjoy outdoor dinners"
-              className="w-full min-h-[120px] p-4 rounded-md border border-gray-100 bg-gray-50/30 text-sm font-bold focus:outline-none focus:ring-1 focus:ring-[#FF3AB3]/20 resize-none transition-all placeholder:text-gray-400 placeholder:italic"
-            />
-          </div>
+          <FormTextarea
+            label="additional notes(optional)"
+            placeholder="Leading for connections by enjoy outdoor dinners"
+            className="w-full min-h-[120px] bg-gray-50/30"
+          />
 
           <Button
             onClick={handleSubmit}

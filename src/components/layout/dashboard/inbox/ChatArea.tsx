@@ -1,5 +1,6 @@
 "use client";
 
+import { FormInput } from "@/components/ui/form-input";
 import { cn } from "@/lib/utils";
 import { Image as ImageIcon } from "lucide-react";
 import Image from "next/image";
@@ -105,22 +106,21 @@ export const ChatArea = ({
       {/* Input */}
       <div className="p-6 border-t border-gray-100">
         <div className="flex items-center gap-4">
-          <div className="flex-1 flex items-center gap-3 bg-gray-100/50 rounded-md border-none px-4 py-1.5 shadow-none focus-within:ring-1 focus-within:ring-[#FF3AB3]/20 transition-all">
-            <input
-              type="text"
+          <div className="flex-1 relative">
+            <FormInput
               placeholder="Type a message"
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleSend()}
-              className="flex-1 h-10 bg-transparent border-none focus:outline-none text-sm font-medium text-gray-900 placeholder:text-gray-400"
+              className="bg-gray-100/50 border-none shadow-none focus:ring-[#FF3AB3]/20 pr-12"
             />
-            <button className="p-2 text-gray-400 hover:text-[#FF3AB3] transition-colors">
+            <button className="absolute right-3 top-1/2 -translate-y-1/2 p-2 text-gray-400 hover:text-[#FF3AB3] transition-colors">
               <ImageIcon className="size-5 opacity-40" />
             </button>
           </div>
           <button
             onClick={handleSend}
-            className="h-[52px] px-6 flex items-center justify-center bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white rounded-md font-bold text-sm shadow-sm transition-all active:scale-95"
+            className="h-[50px] px-8 flex items-center justify-center bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white rounded-md font-bold text-sm shadow-sm transition-all active:scale-95"
           >
             Send
           </button>
