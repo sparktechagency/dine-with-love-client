@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useState } from "react";
+import { AddManualMatch } from "../matches/AddManualMatch";
 import { AdvisorUserProfile } from "./AdvisorUserProfile";
 
 interface AdvisorRequest {
@@ -65,12 +66,17 @@ const advisorRequests: AdvisorRequest[] = [
 ];
 
 export const AdvisorRequestsContent = () => {
-  const [view, setView] = useState<"list" | "profile">("list");
+  const [view, setView] = useState<"list" | "profile" | "assign">("list");
   const [selectedUser, setSelectedUser] = useState<AdvisorRequest | null>(null);
 
   const handleViewProfile = (request: AdvisorRequest) => {
     setSelectedUser(request);
     setView("profile");
+  };
+
+  const handleAssignDinner = (request: AdvisorRequest) => {
+    setSelectedUser(request);
+    setView("assign");
   };
 
   const handeBack = () => {
@@ -80,6 +86,10 @@ export const AdvisorRequestsContent = () => {
 
   if (view === "profile" && selectedUser) {
     return <AdvisorUserProfile user={selectedUser} onBack={handeBack} />;
+  }
+
+  if (view === "assign") {
+    return <AddManualMatch onBack={handeBack} />;
   }
 
   return (
@@ -130,7 +140,10 @@ export const AdvisorRequestsContent = () => {
               >
                 Cancel
               </Button>
-              <Button className="flex-1 h-9 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white rounded-md font-bold text-xs shadow-md hover:opacity-90 cursor-pointer">
+              <Button
+                onClick={() => handleAssignDinner(request)}
+                className="flex-1 h-9 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white rounded-md font-bold text-xs shadow-md hover:opacity-90 cursor-pointer"
+              >
                 Assign dinner
               </Button>
             </div>
