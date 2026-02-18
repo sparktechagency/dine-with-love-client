@@ -1,4 +1,5 @@
 "use client";
+import logo from "@/assets/logo/logo.png";
 import {
   Sidebar,
   SidebarContent,
@@ -18,10 +19,9 @@ import {
   UserCheck,
   UserPlus,
 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import logo from "@/assets/logo/logo.png";
-import Image from "next/image";
 
 const items = [
   {
@@ -58,8 +58,14 @@ const items = [
 
 export const AppSidebar = () => {
   const pathname = usePathname();
-  const { state } = useSidebar();
+  const { state, isMobile, setOpenMobile } = useSidebar();
   const isCollapsed = state === "collapsed";
+
+  const handleLinkClick = () => {
+    if (isMobile) {
+      setOpenMobile(false);
+    }
+  };
 
   return (
     <Sidebar collapsible="icon" className="border-none">
@@ -70,7 +76,10 @@ export const AppSidebar = () => {
             "h-20 border-b border-gray-100 flex  justify-center items-center transition-all",
           )}
         >
-          <Link href="/" className="flex items-center gap-2 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] p-2.5 rounded-lg">
+          <Link
+            href="/"
+            className="flex items-center gap-2 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] p-2.5 rounded-lg"
+          >
             <Image
               src={logo}
               alt="Logo"
@@ -90,7 +99,11 @@ export const AppSidebar = () => {
 
                 return (
                   <SidebarMenuItem key={item.title}>
-                    <Link href={item.url} className="w-full block">
+                    <Link
+                      href={item.url}
+                      className="w-full block"
+                      onClick={handleLinkClick}
+                    >
                       <SidebarMenuButton
                         tooltip={isCollapsed ? item.title : undefined}
                         className={cn(

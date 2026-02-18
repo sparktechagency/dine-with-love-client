@@ -12,12 +12,33 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { FormInput } from "@/components/ui/form-input";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
+import { CheckCircle2, Heart, Loader2 } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 const MatchingAdvisorPaymentContent = () => {
   const [paymentMethod, setPaymentMethod] = useState("card");
+  const [isProcessing, setIsProcessing] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const router = useRouter();
+
+  const handlePay = async () => {
+    setIsProcessing(true);
+    // Simulate transaction
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+    setIsProcessing(false);
+    setShowSuccess(true);
+    toast.success("Payment successful!");
+  };
 
   return (
     <div className="flex flex-col gap-6 p-2 max-w-6xl mx-auto animate-in fade-in duration-500">
@@ -59,8 +80,19 @@ const MatchingAdvisorPaymentContent = () => {
               <span className="font-black text-2xl text-gray-900">$50.00</span>
             </div>
 
-            <Button className="w-full h-14 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white rounded-md font-bold text-md shadow-none transition-all hover:scale-[1.01] active:scale-[0.99]">
-              Pay
+            <Button
+              onClick={handlePay}
+              disabled={isProcessing}
+              className="w-full h-14 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white rounded-md font-bold text-md shadow-none transition-all hover:scale-[1.01] active:scale-[0.99] cursor-pointer"
+            >
+              {isProcessing ? (
+                <>
+                  <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                  Processing...
+                </>
+              ) : (
+                "Pay"
+              )}
             </Button>
           </div>
         </div>
@@ -182,13 +214,56 @@ const MatchingAdvisorPaymentContent = () => {
               >
                 Back
               </Button>
-              <Button className="px-8 cursor-pointer h-12 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white rounded-md font-bold shadow-none transition-all hover:scale-[1.01] active:scale-[0.99]">
-                pay
+              <Button
+                onClick={handlePay}
+                disabled={isProcessing}
+                className="px-8 cursor-pointer h-12 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white rounded-md font-bold shadow-none transition-all hover:scale-[1.01] active:scale-[0.99]"
+              >
+                {isProcessing ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Processing...
+                  </>
+                ) : (
+                  "pay"
+                )}
               </Button>
             </CardFooter>
           </Card>
         </div>
       </div>
+
+      <Dialog open={showSuccess} onOpenChange={setShowSuccess}>
+        <DialogContent className="sm:max-w-md border-none p-0 overflow-hidden bg-white">
+          <div className="bg-linear-to-r from-[#FF3AB3] to-[#5432C8] h-32 flex items-center justify-center relative">
+            <div className="absolute -bottom-10 size-20 bg-white rounded-full flex items-center justify-center shadow-lg border-4 border-white">
+              <CheckCircle2 className="size-12 text-green-500" />
+            </div>
+            <Heart className="size-16 text-white/20 absolute -top-4 -right-4 rotate-12" />
+            <Heart className="size-12 text-white/10 absolute top-8 left-8 -rotate-12" />
+          </div>
+          <div className="p-8 pt-14 text-center space-y-6">
+            <DialogHeader>
+              <DialogTitle className="text-3xl font-black text-gray-900 text-center font-rubik">
+                Payment Successful!
+              </DialogTitle>
+            </DialogHeader>
+            <p className="text-gray-500 font-medium">
+              Thank you for trusting our Matching Advisor. Your advisor has been
+              assigned and you can now proceed to explore your matches.
+            </p>
+            <Button
+              onClick={() => {
+                setShowSuccess(false);
+                router.push("/dashboard/my-requests");
+              }}
+              className="w-full h-14 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold rounded-md hover:opacity-95 transition-all shadow-lg text-lg cursor-pointer"
+            >
+              Go to My Requests
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
