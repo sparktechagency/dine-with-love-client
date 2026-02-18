@@ -5,7 +5,7 @@ import { FormSelect } from "@/components/ui/form-select";
 import { cn } from "@/lib/utils";
 import { MoreVertical, Search } from "lucide-react";
 
-const users = [
+const users: AdminUser[] = [
   {
     id: 1,
     name: "John Smith",
@@ -53,10 +53,12 @@ const users = [
   },
 ];
 
+import { AdminUser } from "@/types/admin";
+
 interface UserListProps {
-  onViewProfile: (user: any) => void;
-  onViewHistory: (user: any) => void;
-  onSuspend: (user: any) => void;
+  onViewProfile: (user: AdminUser) => void;
+  onViewHistory: (user: AdminUser) => void;
+  onSuspend: (user: AdminUser) => void;
 }
 
 export const UserList = ({

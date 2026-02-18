@@ -44,7 +44,7 @@ const AdminHeader = () => {
           />
         </div>
 
-        <div className="flex items-center gap-3">
+        {/* <div className="flex items-center gap-3">
           <Link href="/admin/notifications">
             <button className="size-10 text-[#FF3AB3] rounded-md border border-[#FF3AB3] transition-all hover:bg-pink-50 cursor-pointer flex justify-center items-center relative">
               <Bell className="size-5" />
@@ -56,6 +56,24 @@ const AdminHeader = () => {
             <Image
               src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=100"
               alt="Admin Profile"
+              width={40}
+              height={40}
+              className="object-cover"
+            />
+          </div>
+        </div> */}
+        <div className="flex items-center gap-3">
+          <Link href="/admin/notifications">
+            <button className="size-10 text-primary rounded-md border border-primary transition-all hover:bg-primary/10 cursor-pointer flex justify-center items-center relative">
+              <Bell className="size-5" />
+              <span className="absolute top-2 right-2.5 size-2 bg-red-500 rounded-full border border-white" />
+            </button>
+          </Link>
+
+          <div className="size-10 rounded-md overflow-hidden border border-gray-100 cursor-pointer transition-all hover:opacity-80">
+            <Image
+              src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=100"
+              alt="Profile"
               width={40}
               height={40}
               className="object-cover"

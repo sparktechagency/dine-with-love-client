@@ -5,8 +5,10 @@ import { FormTextarea } from "@/components/ui/form-textarea";
 import { ArrowLeft } from "lucide-react";
 import { toast } from "sonner";
 
+import { AdminUser } from "@/types/admin";
+
 interface UserSuspendProps {
-  user: any;
+  user: AdminUser;
   onBack: () => void;
 }
 

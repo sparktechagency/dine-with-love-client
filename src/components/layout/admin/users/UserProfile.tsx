@@ -4,8 +4,10 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
 
+import { AdminUser } from "@/types/admin";
+
 interface UserProfileProps {
-  user: any;
+  user: AdminUser;
   onBack: () => void;
 }
 

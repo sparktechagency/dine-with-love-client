@@ -100,26 +100,16 @@ export const AdminSidebar = () => {
           )}
         >
           <Link
-            href="/admin"
-            className={cn(
-              "flex items-center gap-2",
-              isCollapsed ? "justify-center" : "",
-            )}
+            href="/"
+            className="flex items-center gap-2 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] p-2.5 rounded-lg"
           >
-            <div className="bg-linear-to-r from-[#FF3AB3] to-[#5432C8] p-2 rounded-xl">
-              <Image
-                src={logo}
-                alt="Logo"
-                width={40}
-                height={40}
-                className="size-8"
-              />
-            </div>
-            {!isCollapsed && (
-              <span className="font-rubik font-black text-2xl bg-linear-to-r from-[#FF3AB3] to-[#5432C8] bg-clip-text text-transparent">
-                Glint Admin
-              </span>
-            )}
+            <Image
+              src={logo}
+              alt="Logo"
+              width={40}
+              height={40}
+              className="size-10 md:size-12"
+            />
           </Link>
         </SidebarHeader>
 
@@ -144,17 +134,16 @@ export const AdminSidebar = () => {
                         className={cn(
                           "w-full h-12 cursor-pointer flex items-center transition-all rounded-lg",
                           isCollapsed ? "justify-center p-0" : "px-4 gap-3",
+                          isCollapsed ? "[&>svg]:size-6!" : "[&>svg]:size-6!",
                           active
                             ? "bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white hover:text-white hover:opacity-90"
-                            : "text-gray-500 bg-transparent hover:bg-gray-50 hover:text-gray-900",
+                            : "text-gray-500 bg-transparent hover:bg-gray-50",
                         )}
                       >
                         <item.icon
                           className={cn(
-                            "size-5 shrink-0",
-                            active
-                              ? "text-white"
-                              : "text-gray-400 group-hover:text-gray-900",
+                            "shrink-0",
+                            active ? "text-white" : "text-gray-400",
                           )}
                         />
                         {!isCollapsed && (

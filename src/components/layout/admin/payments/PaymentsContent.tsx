@@ -76,7 +76,6 @@ export const PaymentsContent = () => {
               { value: "2023", label: "2023" },
             ]}
             placeholder="2024"
-            className="h-10 bg-white border-gray-100 font-bold text-sm"
           />
         </div>
       </div>

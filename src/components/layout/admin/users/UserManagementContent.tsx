@@ -6,23 +6,25 @@ import { UserMatchHistory } from "./UserMatchHistory";
 import { UserProfile } from "./UserProfile";
 import { UserSuspend } from "./UserSuspend";
 
+import { AdminUser } from "@/types/admin";
+
 export const UserManagementContent = () => {
   const [currentView, setCurrentView] = useState<
     "list" | "profile" | "history" | "suspend"
   >("list");
-  const [selectedUser, setSelectedUser] = useState<any>(null);
+  const [selectedUser, setSelectedUser] = useState<AdminUser | null>(null);
 
-  const handleViewProfile = (user: any) => {
+  const handleViewProfile = (user: AdminUser) => {
     setSelectedUser(user);
     setCurrentView("profile");
   };
 
-  const handleViewHistory = (user: any) => {
+  const handleViewHistory = (user: AdminUser) => {
     setSelectedUser(user);
     setCurrentView("history");
   };
 
-  const handleSuspend = (user: any) => {
+  const handleSuspend = (user: AdminUser) => {
     setSelectedUser(user);
     setCurrentView("suspend");
   };

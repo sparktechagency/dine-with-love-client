@@ -13,6 +13,7 @@ import {
 import { cn } from "@/lib/utils";
 import {
   LayoutDashboard,
+  LogOut,
   MailOpen,
   MessageSquare,
   Settings,
@@ -21,7 +22,8 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 const items = [
   {
@@ -60,20 +62,27 @@ export const AppSidebar = () => {
   const pathname = usePathname();
   const { state, isMobile, setOpenMobile } = useSidebar();
   const isCollapsed = state === "collapsed";
+  const router = useRouter();
 
   const handleLinkClick = () => {
     if (isMobile) {
       setOpenMobile(false);
     }
   };
-
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    localStorage.removeItem("is_admin");
+    toast.success("Logged out successfully");
+    router.push("/login");
+  };
   return (
     <Sidebar collapsible="icon" className="border-none">
-      <div className="flex flex-col h-full">
+      <div className="flex flex-col h-full bg-white">
         {/* Header - Logo */}
         <SidebarHeader
           className={cn(
-            "h-20 border-b border-gray-100 flex  justify-center items-center transition-all",
+            "h-24 flex justify-center items-center transition-all",
+            isCollapsed ? "px-2" : "px-6",
           )}
         >
           <Link
@@ -91,11 +100,13 @@ export const AppSidebar = () => {
         </SidebarHeader>
 
         {/* Content */}
-        <SidebarContent className="flex-1 py-2 px-3 overflow-y-auto no-scrollbar">
+        <SidebarContent className="flex-1 py-4 px-4 overflow-y-auto no-scrollbar">
           <SidebarGroup>
-            <SidebarMenu className="space-y-3">
+            <SidebarMenu className="space-y-2">
               {items.map((item) => {
-                const active = pathname === item.url;
+                const active =
+                  pathname === item.url ||
+                  (item.url !== "/admin" && pathname.startsWith(item.url));
 
                 return (
                   <SidebarMenuItem key={item.title}>
@@ -107,12 +118,12 @@ export const AppSidebar = () => {
                       <SidebarMenuButton
                         tooltip={isCollapsed ? item.title : undefined}
                         className={cn(
-                          "w-full h-12.5 cursor-pointer flex items-center transition-none",
-                          isCollapsed ? "justify-center p-0" : "px-3 gap-3",
+                          "w-full h-12 cursor-pointer flex items-center transition-all rounded-lg",
+                          isCollapsed ? "justify-center p-0" : "px-4 gap-3",
                           isCollapsed ? "[&>svg]:size-6!" : "[&>svg]:size-6!",
                           active
-                            ? "bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white hover:text-white"
-                            : "text-gray-600 bg-transparent hover:bg-gray-100 hover:text-gray-600",
+                            ? "bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white hover:text-white hover:opacity-90"
+                            : "text-gray-500 bg-transparent hover:bg-gray-50",
                         )}
                       >
                         <item.icon
@@ -122,7 +133,7 @@ export const AppSidebar = () => {
                           )}
                         />
                         {!isCollapsed && (
-                          <span className="text-sm font-semibold truncate leading-none">
+                          <span className="text-sm font-bold truncate">
                             {item.title}
                           </span>
                         )}
@@ -131,6 +142,22 @@ export const AppSidebar = () => {
                   </SidebarMenuItem>
                 );
               })}
+
+              {/* Logout Button */}
+              <SidebarMenuItem>
+                <button
+                  onClick={handleLogout}
+                  className={cn(
+                    "w-full h-12 cursor-pointer flex items-center transition-all rounded-lg px-4 gap-3 text-red-500 hover:bg-red-50",
+                    isCollapsed ? "justify-center p-0" : "",
+                  )}
+                >
+                  <LogOut className="size-5 shrink-0" />
+                  {!isCollapsed && (
+                    <span className="text-sm font-bold">Logout</span>
+                  )}
+                </button>
+              </SidebarMenuItem>
             </SidebarMenu>
           </SidebarGroup>
         </SidebarContent>

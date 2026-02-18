@@ -4,8 +4,10 @@ import { cn } from "@/lib/utils";
 import { ArrowLeft, Calendar, MapPin } from "lucide-react";
 import Image from "next/image";
 
+import { AdminUser } from "@/types/admin";
+
 interface UserMatchHistoryProps {
-  user: any;
+  user: AdminUser;
   onBack: () => void;
 }
 

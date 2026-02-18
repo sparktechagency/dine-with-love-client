@@ -4,8 +4,10 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
 
+import { AdvisorRequest } from "@/types/admin";
+
 interface AdvisorUserProfileProps {
-  user: any;
+  user: AdvisorRequest;
   onBack: () => void;
 }
 
@@ -91,8 +93,6 @@ const DetailRow = ({ label, value }: { label: string; value: string }) => (
     <span className="text-sm font-bold text-gray-900 min-w-[120px] shrink-0">
       {label}:
     </span>
-    <span className="text-sm font-medium text-gray-500 break-words">
-      {value}
-    </span>
+    <span className="text-sm font-medium text-gray-500 break-all">{value}</span>
   </div>
 );

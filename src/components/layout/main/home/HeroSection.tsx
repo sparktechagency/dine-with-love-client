@@ -43,8 +43,11 @@ const HeroSection = () => {
             src={heroImage}
             alt="Couple on a romantic dinner date"
             className="object-cover object-center"
-            width={580}
+            width={500}
             height={480}
+            priority
+            fetchPriority="high"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
           />
         </div>
       </div>

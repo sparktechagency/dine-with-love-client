@@ -6,13 +6,7 @@ import { useState } from "react";
 import { AddManualMatch } from "../matches/AddManualMatch";
 import { AdvisorUserProfile } from "./AdvisorUserProfile";
 
-interface AdvisorRequest {
-  id: string;
-  name: string;
-  image: string;
-  amount: number;
-  type: "1:1 dinner";
-}
+import { AdvisorRequest } from "@/types/admin";
 
 const advisorRequests: AdvisorRequest[] = [
   {
