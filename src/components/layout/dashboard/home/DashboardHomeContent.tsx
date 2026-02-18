@@ -1,7 +1,7 @@
 "use client";
+import { Pagination } from "@/components/shared/Pagination";
 import { FormSelect } from "@/components/ui/form-select";
 import { useState } from "react";
-import { Pagination } from "../../../shared/Pagination";
 import { DailyMatchCard } from "./DailyMatchCard";
 import { matches } from "./mockData";
 
