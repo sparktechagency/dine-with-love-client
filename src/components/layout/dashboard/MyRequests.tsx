@@ -1,5 +1,4 @@
 "use client";
-
 import { useState } from "react";
 import { FeedbackModal } from "./my-requests/FeedbackModal";
 import {
@@ -42,12 +41,9 @@ export const MyRequests = () => {
   return (
     <section className="w-full space-y-8 animate-in fade-in duration-500">
       <RequestHeader />
-
       <RequestTabs activeTab={activeTab} onTabChange={setActiveTab} />
-
       <div className="space-y-6">
-        <h3 className="text-2xl font-black text-gray-900">Requests:</h3>
-        <div className="bg-white rounded-2xl border border-gray-100 p-8 space-y-12 shadow-none min-h-[400px]">
+        <div className="bg-white rounded-md border border-gray-100 p-8 space-y-12 shadow-none min-h-[400px]">
           {currentRequests.length > 0 ? (
             currentRequests.map((request) => (
               <RequestCard
