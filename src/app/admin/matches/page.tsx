@@ -1,8 +1,7 @@
-import { AdminPlaceholderContent } from "@/components/layout/admin/AdminPlaceholderContent";
-import { Heart } from "lucide-react";
+import { MatchManagementContent } from "@/components/layout/admin/matches/MatchManagementContent";
 
 const MatchesPage = () => {
-  return <AdminPlaceholderContent title="Match Management" icon={Heart} />;
+  return <MatchManagementContent />;
 };
 
 export default MatchesPage;

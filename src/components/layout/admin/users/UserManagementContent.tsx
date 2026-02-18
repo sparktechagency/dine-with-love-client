@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { UserList } from "./users/UserList";
-import { UserMatchHistory } from "./users/UserMatchHistory";
-import { UserProfile } from "./users/UserProfile";
-import { UserSuspend } from "./users/UserSuspend";
+import { UserList } from "./UserList";
+import { UserMatchHistory } from "./UserMatchHistory";
+import { UserProfile } from "./UserProfile";
+import { UserSuspend } from "./UserSuspend";
 
 export const UserManagementContent = () => {
   const [currentView, setCurrentView] = useState<

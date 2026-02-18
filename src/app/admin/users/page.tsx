@@ -1,8 +1,7 @@
-import { AdminPlaceholderContent } from "@/components/layout/admin/AdminPlaceholderContent";
-import { Users } from "lucide-react";
+import { UserManagementContent } from "@/components/layout/admin/users/UserManagementContent";
 
 const UsersPage = () => {
-  return <AdminPlaceholderContent title="User Management" icon={Users} />;
+  return <UserManagementContent />;
 };
 
 export default UsersPage;
