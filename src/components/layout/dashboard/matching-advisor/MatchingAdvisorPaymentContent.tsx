@@ -33,9 +33,9 @@ const MatchingAdvisorPaymentContent = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Left Column: Order Summary */}
         <div className="space-y-6">
-          <div className="rounded-lg border bg-card text-card-foreground p-6">
+          <div className="rounded-md border bg-card text-card-foreground p-6">
             <h2 className="text-lg font-semibold mb-4">Submit to advisor</h2>
-            <div className="flex items-start gap-4 rounded-lg bg-muted/50 p-4">
+            <div className="flex items-start gap-4 rounded-md bg-muted/50 p-4">
               <Info className="h-5 w-5 text-primary mt-0.5" />
               <div className="space-y-1">
                 <p className="font-medium text-sm">
@@ -59,7 +59,7 @@ const MatchingAdvisorPaymentContent = () => {
               <span>$53.99</span>
             </div>
 
-            <Button className="w-full mt-6 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white rounded-lg">
+            <Button className="w-full mt-6 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white rounded-md">
               Pay
             </Button>
           </div>
@@ -67,7 +67,7 @@ const MatchingAdvisorPaymentContent = () => {
 
         {/* Right Column: Payment Details */}
         <div className="space-y-6">
-          <Card className="rounded-lg">
+          <Card className="rounded-md">
             <CardHeader>
               <CardTitle>Payment Method</CardTitle>
             </CardHeader>
@@ -75,7 +75,7 @@ const MatchingAdvisorPaymentContent = () => {
               <RadioGroup defaultValue="card" className="grid gap-4">
                 <Label
                   htmlFor="paypal"
-                  className="flex items-center justify-between rounded-lg border-2 border-muted bg-popover p-4 peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
+                  className="flex items-center justify-between rounded-md border-2 border-muted bg-popover p-4 peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
                 >
                   <div className="flex items-center gap-2">
                     <RadioGroupItem value="paypal" id="paypal" />
@@ -87,7 +87,7 @@ const MatchingAdvisorPaymentContent = () => {
 
                 <Label
                   htmlFor="card"
-                  className="flex items-center justify-between rounded-lg border-2 border-muted bg-popover p-4 peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
+                  className="flex items-center justify-between rounded-md border-2 border-muted bg-popover p-4 peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
                 >
                   <div className="flex items-center gap-2">
                     <RadioGroupItem value="card" id="card" />
@@ -99,7 +99,7 @@ const MatchingAdvisorPaymentContent = () => {
             </CardContent>
           </Card>
 
-          <Card className="rounded-lg">
+          <Card className="rounded-md">
             <CardHeader>
               <div className="flex items-center justify-between">
                 <CardTitle>Service Fee</CardTitle>
@@ -112,7 +112,7 @@ const MatchingAdvisorPaymentContent = () => {
                 <Input
                   id="name"
                   placeholder="Enter card holder name"
-                  className="rounded-lg"
+                  className="rounded-md"
                 />
               </div>
               <div className="grid gap-2">
@@ -120,7 +120,7 @@ const MatchingAdvisorPaymentContent = () => {
                 <Input
                   id="number"
                   placeholder="0000 0000 0000 0000"
-                  className="rounded-lg"
+                  className="rounded-md"
                 />
               </div>
               <div className="grid grid-cols-2 gap-4">
@@ -129,20 +129,20 @@ const MatchingAdvisorPaymentContent = () => {
                   <Input
                     id="expiry"
                     placeholder="Month / Year"
-                    className="rounded-lg"
+                    className="rounded-md"
                   />
                 </div>
                 <div className="grid gap-2">
                   <Label htmlFor="cvc">CVV / CVC</Label>
-                  <Input id="cvc" placeholder="***" className="rounded-lg" />
+                  <Input id="cvc" placeholder="***" className="rounded-md" />
                 </div>
               </div>
             </CardContent>
             <CardFooter className="flex justify-between gap-4">
-              <Button variant="outline" className="w-full rounded-lg">
+              <Button variant="outline" className="w-full rounded-md">
                 Back
               </Button>
-              <Button className="w-full bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white rounded-lg">
+              <Button className="w-full bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white rounded-md">
                 Pay
               </Button>
             </CardFooter>

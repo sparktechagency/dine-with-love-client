@@ -62,7 +62,7 @@ const VerifyOtpForm = () => {
             {[...Array(6)].map((_, i) => (
               <div
                 key={i}
-                className={`size-12 sm:size-14 border-2 rounded-lg flex items-center justify-center text-xl font-bold transition-all ${
+                className={`size-12 sm:size-14 border-2 rounded-md flex items-center justify-center text-xl font-bold transition-all ${
                   otp[i]
                     ? "border-[#FF3AB3] bg-pink-50/30 text-gray-900"
                     : "border-gray-100 text-gray-400"
@@ -95,7 +95,7 @@ const VerifyOtpForm = () => {
         </div>
 
         {state?.success && (
-          <p className="text-sm font-bold text-green-600 text-center bg-green-50 py-3 rounded-lg border border-green-100">
+          <p className="text-sm font-bold text-green-600 text-center bg-green-50 py-3 rounded-md border border-green-100">
             OTP Verified! Proceeding to reset password...
           </p>
         )}
@@ -103,7 +103,7 @@ const VerifyOtpForm = () => {
         <Button
           type="submit"
           disabled={isPending || otp.length < 6}
-          className="w-full h-14 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold rounded-lg hover:opacity-95 transition-all shadow-lg text-lg flex items-center justify-center disabled:opacity-50 cursor-pointer"
+          className="w-full h-14 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold rounded-md hover:opacity-95 transition-all shadow-lg text-lg flex items-center justify-center disabled:opacity-50 cursor-pointer"
         >
           {isPending ? "Verifying..." : "Verify"}
         </Button>

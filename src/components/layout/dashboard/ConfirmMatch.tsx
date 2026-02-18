@@ -26,7 +26,7 @@ const ConfirmMatch = () => {
         {/* Left Column: Summary */}
         <div className="bg-white rounded-2xl p-8 border border-gray-100 flex flex-col gap-8 shadow-none">
           <div className="flex items-center gap-6 p-6 bg-gray-50/50 rounded-xl">
-            <div className="relative size-20 rounded-lg overflow-hidden shrink-0">
+            <div className="relative size-20 rounded-md overflow-hidden shrink-0">
               <Image
                 src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop"
                 alt="Sarah"

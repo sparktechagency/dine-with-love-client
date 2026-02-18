@@ -24,7 +24,7 @@ const AboutUs = () => {
                 possible — over a beautifully curated dinner.
               </p>
             </div>
-            <div className="bg-gray-100 h-[400px] rounded-lg overflow-hidden relative">
+            <div className="bg-gray-100 h-[400px] rounded-md overflow-hidden relative">
               {/* Image placeholder - normally you'd use a real image here */}
               <div className="absolute inset-0 flex items-center justify-center text-gray-400">
                 <Heart className="size-24 opacity-20" />
@@ -65,9 +65,9 @@ const AboutUs = () => {
             ].map((value, i) => (
               <div
                 key={i}
-                className="bg-white p-8 rounded-lg text-center border border-gray-100"
+                className="bg-white p-8 rounded-md text-center border border-gray-100"
               >
-                <div className="size-16 bg-pink-50 rounded-lg flex items-center justify-center mx-auto mb-6">
+                <div className="size-16 bg-pink-50 rounded-md flex items-center justify-center mx-auto mb-6">
                   <value.icon className="text-[#FF3AB3] size-8" />
                 </div>
                 <h4 className="text-xl font-bold mb-3">{value.title}</h4>

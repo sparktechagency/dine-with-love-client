@@ -35,13 +35,13 @@ const MatchingAdvisorContent = () => {
         <h1 className="text-2xl font-bold text-primary">Matching Advisor</h1>
       </div>
 
-      <Card className="rounded-lg">
+      <Card className="rounded-md">
         <CardHeader>
           <CardTitle>Service Description</CardTitle>
           <CardDescription>
             Your Matching Advisor helps you find the ideal dinner match based on
-            your preferences. Tell us what you&apos;re looking for so we can create
-            the perfect experience for you.
+            your preferences. Tell us what you&apos;re looking for so we can
+            create the perfect experience for you.
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -52,11 +52,11 @@ const MatchingAdvisorContent = () => {
                 <p className="text-sm text-muted-foreground">
                   When would you like to have dinner?
                 </p>
-                {/* Simplified keeping input for now, but ensure rounded-lg */}
+                {/* Simplified keeping input for now, but ensure rounded-md */}
                 <Input
                   id="preferenceDate"
                   placeholder="Select dates"
-                  className="rounded-lg"
+                  className="rounded-md"
                 />
               </div>
 
@@ -100,7 +100,7 @@ const MatchingAdvisorContent = () => {
                     />
                     <Label
                       htmlFor="1:1"
-                      className="flex flex-col items-center justify-between rounded-lg border-2 border-muted bg-popover p-4 peer-data-[state=checked]:border-[#D946EF] [&:has([data-state=checked])]:border-[#D946EF]"
+                      className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-popover p-4 peer-data-[state=checked]:border-[#D946EF] [&:has([data-state=checked])]:border-[#D946EF]"
                     >
                       <User className="mb-3 h-6 w-6" />
                       <div className="text-center font-semibold">
@@ -120,7 +120,7 @@ const MatchingAdvisorContent = () => {
                     />
                     <Label
                       htmlFor="group"
-                      className="flex flex-col items-center justify-between rounded-lg border-2 border-muted bg-popover p-4 peer-data-[state=checked]:border-[#D946EF] [&:has([data-state=checked])]:border-[#D946EF]"
+                      className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-popover p-4 peer-data-[state=checked]:border-[#D946EF] [&:has([data-state=checked])]:border-[#D946EF]"
                     >
                       <Users className="mb-3 h-6 w-6" />
                       <div className="text-center font-semibold">
@@ -139,7 +139,7 @@ const MatchingAdvisorContent = () => {
                 <Textarea
                   id="notes"
                   placeholder="Any specific preferences or requirements?"
-                  className="min-h-[100px] rounded-lg"
+                  className="min-h-[100px] rounded-md"
                 />
               </div>
             </div>
@@ -147,7 +147,7 @@ const MatchingAdvisorContent = () => {
             <div className="flex justify-end">
               <Button
                 type="submit"
-                className="bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white rounded-lg"
+                className="bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white rounded-md"
               >
                 Submit to advisor
               </Button>

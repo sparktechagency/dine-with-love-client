@@ -79,11 +79,11 @@ export const MyFriend = () => {
         </p>
       </div>
 
-      <div className="bg-gray-100/50 p-1 rounded-lg flex gap-1 w-full max-w-2xl">
+      <div className="bg-gray-100/50 p-1 rounded-md flex gap-1 w-full max-w-2xl">
         <button
           onClick={() => setActiveTab("requests")}
           className={cn(
-            "flex-1 h-12 rounded-lg font-bold transition-all",
+            "flex-1 h-12 rounded-md font-bold transition-all",
             activeTab === "requests"
               ? "bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white shadow-none"
               : "text-gray-500 hover:text-gray-700",
@@ -94,7 +94,7 @@ export const MyFriend = () => {
         <button
           onClick={() => setActiveTab("all")}
           className={cn(
-            "flex-1 h-12 rounded-lg font-bold transition-all",
+            "flex-1 h-12 rounded-md font-bold transition-all",
             activeTab === "all"
               ? "bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white shadow-none"
               : "text-gray-500 hover:text-gray-700",
@@ -121,7 +121,7 @@ export const MyFriend = () => {
           <div
             key={user.id}
             className={cn(
-              "bg-white rounded-lg p-4 border border-gray-100 flex flex-col gap-4 relative",
+              "bg-white rounded-md p-4 border border-gray-100 flex flex-col gap-4 relative",
               user.highlight && "bg-pink-50/50 border-pink-100 shadow-none",
             )}
           >
@@ -135,7 +135,7 @@ export const MyFriend = () => {
               </div>
             )}
 
-            <div className="relative aspect-4/3 rounded-lg overflow-hidden">
+            <div className="relative aspect-4/3 rounded-md overflow-hidden">
               <Image
                 src={user.image}
                 alt={user.name}
@@ -167,18 +167,18 @@ export const MyFriend = () => {
               <div className="flex flex-col gap-2 pt-2">
                 {activeTab === "requests" ? (
                   <>
-                    <Button className="w-full h-10 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold rounded-lg border-none shadow-none">
+                    <Button className="w-full h-10 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold rounded-md border-none shadow-none">
                       Accept
                     </Button>
                     <Button
                       variant="outline"
-                      className="w-full h-10 border-[#5432C8] text-[#FF3AB3] font-bold rounded-lg hover:bg-pink-50 transition-colors border-none shadow-none"
+                      className="w-full h-10 border-[#5432C8] text-[#FF3AB3] font-bold rounded-md hover:bg-pink-50 transition-colors border-none shadow-none"
                     >
                       Delete
                     </Button>
                   </>
                 ) : (
-                  <Button className="w-full h-10 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold rounded-lg border-none shadow-none">
+                  <Button className="w-full h-10 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold rounded-md border-none shadow-none">
                     Dinner Request
                   </Button>
                 )}
@@ -190,7 +190,7 @@ export const MyFriend = () => {
 
       {activeTab === "all" && selectedFriends.length > 0 && (
         <div className="fixed bottom-12 left-1/2 -translate-x-1/2 z-50 w-full max-w-lg px-8">
-          <Button className="w-full h-14 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold rounded-lg text-lg border-none shadow-lg">
+          <Button className="w-full h-14 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold rounded-md text-lg border-none shadow-lg">
             Group dinner request
           </Button>
         </div>

@@ -52,7 +52,7 @@ const ForgotPasswordForm = () => {
         />
 
         {state?.success && (
-          <p className="text-sm font-bold text-green-600 text-center bg-green-50 py-3 rounded-lg border border-green-100">
+          <p className="text-sm font-bold text-green-600 text-center bg-green-50 py-3 rounded-md border border-green-100">
             OTP sent successfully! Redirecting...
           </p>
         )}
@@ -60,7 +60,7 @@ const ForgotPasswordForm = () => {
         <Button
           type="submit"
           disabled={isPending}
-          className="w-full h-14 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold rounded-lg hover:opacity-95 transition-all shadow-lg text-lg flex items-center justify-center disabled:opacity-50 cursor-pointer"
+          className="w-full h-14 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold rounded-md hover:opacity-95 transition-all shadow-lg text-lg flex items-center justify-center disabled:opacity-50 cursor-pointer"
         >
           {isPending ? "Sending..." : "Send OTP"}
         </Button>

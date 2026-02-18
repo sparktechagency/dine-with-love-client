@@ -63,7 +63,7 @@ const MobileMenu = ({
                 className={cn(
                   "py-2 border-b border-white/10 block text-base font-medium transition-all",
                   isActive
-                    ? "text-white font-bold pl-2 bg-white/10 rounded-lg"
+                    ? "text-white font-bold pl-2 bg-white/10 rounded-md"
                     : "text-white/70 hover:pl-2",
                 )}
                 onClick={() => setIsOpen(false)}
@@ -76,13 +76,13 @@ const MobileMenu = ({
           <div className="pt-6 flex flex-col gap-4">
             <Link
               href="/sign-in"
-              className="w-full py-3 text-center border border-white text-white rounded-lg hover:bg-white hover:text-[#FF3AB3] transition-colors text-base"
+              className="w-full py-3 text-center border border-white text-white rounded-md hover:bg-white hover:text-[#FF3AB3] transition-colors text-base"
               onClick={() => setIsOpen(false)}
             >
               Sign In
             </Link>
             <button
-              className="w-full py-3 bg-white text-[#B131D4] rounded-lg text-base"
+              className="w-full py-3 bg-white text-[#B131D4] rounded-md text-base"
               onClick={() => setIsOpen(false)}
             >
               Take Test

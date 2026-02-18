@@ -95,7 +95,7 @@ const CompatibilityTest = () => {
 
   return (
     <section className="py-24 bg-[#F8F9FC] min-h-screen flex items-center justify-center p-6">
-      <div className="max-w-5xl w-full bg-white rounded-lg border border-gray-100 overflow-hidden flex flex-col md:flex-row min-h-[600px]">
+      <div className="max-w-5xl w-full bg-white rounded-md border border-gray-100 overflow-hidden flex flex-col md:flex-row min-h-[600px]">
         {/* Left Side: Form */}
         <div className="flex-1 p-8 md:p-12 flex flex-col justify-between">
           <div className="space-y-8">
@@ -143,7 +143,7 @@ const CompatibilityTest = () => {
                   <div
                     key={option.id}
                     className={cn(
-                      "group flex items-center p-4 rounded-lg border-2 cursor-pointer",
+                      "group flex items-center p-4 rounded-md border-2 cursor-pointer",
                       selections[currentStep] === option.id
                         ? "border-[#FF3AB3] bg-pink-50/10"
                         : "border-gray-50 bg-white",
@@ -171,7 +171,7 @@ const CompatibilityTest = () => {
               variant="outline"
               onClick={prevStep}
               disabled={currentStep === 1}
-              className="h-14 px-10 border-[#FF3AB3] text-[#FF3AB3] font-bold rounded-lg disabled:opacity-30 flex items-center gap-2 shadow-none"
+              className="h-14 px-10 border-[#FF3AB3] text-[#FF3AB3] font-bold rounded-md disabled:opacity-30 flex items-center gap-2 shadow-none"
             >
               <ChevronLeft className="size-5" />
               Back
@@ -179,7 +179,7 @@ const CompatibilityTest = () => {
             <Button
               onClick={nextStep}
               disabled={!selections[currentStep]}
-              className="h-14 px-12 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold rounded-lg flex items-center gap-2 shadow-none"
+              className="h-14 px-12 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold rounded-md flex items-center gap-2 shadow-none"
             >
               {currentStep === steps.length ? "Finish" : "Next"}
               {currentStep < steps.length && (

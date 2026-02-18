@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { Button } from "@/components/ui/button";
 import { FormInput } from "@/components/ui/form-input";
 import { FormTextarea } from "@/components/ui/form-textarea";
@@ -26,7 +26,7 @@ const ContactUs = () => {
 
               <div className="space-y-8">
                 <div className="flex items-start gap-6">
-                  <div className="size-14 rounded-lg bg-pink-50 flex items-center justify-center shrink-0">
+                  <div className="size-14 rounded-md bg-pink-50 flex items-center justify-center shrink-0">
                     <Mail className="text-[#FF3AB3] size-7" />
                   </div>
                   <div>
@@ -39,7 +39,7 @@ const ContactUs = () => {
                 </div>
 
                 <div className="flex items-start gap-6">
-                  <div className="size-14 rounded-lg bg-pink-50 flex items-center justify-center shrink-0">
+                  <div className="size-14 rounded-md bg-pink-50 flex items-center justify-center shrink-0">
                     <Phone className="text-[#FF3AB3] size-7" />
                   </div>
                   <div>
@@ -52,7 +52,7 @@ const ContactUs = () => {
                 </div>
 
                 <div className="flex items-start gap-6">
-                  <div className="size-14 rounded-lg bg-pink-50 flex items-center justify-center shrink-0">
+                  <div className="size-14 rounded-md bg-pink-50 flex items-center justify-center shrink-0">
                     <MapPin className="text-[#FF3AB3] size-7" />
                   </div>
                   <div>
@@ -69,7 +69,7 @@ const ContactUs = () => {
             </div>
 
             {/* Contact Form */}
-            <div className="bg-[#F7F7F7] p-10 rounded-lg border border-gray-100">
+            <div className="bg-[#F7F7F7] p-10 rounded-md border border-gray-100">
               <form className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <FormInput
@@ -104,7 +104,7 @@ const ContactUs = () => {
 
                 <Button
                   type="submit"
-                  className="w-full h-14 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold rounded-lg flex items-center justify-center gap-2 hover:opacity-95 transition-opacity text-lg mt-4 cursor-pointer"
+                  className="w-full h-14 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold rounded-md flex items-center justify-center gap-2 hover:opacity-95 transition-opacity text-lg mt-4 cursor-pointer"
                 >
                   <Send className="size-5" />
                   Send Message

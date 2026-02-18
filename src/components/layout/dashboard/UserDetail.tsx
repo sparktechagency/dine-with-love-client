@@ -18,7 +18,7 @@ const UserDetail = () => {
         <span className="text-xl">View Detail</span>
       </button>
 
-      <div className="bg-white rounded-lg border border-gray-100 overflow-hidden flex flex-col gap-8 pb-8 shadow-none">
+      <div className="bg-white rounded-md border border-gray-100 overflow-hidden flex flex-col gap-8 pb-8 shadow-none">
         <div className="relative w-full h-[400px]">
           <Image
             src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=1200&auto=format&fit=crop"
@@ -68,7 +68,7 @@ const UserDetail = () => {
                 (interest) => (
                   <div
                     key={interest}
-                    className="px-4 py-2 rounded-lg border border-gray-100 text-xs font-bold text-gray-500 bg-gray-50/30"
+                    className="px-4 py-2 rounded-md border border-gray-100 text-xs font-bold text-gray-500 bg-gray-50/30"
                   >
                     {interest}
                   </div>
@@ -77,7 +77,7 @@ const UserDetail = () => {
             </div>
           </div>
 
-          <Button className="w-full h-14 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold rounded-lg text-lg border-none shadow-none">
+          <Button className="w-full h-14 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold rounded-md text-lg border-none shadow-none">
             Connection Request
           </Button>
         </div>

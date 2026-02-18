@@ -117,7 +117,7 @@ const ChatContent = () => {
   const ignored = selectedChat; // Keep lint happy if unused for now, or just use it.
 
   return (
-    <div className="flex h-[calc(100vh-6rem)] overflow-hidden rounded-lg bg-background border">
+    <div className="flex h-[calc(100vh-6rem)] overflow-hidden rounded-md bg-background border">
       {/* Sidebar */}
       <div className="w-80 border-r bg-background flex flex-col">
         <div className="p-4 border-b">
@@ -126,7 +126,7 @@ const ChatContent = () => {
             <Input
               type="search"
               placeholder="Search"
-              className="pl-9 bg-muted/50 border-none rounded-lg"
+              className="pl-9 bg-muted/50 border-none rounded-md"
             />
           </div>
         </div>
@@ -141,7 +141,7 @@ const ChatContent = () => {
                 <button
                   key={advisor.id}
                   onClick={() => setSelectedChat(advisor.id)}
-                  className="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left"
+                  className="flex w-full items-center gap-3 rounded-md px-3 py-2 text-left"
                 >
                   <div className="relative h-10 w-10 overflow-hidden rounded-full border bg-muted">
                     {/* Placeholder for Avatar */}
@@ -171,7 +171,7 @@ const ChatContent = () => {
                 <button
                   key={friend.id}
                   onClick={() => setSelectedChat(friend.id)}
-                  className="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left"
+                  className="flex w-full items-center gap-3 rounded-md px-3 py-2 text-left"
                 >
                   <div className="relative h-10 w-10 overflow-hidden rounded-full border bg-muted">
                     <div className="grid h-full w-full place-items-center bg-gray-200 text-gray-500 font-bold">
@@ -255,12 +255,12 @@ const ChatContent = () => {
           <div className="flex items-center gap-2 rounded-full bg-muted/50 px-4 py-2 border">
             <Input
               placeholder="Type a message"
-              className="border-none bg-transparent shadow-none focus-visible:ring-0 px-0 rounded-lg"
+              className="border-none bg-transparent shadow-none focus-visible:ring-0 px-0 rounded-md"
             />
             <Button
               size="icon"
               variant="ghost"
-              className="text-muted-foreground rounded-lg"
+              className="text-muted-foreground rounded-md"
             >
               <Paperclip className="h-5 w-5" />
             </Button>

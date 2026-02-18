@@ -33,14 +33,14 @@ const Error = ({
       <div className="flex flex-col sm:flex-row gap-4">
         <Button
           onClick={() => reset()}
-          className="flex items-center gap-2 px-8 py-3 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold rounded-lg hover:opacity-90 transition-all shadow-lg text-lg h-14"
+          className="flex items-center gap-2 px-8 py-3 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold rounded-md hover:opacity-90 transition-all shadow-lg text-lg h-14"
         >
           <RefreshCw className="size-5" />
           Try Again
         </Button>
         <Link
           href="/"
-          className="px-8 py-3 border border-gray-200 text-gray-700 font-bold rounded-lg hover:bg-gray-50 transition-all text-center text-lg"
+          className="px-8 py-3 border border-gray-200 text-gray-700 font-bold rounded-md hover:bg-gray-50 transition-all text-center text-lg"
         >
           Return Home
         </Link>

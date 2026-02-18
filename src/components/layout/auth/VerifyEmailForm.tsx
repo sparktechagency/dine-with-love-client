@@ -73,7 +73,7 @@ const VerifyEmailForm = () => {
           <input type="hidden" name="token" value="dummy-token" />
           <Button
             type="submit"
-            className="w-full h-14 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold rounded-lg hover:opacity-95 transition-all shadow-lg text-lg flex items-center justify-center cursor-pointer"
+            className="w-full h-14 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold rounded-md hover:opacity-95 transition-all shadow-lg text-lg flex items-center justify-center cursor-pointer"
           >
             Verify Email
           </Button>
@@ -83,7 +83,7 @@ const VerifyEmailForm = () => {
       {state?.success && (
         <Button
           onClick={() => router.push("/compatibility-test")}
-          className="w-full h-14 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold rounded-lg hover:opacity-95 transition-all shadow-lg text-lg flex items-center justify-center cursor-pointer"
+          className="w-full h-14 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold rounded-md hover:opacity-95 transition-all shadow-lg text-lg flex items-center justify-center cursor-pointer"
         >
           Take Compatibility Test
         </Button>

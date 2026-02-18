@@ -31,7 +31,7 @@ const HeroSection = () => {
             dinners made for genuine conversations and true connection.
           </p>
           <Link href="/compatibility-test">
-            <Button className="px-5 py-2 h-12 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-base font-medium rounded-lg">
+            <Button className="px-5 py-2 h-12 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-base font-medium rounded-md">
               Take the Compatibility Test
             </Button>
           </Link>

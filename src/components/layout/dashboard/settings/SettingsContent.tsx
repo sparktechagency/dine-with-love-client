@@ -22,7 +22,7 @@ const SettingsContent = () => {
 
       <div className="grid gap-6">
         {/* Profile Section */}
-        <Card className="rounded-lg border">
+        <Card className="rounded-md border">
           <CardHeader>
             <CardTitle>Profile</CardTitle>
             <CardDescription>
@@ -38,7 +38,7 @@ const SettingsContent = () => {
                   <Input
                     id="displayName"
                     defaultValue="John Davis"
-                    className="rounded-lg"
+                    className="rounded-md"
                   />
                 </div>
                 <div className="grid gap-2">
@@ -46,7 +46,7 @@ const SettingsContent = () => {
                   <Input
                     id="username"
                     defaultValue="@john_davis"
-                    className="rounded-lg"
+                    className="rounded-md"
                   />
                 </div>
                 <div className="grid gap-2">
@@ -54,7 +54,7 @@ const SettingsContent = () => {
                   <Textarea
                     placeholder="Tell us a little bit about yourself"
                     defaultValue="Lorem ipsum dolor sit amet."
-                    className="rounded-lg"
+                    className="rounded-md"
                   />
                 </div>
               </div>
@@ -69,12 +69,12 @@ const SettingsContent = () => {
                   </Avatar>
                 </div>
                 <div className="flex gap-2">
-                  <Button variant="outline" size="sm" className="rounded-lg">
+                  <Button variant="outline" size="sm" className="rounded-md">
                     Remove
                   </Button>
                   <Button
                     size="sm"
-                    className="bg-primary text-white rounded-lg"
+                    className="bg-primary text-white rounded-md"
                   >
                     Upload
                   </Button>
@@ -83,14 +83,14 @@ const SettingsContent = () => {
             </div>
           </CardContent>
           <CardFooter className="flex justify-end border-t p-4">
-            <Button className="bg-[#D946EF] text-white rounded-lg">
+            <Button className="bg-[#D946EF] text-white rounded-md">
               Save Changes
             </Button>
           </CardFooter>
         </Card>
 
         {/* Security Section */}
-        <Card className="rounded-lg border">
+        <Card className="rounded-md border">
           <CardHeader>
             <CardTitle>Security</CardTitle>
             <CardDescription>
@@ -103,31 +103,31 @@ const SettingsContent = () => {
               <Input
                 id="currentPassword"
                 type="password"
-                className="rounded-lg"
+                className="rounded-md"
               />
             </div>
             <div className="grid gap-2">
               <Label htmlFor="newPassword">New Password</Label>
-              <Input id="newPassword" type="password" className="rounded-lg" />
+              <Input id="newPassword" type="password" className="rounded-md" />
             </div>
             <div className="grid gap-2">
               <Label htmlFor="confirmPassword">Confirm New Password</Label>
               <Input
                 id="confirmPassword"
                 type="password"
-                className="rounded-lg"
+                className="rounded-md"
               />
             </div>
           </CardContent>
           <CardFooter className="flex justify-end border-t p-4">
-            <Button className="bg-[#D946EF] text-white rounded-lg">
+            <Button className="bg-[#D946EF] text-white rounded-md">
               Update Password
             </Button>
           </CardFooter>
         </Card>
 
         {/* Preferences Section */}
-        <Card className="rounded-lg border">
+        <Card className="rounded-md border">
           <CardHeader>
             <CardTitle>Preferences</CardTitle>
             <CardDescription>
@@ -135,7 +135,7 @@ const SettingsContent = () => {
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
-            <div className="flex items-center justify-between rounded-lg border p-4">
+            <div className="flex items-center justify-between rounded-md border p-4">
               <div className="space-y-0.5">
                 <Label className="text-base">Email Notifications</Label>
                 <div className="text-sm text-muted-foreground">
@@ -144,7 +144,7 @@ const SettingsContent = () => {
               </div>
               <Switch defaultChecked />
             </div>
-            <div className="flex items-center justify-between rounded-lg border p-4">
+            <div className="flex items-center justify-between rounded-md border p-4">
               <div className="space-y-0.5">
                 <Label className="text-base">Marketing Emails</Label>
                 <div className="text-sm text-muted-foreground">
@@ -153,7 +153,7 @@ const SettingsContent = () => {
               </div>
               <Switch />
             </div>
-            <div className="flex items-center justify-between rounded-lg border p-4">
+            <div className="flex items-center justify-between rounded-md border p-4">
               <div className="space-y-0.5">
                 <Label className="text-base">Profile Visibility</Label>
                 <div className="text-sm text-muted-foreground">
@@ -166,12 +166,12 @@ const SettingsContent = () => {
         </Card>
 
         {/* Payments Section */}
-        <Card className="rounded-lg border">
+        <Card className="rounded-md border">
           <CardHeader>
             <CardTitle>Payments</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
-            <div className="rounded-lg border">
+            <div className="rounded-md border">
               <div className="flex items-center justify-between p-4 border-b last:border-0">
                 <div>
                   <p className="font-medium">Dinner booking at Nobu</p>
@@ -180,7 +180,7 @@ const SettingsContent = () => {
                   </p>
                 </div>
                 <div className="text-right">
-                  <span className="inline-flex items-center rounded-lg border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-green-100 text-green-800">
+                  <span className="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-green-100 text-green-800">
                     Success
                   </span>
                   <p className="font-medium mt-1">$120.00</p>
@@ -194,7 +194,7 @@ const SettingsContent = () => {
                   </p>
                 </div>
                 <div className="text-right">
-                  <span className="inline-flex items-center rounded-lg border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-green-100 text-green-800">
+                  <span className="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-green-100 text-green-800">
                     Success
                   </span>
                   <p className="font-medium mt-1">$45.00</p>
@@ -205,7 +205,7 @@ const SettingsContent = () => {
         </Card>
 
         {/* Delete Account Section */}
-        <Card className="rounded-lg border border-destructive/50">
+        <Card className="rounded-md border border-destructive/50">
           <CardHeader>
             <CardTitle className="text-destructive">Delete Account</CardTitle>
             <CardDescription>
@@ -219,7 +219,7 @@ const SettingsContent = () => {
             </p>
           </CardContent>
           <CardFooter className="flex justify-end border-t p-4 border-destructive/20 bg-destructive/5 rounded-b-lg">
-            <Button variant="destructive" className="rounded-lg">
+            <Button variant="destructive" className="rounded-md">
               Delete Account
             </Button>
           </CardFooter>

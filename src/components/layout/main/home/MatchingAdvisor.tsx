@@ -49,12 +49,12 @@ const MatchingAdvisor = () => {
             ))}
           </ul>
 
-          <Button className="bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white px-8 h-12 cursor-pointer rounded-lg">
+          <Button className="bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white px-8 h-12 cursor-pointer rounded-md">
             Hire a Matching Advisor
           </Button>
         </div>
 
-        <div className="order-1 lg:order-2 rounded-lg overflow-hidden">
+        <div className="order-1 lg:order-2 rounded-md overflow-hidden">
           <Image
             src={advisorImage}
             alt="Advisor"

@@ -142,7 +142,7 @@ const Footer = () => {
               Sign up to our e-mail newsletter to receive the latest news &
               updates.
             </p>
-            <div className="flex bg-white rounded-lg overflow-hidden">
+            <div className="flex bg-white rounded-md overflow-hidden">
               <input
                 type="email"
                 placeholder="Input your Email"

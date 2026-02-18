@@ -139,7 +139,7 @@ export const MyRequests = () => {
               </div>
               <div className="p-6 bg-pink-50/30 rounded-xl border border-pink-100/50 space-y-4">
                 <div className="flex items-center gap-3">
-                  <div className="size-10 rounded-lg bg-linear-to-br from-[#FF3AB3] to-[#5432C8] flex items-center justify-center text-white shrink-0">
+                  <div className="size-10 rounded-md bg-linear-to-br from-[#FF3AB3] to-[#5432C8] flex items-center justify-center text-white shrink-0">
                     🍽️
                   </div>
                   <h5 className="font-black text-[#FF3AB3]">Dinner Details</h5>

@@ -45,7 +45,7 @@ const HowItWorksPage = () => {
                 ))}
               </div>
             </div>
-            <div className="bg-linear-to-br from-pink-50 to-purple-50 rounded-lg p-12 relative overflow-hidden">
+            <div className="bg-linear-to-br from-pink-50 to-purple-50 rounded-md p-12 relative overflow-hidden">
               <div className="relative z-10">
                 <h3 className="text-2xl font-bold mb-4">Why Dine With Love?</h3>
                 <ul className="space-y-4 text-gray-600">

@@ -84,14 +84,14 @@ const Navbar = () => {
             Login
           </Link>
           <Link href="/compatibility-test">
-            <Button className="hidden sm:flex bg-white text-[#B131D4] px-6 py-2 rounded-lg font-bold hover:bg-white/95 transition-all cursor-pointer border-none shadow-none">
+            <Button className="hidden sm:flex bg-white text-[#B131D4] px-6 py-2 rounded-md font-bold hover:bg-white/95 transition-all cursor-pointer border-none shadow-none">
               Take Test
             </Button>
           </Link>
 
           {/* Hamburger Menu Icon */}
           <button
-            className="lg:hidden p-2 hover:bg-white/10 rounded-lg transition-colors"
+            className="lg:hidden p-2 hover:bg-white/10 rounded-md transition-colors"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle Menu"
           >

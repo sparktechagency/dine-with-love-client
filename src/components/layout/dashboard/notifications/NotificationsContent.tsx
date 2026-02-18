@@ -54,7 +54,7 @@ const NotificationsContent = () => {
             notifications
           </p>
         </div>
-        <Button variant="ghost" className="text-sm rounded-lg font-semibold">
+        <Button variant="ghost" className="text-sm rounded-md font-semibold">
           Make all as Read
         </Button>
       </div>
@@ -64,7 +64,7 @@ const NotificationsContent = () => {
           <Card
             key={notification.id}
             className={cn(
-              "border-none rounded-lg",
+              "border-none rounded-md",
               notification.type === "match" && "bg-[#FFF5EB]",
               notification.type === "confirmed" && "bg-[#F0FFF4]",
               notification.type === "advisor" && "bg-[#F3F0FF]",
@@ -78,7 +78,7 @@ const NotificationsContent = () => {
                   {notification.description}
                 </p>
                 {notification.unread && (
-                  <span className="inline-block rounded-lg bg-[#D946EF] px-2 py-0.5 text-xs font-medium text-white">
+                  <span className="inline-block rounded-md bg-[#D946EF] px-2 py-0.5 text-xs font-medium text-white">
                     New
                   </span>
                 )}
@@ -87,7 +87,7 @@ const NotificationsContent = () => {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="h-6 w-6 rounded-lg text-muted-foreground"
+                  className="h-6 w-6 rounded-md text-muted-foreground"
                 >
                   <span className="sr-only">Dismiss</span>
                   <svg
