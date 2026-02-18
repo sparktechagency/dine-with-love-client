@@ -1,4 +1,4 @@
-import { MyFriend } from "@/components/layout/dashboard/MyFriend";
+import { MyFriendContent } from "@/components/layout/dashboard/my-friend/MyFriendContent";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -6,7 +6,7 @@ export const metadata: Metadata = {
 };
 
 const MyFriendPage = () => {
-  return <MyFriend />;
+  return <MyFriendContent />;
 };
 
 export default MyFriendPage;

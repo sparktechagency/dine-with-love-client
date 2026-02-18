@@ -1,4 +1,4 @@
-import ConfirmMatch from "@/components/layout/dashboard/ConfirmMatch";
+import { ConfirmMatchContent } from "@/components/layout/dashboard/confirm-match/ConfirmMatchContent";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -6,7 +6,7 @@ export const metadata: Metadata = {
 };
 
 const ConfirmMatchPage = () => {
-  return <ConfirmMatch />;
+  return <ConfirmMatchContent />;
 };
 
 export default ConfirmMatchPage;

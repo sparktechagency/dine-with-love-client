@@ -1,4 +1,4 @@
-import { DashboardHome } from "@/components/layout/dashboard/DashboardHome";
+import { DashboardHomeContent } from "@/components/layout/dashboard/home/DashboardHomeContent";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -6,7 +6,7 @@ export const metadata: Metadata = {
 };
 
 const DashboardPage = () => {
-  return <DashboardHome />;
+  return <DashboardHomeContent />;
 };
 
 export default DashboardPage;

@@ -1,4 +1,4 @@
-import UserDetail from "@/components/layout/dashboard/UserDetail";
+import { UserDetailContent } from "@/components/layout/dashboard/user-detail/UserDetailContent";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -6,7 +6,7 @@ export const metadata: Metadata = {
 };
 
 const UserDetailPage = () => {
-  return <UserDetail />;
+  return <UserDetailContent />;
 };
 
 export default UserDetailPage;
