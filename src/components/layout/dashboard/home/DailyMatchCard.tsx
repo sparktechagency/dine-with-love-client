@@ -1,7 +1,13 @@
 "use client";
 import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
-import { MapPin } from "lucide-react";
+import { CheckCircle2, Heart, Loader2, MapPin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -22,13 +28,20 @@ interface DailyMatchCardProps {
 
 export const DailyMatchCard = ({ data, className }: DailyMatchCardProps) => {
   const [isRequested, setIsRequested] = useState(false);
+  const [isProcessing, setIsProcessing] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
 
-  const handleConnectionRequest = () => {
+  const handleConnectionRequest = async () => {
     if (isRequested) {
       setIsRequested(false);
       toast.info("Request cancelled");
     } else {
+      setIsProcessing(true);
+      // Simulate API call
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+      setIsProcessing(false);
       setIsRequested(true);
+      setShowSuccess(true);
       toast.success("Connection sent successfully");
     }
   };
@@ -69,6 +82,7 @@ export const DailyMatchCard = ({ data, className }: DailyMatchCardProps) => {
         <div className="flex flex-col gap-4 pt-2">
           <Button
             onClick={handleConnectionRequest}
+            disabled={isProcessing}
             className={cn(
               "w-full h-12 cursor-pointer font-bold border-none shadow-none text-white",
               isRequested
@@ -76,7 +90,16 @@ export const DailyMatchCard = ({ data, className }: DailyMatchCardProps) => {
                 : "bg-linear-to-r from-[#FF3AB3] to-[#5432C8]",
             )}
           >
-            {isRequested ? "Cancel Request" : "Connection Request"}
+            {isProcessing ? (
+              <>
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                Processing...
+              </>
+            ) : isRequested ? (
+              "Cancel Request"
+            ) : (
+              "Connection Request"
+            )}
           </Button>
           <div className="bg-linear-to-r from-[#FF3AB3] to-[#5432C8] p-px rounded-md">
             <Button
@@ -90,6 +113,36 @@ export const DailyMatchCard = ({ data, className }: DailyMatchCardProps) => {
           </div>
         </div>
       </div>
+
+      <Dialog open={showSuccess} onOpenChange={setShowSuccess}>
+        <DialogContent className="sm:max-w-md border-none p-0 overflow-hidden bg-white">
+          <div className="bg-linear-to-r from-[#FF3AB3] to-[#5432C8] h-32 flex items-center justify-center relative">
+            <div className="absolute -bottom-10 size-20 bg-white rounded-full flex items-center justify-center shadow-lg border-4 border-white">
+              <CheckCircle2 className="size-12 text-green-500" />
+            </div>
+            <Heart className="size-16 text-white/20 absolute -top-4 -right-4 rotate-12" />
+            <Heart className="size-12 text-white/10 absolute top-8 left-8 -rotate-12" />
+          </div>
+          <div className="p-8 pt-14 text-center space-y-6">
+            <DialogHeader>
+              <DialogTitle className="text-3xl font-black text-gray-900 text-center font-rubik">
+                Request Sent!
+              </DialogTitle>
+            </DialogHeader>
+            <p className="text-gray-500 font-medium">
+              Your connection request has been sent to{" "}
+              <span className="text-primary font-bold">{data.name}</span>.
+              We&apos;ll notify you once they accept.
+            </p>
+            <Button
+              onClick={() => setShowSuccess(false)}
+              className="w-full h-14 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold rounded-md hover:opacity-95 transition-all shadow-lg text-lg cursor-pointer"
+            >
+              Great, thanks!
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };

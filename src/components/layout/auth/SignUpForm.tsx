@@ -4,7 +4,9 @@ import { FormInput } from "@/components/ui/form-input";
 import { Lock, Mail, MapPin, User } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useActionState } from "react";
+import { useRouter } from "next/navigation";
+import { useActionState, useEffect } from "react";
+import { toast } from "sonner";
 
 interface ActionState {
   error?: string;
@@ -35,6 +37,14 @@ async function registerAction(
 
 const SignUpForm = () => {
   const [state, action, isPending] = useActionState(registerAction, null);
+  const router = useRouter();
+
+  useEffect(() => {
+    if (state?.success) {
+      toast.success("Account created successfully!");
+      router.push("/verify-email");
+    }
+  }, [state?.success, router]);
 
   return (
     <div className="space-y-8">

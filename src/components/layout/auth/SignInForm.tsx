@@ -5,7 +5,9 @@ import { FormInput } from "@/components/ui/form-input";
 import { Lock, Mail } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useActionState } from "react";
+import { useRouter } from "next/navigation";
+import { useActionState, useEffect } from "react";
+import { toast } from "sonner";
 
 interface ActionState {
   error?: string;
@@ -32,6 +34,18 @@ async function loginAction(prevState: ActionState | null, formData: FormData) {
 
 const SignInForm = () => {
   const [state, action, isPending] = useActionState(loginAction, null);
+  const router = useRouter();
+
+  useEffect(() => {
+    if (state?.success) {
+      toast.success("Login successful!");
+      localStorage.setItem(
+        "user",
+        JSON.stringify({ name: "John Doe", email: "john@example.com" }),
+      );
+      router.push("/dashboard");
+    }
+  }, [state?.success, router]);
 
   return (
     <div className="space-y-8">

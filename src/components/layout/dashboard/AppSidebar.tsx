@@ -1,5 +1,4 @@
 "use client";
-
 import {
   Sidebar,
   SidebarContent,
@@ -21,6 +20,8 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import logo from "@/assets/logo/logo.png";
+import Image from "next/image";
 
 const items = [
   {
@@ -69,18 +70,14 @@ export const AppSidebar = () => {
             "h-20 border-b border-gray-100 flex  justify-center items-center transition-all",
           )}
         >
-          <Link href="/" className="flex items-center">
-            {isCollapsed ? (
-              <div className="w-10 h-10 bg-primary rounded-md flex items-center justify-center text-white font-bold text-lg">
-                DineWithLove
-              </div>
-            ) : (
-              <div className="flex items-center gap-3">
-                <span className="text-2xl font-bold text-primary truncate">
-                  DineWithLove
-                </span>
-              </div>
-            )}
+          <Link href="/" className="flex items-center gap-2 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] p-2.5 rounded-lg">
+            <Image
+              src={logo}
+              alt="Logo"
+              width={40}
+              height={40}
+              className="size-10 md:size-12"
+            />
           </Link>
         </SidebarHeader>
 
