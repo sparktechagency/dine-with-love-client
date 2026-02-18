@@ -92,8 +92,8 @@ export const ChatArea = ({
               className={cn(
                 "max-w-[70%] px-5 py-3 shadow-none",
                 message.sender === "me"
-                  ? "bg-linear-to-r from-[#FF3AB3] to-[#5432C8] rounded-xl text-white font-medium"
-                  : "bg-gray-100 rounded-xl text-gray-900 font-medium",
+                  ? "bg-linear-to-r from-[#FF3AB3] to-[#5432C8] rounded-md text-white font-medium"
+                  : "bg-gray-100 rounded-md text-gray-900 font-medium",
               )}
             >
               <p className="text-[15px] leading-snug">{message.content}</p>
