@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import Link from "next/link";
 
 interface FriendCardProps {
   user: any;
@@ -74,9 +75,11 @@ export const FriendCard = ({
               </Button>
             </>
           ) : (
-            <Button className="w-full h-10 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold rounded-md border-none shadow-none">
-              Dinner Request
-            </Button>
+            <Link href={`/dashboard/confirm-match`}>
+              <Button className="w-full h-10 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold rounded-md border-none shadow-none">
+                Dinner Request
+              </Button>
+            </Link>
           )}
         </div>
       </div>
