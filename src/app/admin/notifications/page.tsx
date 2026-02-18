@@ -1,8 +1,7 @@
-import { AdminPlaceholderContent } from "@/components/layout/admin/AdminPlaceholderContent";
-import { Bell } from "lucide-react";
+import { NotificationsContent } from "@/components/layout/admin/notifications/NotificationsContent";
 
 const NotificationsPage = () => {
-  return <AdminPlaceholderContent title="Notifications" icon={Bell} />;
+  return <NotificationsContent />;
 };
 
 export default NotificationsPage;

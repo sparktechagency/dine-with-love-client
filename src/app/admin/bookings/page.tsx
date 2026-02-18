@@ -1,10 +1,7 @@
-import { AdminPlaceholderContent } from "@/components/layout/admin/AdminPlaceholderContent";
-import { CalendarCheck } from "lucide-react";
+import { BookingRequestsContent } from "@/components/layout/admin/bookings/BookingRequestsContent";
 
-const BookingsPage = () => {
-  return (
-    <AdminPlaceholderContent title="Booking Requests" icon={CalendarCheck} />
-  );
+const BookingRequestsPage = () => {
+  return <BookingRequestsContent />;
 };
 
-export default BookingsPage;
+export default BookingRequestsPage;

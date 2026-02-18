@@ -1,8 +1,7 @@
-import { AdminPlaceholderContent } from "@/components/layout/admin/AdminPlaceholderContent";
-import { Settings } from "lucide-react";
+import { SettingsContent } from "@/components/layout/admin/settings/SettingsContent";
 
 const SettingsPage = () => {
-  return <AdminPlaceholderContent title="Settings" icon={Settings} />;
+  return <SettingsContent />;
 };
 
 export default SettingsPage;
