@@ -5,8 +5,17 @@ import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { X } from "lucide-react";
 
+interface Notification {
+  id: number;
+  title: string;
+  description: string;
+  time: string;
+  type: string;
+  unread: boolean;
+}
+
 interface NotificationCardProps {
-  notification: any;
+  notification: Notification;
 }
 
 export const NotificationCard = ({ notification }: NotificationCardProps) => {

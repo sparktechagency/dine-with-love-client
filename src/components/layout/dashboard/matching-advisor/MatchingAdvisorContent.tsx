@@ -5,78 +5,71 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { CardContent } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Textarea } from "@/components/ui/textarea";
+import { ServiceDescriptionCard } from "./ServiceDescriptionCard";
 
 const MatchingAdvisorContent = () => {
   const router = useRouter();
-  const [dinnerType, setDinnerType] = useState("1:1");
+  const [_, setDinnerType] = useState("1:1");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     router.push("/dashboard/matching-advisor/payment");
   };
 
-  const ignored = dinnerType;
-
   return (
-    <div className="flex flex-col gap-6 p-6 max-w-4xl mx-auto">
+    <div className="flex flex-col gap-6 p-6 max-w-4xl mx-auto animate-in fade-in duration-500">
       <div className="space-y-2">
-        <h1 className="text-2xl font-bold text-primary">Matching Advisor</h1>
+        <h1 className="text-2xl font-bold text-gray-900">Matching Advisor</h1>
       </div>
 
-      <Card className="rounded-md">
-        <CardHeader>
-          <CardTitle>Service Description</CardTitle>
-          <CardDescription>
-            Your Matching Advisor helps you find the ideal dinner match based on
-            your preferences. Tell us what you&apos;re looking for so we can
-            create the perfect experience for you.
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
+      <ServiceDescriptionCard />
+
+      <div className="bg-white rounded-md border border-gray-100">
+        <CardContent className="p-8">
           <form onSubmit={handleSubmit} className="space-y-8">
-            <div className="space-y-4">
+            <div className="space-y-6">
               <div className="grid gap-2">
-                <Label htmlFor="preferenceDate">Preference Date Range</Label>
-                <p className="text-sm text-muted-foreground">
+                <Label
+                  htmlFor="preferenceDate"
+                  className="font-bold text-gray-700"
+                >
+                  Preference Date Range
+                </Label>
+                <p className="text-sm text-gray-400 font-medium">
                   When would you like to have dinner?
                 </p>
-                {/* Simplified keeping input for now, but ensure rounded-md */}
                 <Input
                   id="preferenceDate"
                   placeholder="Select dates"
-                  className="rounded-md"
+                  className="rounded-md h-12"
                 />
               </div>
 
-              <div className="space-y-2">
-                <Label>Prefer contact</Label>
-                <div className="flex items-center gap-4">
+              <div className="space-y-3">
+                <Label className="font-bold text-gray-700">
+                  Prefer contact
+                </Label>
+                <div className="flex items-center gap-6">
                   <div className="flex items-center space-x-2">
-                    <Checkbox id="phone" />
+                    <Checkbox id="phone" className="size-5" />
                     <Label
                       htmlFor="phone"
-                      className="font-normal flex items-center gap-1"
+                      className="font-bold text-gray-500 flex items-center gap-2 cursor-pointer"
                     >
                       <Phone className="h-4 w-4" /> Phone
                     </Label>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <Checkbox id="mail" />
+                    <Checkbox id="mail" className="size-5" />
                     <Label
                       htmlFor="mail"
-                      className="font-normal flex items-center gap-1"
+                      className="font-bold text-gray-500 flex items-center gap-2 cursor-pointer"
                     >
                       <Mail className="h-4 w-4" /> Mail
                     </Label>
@@ -84,8 +77,8 @@ const MatchingAdvisorContent = () => {
                 </div>
               </div>
 
-              <div className="space-y-2">
-                <Label>Dinner type</Label>
+              <div className="space-y-3">
+                <Label className="font-bold text-gray-700">Dinner type</Label>
                 <RadioGroup
                   defaultValue="1:1"
                   onValueChange={setDinnerType}
@@ -95,18 +88,17 @@ const MatchingAdvisorContent = () => {
                     <RadioGroupItem
                       value="1:1"
                       id="1:1"
-                      name="dinnerType"
                       className="peer sr-only"
                     />
                     <Label
                       htmlFor="1:1"
-                      className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-popover p-4 peer-data-[state=checked]:border-[#D946EF] [&:has([data-state=checked])]:border-[#D946EF]"
+                      className="flex flex-col items-center justify-between rounded-md border-2 border-gray-100 bg-white p-6 cursor-pointer hover:bg-gray-50 transition-all peer-data-[state=checked]:border-[#FF3AB3] peer-data-[state=checked]:bg-pink-50/30"
                     >
-                      <User className="mb-3 h-6 w-6" />
-                      <div className="text-center font-semibold">
+                      <User className="mb-3 h-6 w-6 text-gray-400" />
+                      <div className="text-center font-bold text-gray-900">
                         1:1 Dinner
                       </div>
-                      <div className="text-center text-xs text-muted-foreground">
+                      <div className="text-center text-xs text-gray-400 font-medium mt-1">
                         Intimate one-on-one experience
                       </div>
                     </Label>
@@ -115,18 +107,17 @@ const MatchingAdvisorContent = () => {
                     <RadioGroupItem
                       value="group"
                       id="group"
-                      name="dinnerType"
                       className="peer sr-only"
                     />
                     <Label
                       htmlFor="group"
-                      className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-popover p-4 peer-data-[state=checked]:border-[#D946EF] [&:has([data-state=checked])]:border-[#D946EF]"
+                      className="flex flex-col items-center justify-between rounded-md border-2 border-gray-100 bg-white p-6 cursor-pointer hover:bg-gray-50 transition-all peer-data-[state=checked]:border-[#FF3AB3] peer-data-[state=checked]:bg-pink-50/30"
                     >
-                      <Users className="mb-3 h-6 w-6" />
-                      <div className="text-center font-semibold">
+                      <Users className="mb-3 h-6 w-6 text-gray-400" />
+                      <div className="text-center font-bold text-gray-900">
                         Group Dinner
                       </div>
-                      <div className="text-center text-xs text-muted-foreground">
+                      <div className="text-center text-xs text-gray-400 font-medium mt-1">
                         Meet multiple people at once
                       </div>
                     </Label>
@@ -135,26 +126,28 @@ const MatchingAdvisorContent = () => {
               </div>
 
               <div className="grid gap-2">
-                <Label htmlFor="notes">Additional Notes(Optional)</Label>
+                <Label htmlFor="notes" className="font-bold text-gray-700">
+                  Additional Notes (Optional)
+                </Label>
                 <Textarea
                   id="notes"
                   placeholder="Any specific preferences or requirements?"
-                  className="min-h-[100px] rounded-md"
+                  className="min-h-[120px] rounded-md p-4"
                 />
               </div>
             </div>
 
-            <div className="flex justify-end">
+            <div className="flex justify-end pt-4">
               <Button
                 type="submit"
-                className="bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white rounded-md"
+                className="bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white rounded-md h-12 px-8 font-bold shadow-none"
               >
                 Submit to advisor
               </Button>
             </div>
           </form>
         </CardContent>
-      </Card>
+      </div>
     </div>
   );
 };
