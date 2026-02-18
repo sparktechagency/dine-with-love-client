@@ -1,50 +1,74 @@
 "use client";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 
 export const PaymentHistory = () => {
   const history = [
     {
       id: 1,
-      title: "Dinner booking at Nobu",
+      title: "Dinner booking with Sarah",
       date: "November 10, 2023",
-      amount: "$120.00",
-      status: "Success",
+      amount: "$10",
+      status: "complete",
     },
     {
       id: 2,
-      title: "Advisor Consultation",
-      date: "November 05, 2023",
-      amount: "$45.00",
-      status: "Success",
+      title: "Dinner booking with Mike",
+      date: "November 10, 2023",
+      amount: "$5",
+      status: "complete",
+    },
+    {
+      id: 3,
+      title: "Group Dinner booking",
+      date: "November 10, 2023",
+      amount: "$10",
+      status: "complete",
     },
   ];
 
   return (
-    <Card className="rounded-md border shadow-none">
-      <CardHeader>
-        <CardTitle>Payments</CardTitle>
+    <Card className="rounded-[24px] border border-gray-100 shadow-sm p-8 transition-all hover:border-gray-200">
+      <CardHeader className="px-0 pt-0 pb-8">
+        <CardTitle className="text-xl font-bold text-gray-900">
+          Payments
+        </CardTitle>
       </CardHeader>
-      <CardContent className="space-y-4">
-        <div className="rounded-md border overflow-hidden">
-          {history.map((item) => (
-            <div
-              key={item.id}
-              className="flex items-center justify-between p-4 border-b last:border-0 hover:bg-gray-50/50 transition-colors"
-            >
-              <div>
-                <p className="font-bold text-gray-900">{item.title}</p>
-                <p className="text-sm text-gray-500 font-medium">{item.date}</p>
+
+      <CardContent className="px-0 pb-0 space-y-4">
+        {history.map((item) => (
+          <div
+            key={item.id}
+            className="group flex flex-col gap-4 p-6 rounded-xl border border-gray-100 bg-white transition-all hover:bg-gray-50/50"
+          >
+            <div className="flex items-start justify-between">
+              <div className="space-y-1">
+                <h4 className="text-sm font-bold text-gray-900 leading-none">
+                  {item.title}
+                </h4>
+                <p className="text-[10px] text-gray-400 font-medium">
+                  {item.date}
+                </p>
               </div>
-              <div className="text-right">
-                <span className="inline-flex items-center rounded-md px-2.5 py-0.5 text-xs font-bold bg-green-100 text-green-800">
+              <div className="flex flex-col items-end gap-2">
+                <span
+                  className={cn(
+                    "px-2.5 py-1 rounded-full text-[8px] font-bold uppercase tracking-wider",
+                    item.status === "complete"
+                      ? "bg-green-50 text-green-500"
+                      : "bg-orange-50 text-orange-500",
+                  )}
+                >
                   {item.status}
                 </span>
-                <p className="font-bold text-gray-900 mt-1">{item.amount}</p>
+                <span className="text-xs font-bold text-gray-900">
+                  {item.amount}
+                </span>
               </div>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </CardContent>
     </Card>
   );
