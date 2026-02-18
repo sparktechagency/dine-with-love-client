@@ -34,8 +34,8 @@ const items = [
     icon: MailOpen,
   },
   {
-    title: "Chat",
-    url: "/dashboard/chat",
+    title: "Inbox",
+    url: "/dashboard/inbox",
     icon: MessageSquare,
   },
   {
