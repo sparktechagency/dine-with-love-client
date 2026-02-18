@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { Paperclip, Send } from "lucide-react";
+import { Image as ImageIcon } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { ChatUser, Message } from "./types";
@@ -66,17 +66,17 @@ export const ChatArea = ({
       {/* Messages */}
       <div
         ref={scrollRef}
-        className="flex-1 overflow-y-auto p-8 space-y-8 scrollbar-hide"
+        className="flex-1 overflow-y-auto p-8 space-y-8 scrollbar-none [-ms-overflow-style:none] [scrollbar-width:none]"
       >
         {messages.map((message) => (
           <div
             key={message.id}
             className={cn(
-              "flex w-full items-end gap-3 animate-in fade-in slide-in-from-bottom-2 duration-300",
+              "flex w-full items-start gap-3 animate-in fade-in slide-in-from-bottom-2 duration-300",
               message.sender === "me" ? "flex-row-reverse" : "flex-row",
             )}
           >
-            <div className="relative size-10 rounded-full overflow-hidden border-2 border-white shadow-sm shrink-0">
+            <div className="relative size-10 rounded-full overflow-hidden shrink-0">
               <Image
                 src={
                   message.sender === "me"
@@ -90,13 +90,13 @@ export const ChatArea = ({
             </div>
             <div
               className={cn(
-                "max-w-[60%] px-5 py-4 shadow-sm",
+                "max-w-[70%] px-5 py-3 shadow-none",
                 message.sender === "me"
-                  ? "bg-linear-to-r from-[#FF3AB3] to-[#5432C8] rounded-2xl rounded-tr-none text-white font-bold"
-                  : "bg-gray-100/80 rounded-2xl rounded-tl-none text-gray-900 font-bold",
+                  ? "bg-linear-to-r from-[#FF3AB3] to-[#5432C8] rounded-xl text-white font-medium"
+                  : "bg-gray-100 rounded-xl text-gray-900 font-medium",
               )}
             >
-              <p className="text-sm leading-relaxed">{message.content}</p>
+              <p className="text-[15px] leading-snug">{message.content}</p>
             </div>
           </div>
         ))}
@@ -104,26 +104,26 @@ export const ChatArea = ({
 
       {/* Input */}
       <div className="p-6 border-t border-gray-100">
-        <div className="relative flex items-center gap-3 bg-gray-50/50 rounded-2xl border border-gray-50 px-4 py-3 shadow-none focus-within:ring-1 focus-within:ring-[#FF3AB3]/20 transition-all">
-          <input
-            type="text"
-            placeholder="Type a message"
-            value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
-            onKeyDown={(e) => e.key === "Enter" && handleSend()}
-            className="flex-1 bg-transparent border-none focus:outline-none text-sm font-bold text-gray-900 placeholder:text-gray-400"
-          />
-          <div className="flex items-center gap-1">
+        <div className="flex items-center gap-4">
+          <div className="flex-1 flex items-center gap-3 bg-gray-100/50 rounded-md border-none px-4 py-1.5 shadow-none focus-within:ring-1 focus-within:ring-[#FF3AB3]/20 transition-all">
+            <input
+              type="text"
+              placeholder="Type a message"
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && handleSend()}
+              className="flex-1 h-10 bg-transparent border-none focus:outline-none text-sm font-medium text-gray-900 placeholder:text-gray-400"
+            />
             <button className="p-2 text-gray-400 hover:text-[#FF3AB3] transition-colors">
-              <Paperclip className="size-5" />
-            </button>
-            <button
-              onClick={handleSend}
-              className="size-10 flex items-center justify-center bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white rounded-md shadow-lg shadow-purple-100 hover:scale-105 transition-all active:scale-95"
-            >
-              <Send className="size-4" />
+              <ImageIcon className="size-5 opacity-40" />
             </button>
           </div>
+          <button
+            onClick={handleSend}
+            className="h-[52px] px-6 flex items-center justify-center bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white rounded-md font-bold text-sm shadow-sm transition-all active:scale-95"
+          >
+            Send
+          </button>
         </div>
       </div>
     </div>
