@@ -1,11 +1,7 @@
 "use client";
-
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-import { ChevronLeft, ChevronRight, MapPin } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
-
+import { Pagination } from "@/components/shared/Pagination";
+import { FormSelect } from "@/components/ui/form-select";
+import { DailyMatchCard } from "./DailyMatchCard";
 const matches = [
   {
     id: 1,
@@ -69,112 +65,28 @@ export const DashboardHome = () => {
             &quot;here&apos;s your match of the day!&quot;
           </p>
         </div>
-        <div className="flex items-center gap-3">
-          <span className="text-sm font-bold text-gray-900">Filter</span>
-          <select className="h-10 px-4 rounded-lg border border-gray-100 bg-white text-sm font-bold focus:outline-none">
-            <option>All</option>
-          </select>
-        </div>
+        <FormSelect
+          label="Filter"
+          options={[
+            { value: "all", label: "All" },
+            { value: "match", label: "Match" },
+            { value: "distance", label: "Distance" },
+          ]}
+          placeholder="All"
+        />
       </div>
 
       <div className="space-y-6">
         <h3 className="text-2xl font-bold text-gray-900">Daily Matches</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6">
           {matches.map((match) => (
-            <div
-              key={match.id}
-              className={cn(
-                "bg-white rounded-lg p-4 border border-gray-100 flex flex-col gap-4 transition-all duration-300",
-                "hover:bg-[#F9E6E6] hover:border-[#F9E6E6] hover:shadow-sm hover:shadow-[#F9E6E6] ",
-              )}
-            >
-              <div className="relative aspect-4/3 rounded overflow-hidden">
-                <Image
-                  src={match.image}
-                  alt={match.name}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-
-              <div className="space-y-3">
-                <div className="flex justify-between items-center">
-                  <h4 className="text-lg font-bold text-gray-900">
-                    {match.name}
-                  </h4>
-                  <div className="flex flex-col items-end gap-1">
-                    <span className="text-[10px] font-bold text-gray-400">
-                      Match {match.match}%
-                    </span>
-                    <div className="w-16 h-1.5 bg-gray-100 rounded-full overflow-hidden">
-                      <div
-                        className="h-full bg-linear-to-r from-[#FF3AB3] to-[#5432C8]"
-                        style={{ width: `${match.match}%` }}
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-2 text-sm font-bold text-gray-400">
-                  <MapPin className="size-4" />
-                  <span>{match.distance}</span>
-                </div>
-
-                <div className="flex flex-col gap-4 pt-2">
-                  <Button
-                    asChild
-                    className="w-full h-12 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold  border-none shadow-none"
-                  >
-                    <Link href={`/dashboard/confirm-match`}>
-                      Connection Request
-                    </Link>
-                  </Button>
-                  <div className="bg-linear-to-r from-[#FF3AB3] to-[#5432C8] p-px rounded">
-                    <Button
-                      asChild
-                      className="w-full h-11 bg-white font-bold shadow-none text-primary hover:bg-white"
-                    >
-                      <Link href={`/dashboard/view-detail/${match.id}`}>
-                        View detail&apos;s
-                      </Link>
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <DailyMatchCard key={match.id} data={match} />
           ))}
         </div>
       </div>
 
       {/* Pagination */}
-      <div className="flex justify-center items-center gap-2 pt-8">
-        <Button
-          variant="outline"
-          size="icon"
-          className="size-10 rounded-lg border-gray-100 bg-[#F5F5F5] text-gray-400 hover:text-gray-900 shadow-none"
-        >
-          <ChevronLeft className="size-5" />
-        </Button>
-        <Button className="size-10 rounded-lg bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold border-none shadow-none">
-          1
-        </Button>
-        {[2, 3, 4, 5].map((page) => (
-          <Button
-            key={page}
-            variant="outline"
-            className="size-10 rounded-lg border-[#5432C8] text-[#5432C8] font-bold hover:bg-purple-50 shadow-none"
-          >
-            {page}
-          </Button>
-        ))}
-        <Button
-          variant="outline"
-          size="icon"
-          className="size-10 rounded-lg border-gray-100 bg-[#F5F5F5] text-gray-400 hover:text-gray-900 shadow-none"
-        >
-          <ChevronRight className="size-5" />
-        </Button>
-      </div>
+      <Pagination currentPage={1} totalPages={5} />
     </section>
   );
 };
