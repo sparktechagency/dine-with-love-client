@@ -40,7 +40,7 @@ const DashboardHeader = () => {
           <FormInput
             icon={Search}
             placeholder="Search"
-            className="w-full h-11 bg-gray-50/50 border-gray-100 rounded-md focus:outline-none focus:ring-1 focus:ring-primary/20 transition-all shadow-none"
+            className="w-full h-11 bg-gray-50/50 border border-gray-100 rounded-md shadow-none"
           />
         </div>
 
