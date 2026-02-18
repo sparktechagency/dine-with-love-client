@@ -3,8 +3,8 @@
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { UserCover } from "./components/UserCover";
-import { UserInterests } from "./components/UserInterests";
+import { UserCover } from "./UserCover";
+import { UserInterests } from "./UserInterests";
 
 export const UserDetailContent = () => {
   const router = useRouter();

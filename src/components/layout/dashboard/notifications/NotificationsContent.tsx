@@ -1,6 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { NotificationCard } from "./components/NotificationCard";
+import { NotificationCard } from "./NotificationCard";
 import { notifications } from "./mockData";
 
 export const NotificationsContent = () => {

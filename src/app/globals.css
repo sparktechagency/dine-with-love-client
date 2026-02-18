@@ -1,39 +1,46 @@
 @import "tailwindcss";
+@plugin "../../node_modules/@tailwindcss/typography";
 
-@theme inline {
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Primary & Brand Colors define directly in theme for reliability */
+  --color-primary: #f63eb5;
+  --color-primary-foreground: oklch(0.985 0 0);
+
+  --color-secondary: #f9e6e6;
+  --color-secondary-foreground: #5432c8;
+
+  --color-sidebar-primary: #5432c8;
+  --color-sidebar-primary-foreground: oklch(0.985 0 0);
+  --color-sidebar-accent: #f9e6e6;
+  --color-sidebar-accent-foreground: #5432c8;
+  --color-sidebar-border: #e8e8e8;
+  --color-sidebar-ring: oklch(0.708 0 0);
+  --color-sidebar: oklch(0.985 0 0);
+  --color-sidebar-foreground: oklch(0.145 0 0);
+
+  --color-ring: #5432c8;
+  --color-input: #e8e8e8;
+  --color-border: #e8e8e8;
+
+  --color-muted: oklch(0.97 0 0);
+  --color-muted-foreground: oklch(0.556 0 0);
+  --color-accent: oklch(0.97 0 0);
+  --color-accent-foreground: #5432c8;
+  --color-destructive: oklch(0.577 0.245 27.325);
+
+  --color-popover: oklch(1 0 0);
+  --color-popover-foreground: oklch(0.145 0 0);
+  --color-card: oklch(1 0 0);
+  --color-card-foreground: oklch(0.145 0 0);
+
+  /* Shadcn standard mappings if used */
   --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
-  --color-card: var(--card);
+
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -83,35 +90,6 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
-* {
-  box-sizing: border-box;
-}
-
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #e8e8e8;
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #d1d1d1;
-}
-
-/* Prevent Radix UI from hiding scrollbar and shifting layout */
-body[data-radix-scroll-lock] {
-  overflow: auto !important;
-  padding-right: 0 !important;
-}
-
 html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
@@ -119,7 +97,73 @@ html {
 }
 
 body {
+  scroll-behavior: smooth;
   background: var(--background);
   color: var(--foreground);
   overflow-x: hidden;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+/* Firefox support */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+/* Alternative: Completely hide scrollbars while maintaining functionality */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Prevent Radix UI from hiding scrollbar and shifting layout */
+body[data-radix-scroll-lock] {
+  overflow: auto !important;
+  padding-right: 0 !important;
 }

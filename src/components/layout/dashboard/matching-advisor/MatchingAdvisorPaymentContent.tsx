@@ -175,14 +175,14 @@ const MatchingAdvisorPaymentContent = () => {
                 />
               </div>
             </CardContent>
-            <CardFooter className="p-8 pt-0 flex justify-between gap-4">
+            <CardFooter className="w-full p-8 pt-0 flex justify-end gap-4">
               <Button
                 variant="outline"
-                className="w-full h-14 rounded-md font-bold border-[#FF3AB3] text-[#FF3AB3] hover:bg-pink-50 transition-all shadow-none"
+                className="px-8 cursor-pointer h-12 rounded-md font-bold border-[#FF3AB3] text-[#FF3AB3] hover:bg-pink-50 transition-all shadow-none"
               >
                 Back
               </Button>
-              <Button className="w-full h-14 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white rounded-md font-bold shadow-none transition-all hover:scale-[1.01] active:scale-[0.99]">
+              <Button className="px-8 cursor-pointer h-12 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white rounded-md font-bold shadow-none transition-all hover:scale-[1.01] active:scale-[0.99]">
                 pay
               </Button>
             </CardFooter>

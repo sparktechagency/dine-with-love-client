@@ -4,28 +4,10 @@ import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-
 import { Button } from "@/components/ui/button";
 import MobileMenu from "./MobileMenu";
-
-// Custom HeartInPlate icon component
-const HeartInPlate = ({ className }: { className?: string }) => (
-  <div
-    className={cn(
-      "relative flex items-center justify-center bg-white/20 p-2 rounded-full",
-      className,
-    )}
-  >
-    <div className="size-8 border-2 border-white rounded-full flex items-center justify-center">
-      <div className="size-4 text-white fill-white">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-        </svg>
-      </div>
-    </div>
-  </div>
-);
-
+import logo from "@/assets/logo/logo.png";
+import Image from "next/image";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
@@ -43,15 +25,13 @@ const Navbar = () => {
       <div className="container mx-auto flex items-center justify-between">
         {/* Logo Section */}
         <Link href="/" className="flex items-center gap-2">
-          <HeartInPlate className="size-10 md:size-12" />
-          <div className="flex flex-col -space-y-1">
-            <span className=" text-sm md:text-lg leading-tight uppercase tracking-wider">
-              Dine with
-            </span>
-            <span className=" text-sm md:text-lg leading-tight uppercase tracking-wider">
-              Love
-            </span>
-          </div>
+          <Image
+            src={logo}
+            alt="Logo"
+            width={40}
+            height={40}
+            className="size-10 md:size-12"
+          />
         </Link>
 
         {/* Desktop Navigation Links */}
@@ -77,18 +57,11 @@ const Navbar = () => {
 
         {/* Right Section / Hamburger */}
         <div className="flex items-center gap-4 lg:gap-6">
-          <Link
-            href="/login"
-            className="hidden sm:block font-medium hover:text-white/80 transition-colors"
-          >
-            Login
-          </Link>
-          <Link href="/compatibility-test">
-            <Button className="hidden sm:flex bg-white text-[#B131D4] px-6 py-2 rounded-md font-bold hover:bg-white/95 transition-all cursor-pointer border-none shadow-none">
-              Take Test
+          <Link href="/login">
+            <Button className=" bg-white text-primary px-6 py-2.5 h-10 rounded-md font-bold hover:bg-white/95 transition-all cursor-pointer border-none shadow-none">
+              Login
             </Button>
           </Link>
-
           {/* Hamburger Menu Icon */}
           <button
             className="lg:hidden p-2 hover:bg-white/10 rounded-md transition-colors"

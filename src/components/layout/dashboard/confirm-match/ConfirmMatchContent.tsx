@@ -3,9 +3,9 @@
 import { ArrowLeft } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { PaymentForm } from "./components/PaymentForm";
-import { PaymentMethodSelector } from "./components/PaymentMethodSelector";
-import { SummaryCard } from "./components/SummaryCard";
+import { PaymentForm } from "./PaymentForm";
+import { PaymentMethodSelector } from "./PaymentMethodSelector";
+import { SummaryCard } from "./SummaryCard";
 
 export const ConfirmMatchContent = () => {
   const router = useRouter();
