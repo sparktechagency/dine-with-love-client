@@ -70,9 +70,9 @@ export const DailyMatchCard = ({ data, className }: DailyMatchCardProps) => {
           <Button
             onClick={handleConnectionRequest}
             className={cn(
-              "w-full h-12 font-bold border-none shadow-none text-white",
+              "w-full h-12 cursor-pointer font-bold border-none shadow-none text-white",
               isRequested
-                ? "bg-gray-400 hover:bg-gray-500" 
+                ? "bg-gray-400 hover:bg-gray-500"
                 : "bg-linear-to-r from-[#FF3AB3] to-[#5432C8]",
             )}
           >
