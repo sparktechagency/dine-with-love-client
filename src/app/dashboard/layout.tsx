@@ -25,7 +25,9 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
         <SidebarInset className="flex flex-col bg-white overflow-hidden">
           <DashboardHeader />
           <main className="flex-1 overflow-y-auto py-8 px-6 bg-[#F7F7F7]">
-            <div className="w-full">{children}</div>
+            <div className="w-full max-w-(--breakpoint-2xl) mx-auto">
+              {children}
+            </div>
           </main>
         </SidebarInset>
       </div>
