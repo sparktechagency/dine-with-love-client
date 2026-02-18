@@ -40,7 +40,7 @@ const MatchingAdvisorContent = () => {
           <CardTitle>Service Description</CardTitle>
           <CardDescription>
             Your Matching Advisor helps you find the ideal dinner match based on
-            your preferences. Tell us what you're looking for so we can create
+            your preferences. Tell us what you&apos;re looking for so we can create
             the perfect experience for you.
           </CardDescription>
         </CardHeader>

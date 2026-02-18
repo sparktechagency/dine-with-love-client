@@ -42,7 +42,7 @@ const MatchingAdvisorPaymentContent = () => {
                   This is an additional charge for the service.
                 </p>
                 <p className="text-xs text-muted-foreground">
-                  Once it's accepted, you can pay. And they will see the
+                  Once it&apos;s accepted, you can pay. And they will see the
                   matching advisor assigned to them.
                 </p>
               </div>

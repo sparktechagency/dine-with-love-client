@@ -22,7 +22,6 @@ const matches = [
     match: 75,
     image:
       "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=300&auto=format&fit=crop",
-    highlight: true,
   },
   {
     id: 3,
@@ -60,7 +59,7 @@ const matches = [
 
 export const DashboardHome = () => {
   return (
-    <div className="space-y-8">
+    <section className="w-full space-y-8">
       <div className="flex justify-between items-center">
         <div className="space-y-1">
           <h2 className="text-3xl font-bold text-gray-900">
@@ -85,12 +84,11 @@ export const DashboardHome = () => {
             <div
               key={match.id}
               className={cn(
-                "bg-white rounded-lg p-4 border border-gray-100 flex flex-col gap-4 shadow-none transition-all",
-                match.highlight &&
-                  "bg-pink-50/50 border-pink-100 shadow-sm shadow-pink-100",
+                "bg-white rounded-lg p-4 border border-gray-100 flex flex-col gap-4 transition-all duration-300",
+                "hover:bg-[#F9E6E6] hover:border-[#F9E6E6] hover:shadow-sm hover:shadow-[#F9E6E6] ",
               )}
             >
-              <div className="relative aspect-4/3 rounded-lg overflow-hidden">
+              <div className="relative aspect-4/3 rounded overflow-hidden">
                 <Image
                   src={match.image}
                   alt={match.name}
@@ -122,24 +120,25 @@ export const DashboardHome = () => {
                   <span>{match.distance}</span>
                 </div>
 
-                <div className="flex flex-col gap-2 pt-2">
+                <div className="flex flex-col gap-4 pt-2">
                   <Button
                     asChild
-                    className="w-full h-10 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold rounded-lg border-none shadow-none"
+                    className="w-full h-12 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold  border-none shadow-none"
                   >
                     <Link href={`/dashboard/confirm-match`}>
                       Connection Request
                     </Link>
                   </Button>
-                  <Button
-                    asChild
-                    variant="outline"
-                    className="w-full h-10 border-[#5432C8] text-[#5432C8] font-bold rounded-lg hover:bg-purple-50 transition-colors shadow-none"
-                  >
-                    <Link href={`/dashboard/view-detail/${match.id}`}>
-                      View detail&apos;s
-                    </Link>
-                  </Button>
+                  <div className="bg-linear-to-r from-[#FF3AB3] to-[#5432C8] p-px rounded">
+                    <Button
+                      asChild
+                      className="w-full h-11 bg-white font-bold shadow-none text-primary hover:bg-white"
+                    >
+                      <Link href={`/dashboard/view-detail/${match.id}`}>
+                        View detail&apos;s
+                      </Link>
+                    </Button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -176,6 +175,6 @@ export const DashboardHome = () => {
           <ChevronRight className="size-5" />
         </Button>
       </div>
-    </div>
+    </section>
   );
 };

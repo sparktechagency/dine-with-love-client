@@ -61,7 +61,7 @@ export const AppSidebar = () => {
   const isCollapsed = state === "collapsed";
 
   return (
-    <Sidebar collapsible="icon" className="border-none bg-white">
+    <Sidebar collapsible="icon" className="border-none">
       <div className="flex flex-col h-full">
         {/* Header - Logo */}
         <SidebarHeader
@@ -87,7 +87,7 @@ export const AppSidebar = () => {
         {/* Content */}
         <SidebarContent className="flex-1 py-2 px-3 overflow-y-auto no-scrollbar">
           <SidebarGroup>
-            <SidebarMenu className="space-y-1">
+            <SidebarMenu className="space-y-3">
               {items.map((item) => {
                 const active = pathname === item.url;
 
@@ -97,7 +97,7 @@ export const AppSidebar = () => {
                       <SidebarMenuButton
                         tooltip={isCollapsed ? item.title : undefined}
                         className={cn(
-                          "w-full h-11 cursor-pointer flex items-center rounded-md transition-none",
+                          "w-full h-12.5 cursor-pointer flex items-center transition-none",
                           isCollapsed ? "justify-center p-0" : "px-3 gap-3",
                           isCollapsed ? "[&>svg]:size-6!" : "[&>svg]:size-6!",
                           active
