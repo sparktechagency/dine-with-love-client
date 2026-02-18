@@ -42,6 +42,8 @@ export const metadata: Metadata = {
   },
 };
 
+import { Toaster } from "sonner";
+
 const RootLayout = ({
   children,
 }: Readonly<{
@@ -49,7 +51,10 @@ const RootLayout = ({
 }>) => {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${roboto.className}`}>{children}</body>
+      <body className={`${roboto.className}`}>
+        {children}
+        <Toaster position="top-center" richColors />
+      </body>
     </html>
   );
 };

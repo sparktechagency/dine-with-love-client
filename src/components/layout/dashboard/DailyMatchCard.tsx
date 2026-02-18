@@ -1,8 +1,11 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { MapPin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
+import { toast } from "sonner";
 
 interface MatchData {
   id: number | string;
@@ -18,6 +21,18 @@ interface DailyMatchCardProps {
 }
 
 export const DailyMatchCard = ({ data, className }: DailyMatchCardProps) => {
+  const [isRequested, setIsRequested] = useState(false);
+
+  const handleConnectionRequest = () => {
+    if (isRequested) {
+      setIsRequested(false);
+      toast.info("Request cancelled");
+    } else {
+      setIsRequested(true);
+      toast.success("Connection sent successfully");
+    }
+  };
+
   return (
     <div
       className={cn(
@@ -53,10 +68,15 @@ export const DailyMatchCard = ({ data, className }: DailyMatchCardProps) => {
 
         <div className="flex flex-col gap-4 pt-2">
           <Button
-            asChild
-            className="w-full h-12 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold border-none shadow-none"
+            onClick={handleConnectionRequest}
+            className={cn(
+              "w-full h-12 font-bold border-none shadow-none text-white",
+              isRequested
+                ? "bg-gray-400 hover:bg-gray-500" 
+                : "bg-linear-to-r from-[#FF3AB3] to-[#5432C8]",
+            )}
           >
-            <Link href={`/dashboard/confirm-match`}>Connection Request</Link>
+            {isRequested ? "Cancel Request" : "Connection Request"}
           </Button>
           <div className="bg-linear-to-r from-[#FF3AB3] to-[#5432C8] p-px rounded-md">
             <Button

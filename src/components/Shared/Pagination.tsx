@@ -19,42 +19,48 @@ export const Pagination = ({
 
   return (
     <div
-      className={cn("flex justify-center items-center gap-2 pt-8", className)}
+      className={cn("flex justify-center items-center gap-3 pt-8", className)}
     >
       <Button
-        variant="outline"
         size="icon"
         onClick={() => onPageChange?.(Math.max(1, currentPage - 1))}
         disabled={currentPage === 1}
-        className="size-10 cursor-pointer border-gray-100 bg-[#F5F5F5] text-gray-400 hover:text-gray-900 shadow-none disabled:opacity-50"
+        className="size-12 cursor-pointer bg-white border border-gray-200 shadow-none disabled:opacity-50"
       >
-        <ChevronLeft className="size-5" />
+        <ChevronLeft className="size-5 text-gray-800" />
       </Button>
 
       {pages.map((page) => (
-        <Button
+        <div
           key={page}
-          onClick={() => onPageChange?.(page)}
-          variant={currentPage === page ? "default" : "outline"}
-          className={cn(
-            "size-10 cursor-pointer font-bold shadow-none",
-            currentPage === page
-              ? "bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white border-none"
-              : "border-[#5432C8] text-[#5432C8] result-btn hover:bg-purple-50",
-          )}
+          className={`p-px bg-linear-to-r from-[#FF3AB3] to-[#5432C8] rounded-md`}
         >
-          {page}
-        </Button>
+          <Button
+            onClick={() => onPageChange?.(page)}
+            variant="default"
+            className={cn(
+              "size-11 cursor-pointer font-bold shadow-none",
+              currentPage === page
+                ? "bg-linear-to-r from-[#FF3AB3] to-[#5432C8] border-none"
+                : "bg-white hover:bg-white",
+            )}
+          >
+            <span
+              className={`${currentPage === page ? "text-white" : "bg-linear-to-r from-[#FF3AB3] to-[#5432C8] border-none bg-clip-text text-transparent"}`}
+            >
+              {page}
+            </span>
+          </Button>
+        </div>
       ))}
 
       <Button
-        variant="outline"
         size="icon"
         onClick={() => onPageChange?.(Math.min(totalPages, currentPage + 1))}
         disabled={currentPage === totalPages}
-        className="size-10 cursor-pointer border-gray-100 bg-[#F5F5F5] text-gray-400 hover:text-gray-900 shadow-none disabled:opacity-50"
+        className="size-12 cursor-pointer bg-white border border-gray-200 shadow-none disabled:opacity-50 hover:bg-transparent"
       >
-        <ChevronRight className="size-5" />
+        <ChevronRight className="size-5 text-gray-500" />
       </Button>
     </div>
   );

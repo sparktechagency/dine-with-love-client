@@ -1,5 +1,4 @@
 "use client";
-
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
@@ -12,7 +11,7 @@ const UserDetail = () => {
     <div className="space-y-8 animate-in fade-in duration-500 max-w-7xl mx-auto">
       <button
         onClick={() => router.back()}
-        className="flex items-center gap-3 text-gray-900 font-bold hover:text-primary transition-colors"
+        className="flex items-center gap-3 text-gray-900 font-bold hover:text-primary transition-colors cursor-pointer"
       >
         <ArrowLeft className="size-6" />
         <span className="text-xl">View Detail</span>
@@ -43,10 +42,10 @@ const UserDetail = () => {
               <span className="text-[10px] font-bold text-gray-400">
                 Match 97%
               </span>
-              <div className="w-24 h-1.5 bg-gray-100 rounded-full overflow-hidden">
+              <div className="w-24 h-2 bg-gray-200 rounded-full overflow-hidden">
                 <div
                   className="h-full bg-linear-to-r from-[#FF3AB3] to-[#5432C8]"
-                  style={{ width: `97%` }}
+                  style={{ width: `87%` }}
                 />
               </div>
             </div>
@@ -68,7 +67,7 @@ const UserDetail = () => {
                 (interest) => (
                   <div
                     key={interest}
-                    className="px-4 py-2 rounded-md border border-gray-100 text-xs font-bold text-gray-500 bg-gray-50/30"
+                    className="px-4 py-2 rounded-md border border-gray-200 text-xs font-bold text-gray-500 bg-gray-50/30"
                   >
                     {interest}
                   </div>
@@ -77,7 +76,7 @@ const UserDetail = () => {
             </div>
           </div>
 
-          <Button className="w-full h-14 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white font-bold rounded-md text-lg border-none shadow-none">
+          <Button className="w-full h-14 bg-linear-to-r from-[#FF3AB3] to-[#5432C8] text-white rounded-md font-semibold border-none shadow-none">
             Connection Request
           </Button>
         </div>
