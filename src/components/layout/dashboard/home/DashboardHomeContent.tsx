@@ -1,9 +1,9 @@
 "use client";
-import { Pagination } from "@/components/shared/Pagination";
 import { FormSelect } from "@/components/ui/form-select";
 import { useState } from "react";
 import { DailyMatchCard } from "./DailyMatchCard";
 import { matches } from "./mockData";
+import { Pagination } from "@/components/shared/Pagination";
 
 export const DashboardHomeContent = () => {
   const [userName] = useState(() => {
